@@ -1,0 +1,34 @@
+.section2 {
+  background: #6dc5dd;
+  height: 270px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.flag,
+.camera,
+.house {
+  margin: 62px 8%;
+  z-index: 200;
+  color: #fff;
+  display: grid;
+  grid-template-rows: 1fr;
+
+}
+
+.flag__icon,
+.camera__icon,
+.house__icon {
+  background: #fff;
+  height: 60px;
+  width: 60px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.section2 img {
+    display:block;
+    margin:auto;
+    margin-top: 15%;
+}

@@ -1,0 +1,35 @@
+.header {
+    border-radius: 5px 5px 0 0;
+    height: 99px;
+    width: 100%;
+
+    display: inline-grid;
+    grid-template-columns: 210px auto;
+}
+
+.logo {
+    margin: 12.5% 13.5%;
+    display: grid;
+    grid-template-columns: 54px 75%;
+}
+
+.logo__companyImg {
+    padding: 4px 18px;
+}
+
+.navigation {
+    display: inline-grid;
+    grid-template-columns: 1fr repeat(4, 11%);
+    justify-items: end;
+    align-items: center;
+    grid-column-gap: 10px;
+    color: #787878;
+}
+
+.navigation__home {
+    color: #6dc5dd;
+}
+
+.navigation:last-child {
+    margin-right: 30px;
+}

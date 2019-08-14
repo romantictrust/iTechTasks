@@ -1,0 +1,43 @@
+.section1 {
+    background: #ededed;
+    height: 400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 498px auto;
+}
+
+.section1__img {
+    margin: 10.4% 20.1%;
+}
+
+.section1__text {
+    display: grid;
+    grid-template-rows: 7% 15% 19% 10%;
+    grid-row-gap: 25px ;
+    margin: 91px 12.8%;
+}
+
+.section1__text h1, .section1__text h2, .section1__text h3 {
+    margin: 0;
+}
+
+.section1__text_h1 {
+    color:#003d48
+}
+
+.section1__text_h2 {
+    color: #31626a;
+}
+
+.section1__text_h3 {
+    color: #8b8b8b;
+}
+
+.section1 button {
+    width: 129px;
+    height: 44px;
+    background: #f77462;
+    border: 1px solid #f77462;
+    border-radius: 3px;
+    color: #ffffff;
+}
