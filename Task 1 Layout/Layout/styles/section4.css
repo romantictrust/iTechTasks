@@ -1,0 +1,29 @@
+.section4 {
+    height: 206px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 20% auto;
+    background: #f77462;
+    color: #fff;
+    display: grid;
+    grid-template-rows: 40% auto;
+}
+
+.section4 .title, .section4 .text {
+    display:block;
+    margin:auto;
+    margin-top: 0;
+}
+
+.section4 h1 {
+    margin-top: 20%;
+}
+
+.section4 p {
+    margin-left: 10%;
+    width: 80%;
+}
+
+.section4 span {
+    margin-left: 40%;
+}

@@ -1,39 +1,44 @@
 .header {
-    border-radius: 5px 5px 0 0;
-    height: 99px;
-    width: 100%;
+  border-radius: 5px 5px 0 0;
+  height: 99px;
+  width: 100%;
 
-    display: inline-grid;
-    grid-template-columns: 210px auto;
+  display: inline-grid;
+  grid-template-columns: 210px auto;
 }
 
 .logo {
-    margin: 12.5% 13.5%;
-    display: grid;
-    grid-template-columns: 54px 75%;
+  margin: 12.5% 13.5%;
+  display: grid;
+  grid-template-columns: 54px 75%;
 }
 
 .logo__companyImg {
-    padding: 4px 18px;
+  padding: 4px 18px;
 }
 
 .navigation {
-    display: inline-grid;
-    grid-template-columns: 1fr repeat(4, 11%);
-    justify-items: end;
-    align-items: center;
-    grid-column-gap: 10px;
+  display: inline-grid;
+  grid-template-columns: 1fr repeat(4, 11%);
+  justify-items: end;
+  align-items: center;
+  grid-column-gap: 10px;
 }
 
 .navigation a {
-    text-decoration: none;
-    color: #787878;
-  }
+  text-decoration: none;
+  color: #787878;
+}
+
+.navigation h4 {
+    border-right: 1px solid #ececec;
+    padding-right: 25px;
+}
 
 .navigation__home a {
-    color: #6dc5dd;
+  color: #6dc5dd;
 }
 
 .navigation:last-child {
-    margin-right: 30px;
+  margin-right: 30px;
 }
