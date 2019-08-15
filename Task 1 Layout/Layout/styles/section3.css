@@ -1,0 +1,86 @@
+.section3 {
+  height: 573px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 67% auto;
+  grid-gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 220px auto;
+  margin-left: 4%;
+  margin-top: 60px;
+  color: #8b8b8b;
+}
+
+.row__title h3 {
+  margin-top: 0;
+  color: #003d48;
+}
+
+.row_text p {
+  width: 500px;
+}
+
+.section3 button {
+  width: 70px;
+  height: 37px;
+  margin-top: 10px;
+}
+
+.section3 button h3 {
+  display: block;
+  margin: auto;
+}
+
+.aside {
+  margin-top: 35px;
+  margin-left: 9px;
+}
+
+.control {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: #8b8b8b;
+}
+
+.control h5 { 
+    margin-bottom: 10px;
+}
+
+.eronped {
+    color: #f77462;
+    margin-top: 21px;
+    margin-left: 21%;
+}
+
+.centro {
+    margin-top: 20px;
+    margin-left: 21%;
+}
+
+.container {
+    width: 91%;
+    height: 386px;
+    border: 2px solid #ececec;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+}
+
+.containter__upper {
+    background: #003d48;
+    width: 100.5%;
+    height: 152px;
+    margin-left: -1px;
+    border-radius: 0 5px 0 0;
+}
+
+.container__title h3 {
+    color: #6dc5dd;
+    margin: 0;
+}
+
+.containter__text {
+    color: #ffff;
+}

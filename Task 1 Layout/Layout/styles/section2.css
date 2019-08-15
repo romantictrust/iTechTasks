@@ -9,11 +9,11 @@
 .flag,
 .camera,
 .house {
-  margin: 62px 8%;
+  margin: 62px 0 0 8%;
   z-index: 200;
   color: #fff;
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-columns: 80px auto;
 
 }
 
@@ -31,4 +31,17 @@
     display:block;
     margin:auto;
     margin-top: 15%;
+}
+
+.section2 h3 {
+  margin: 0;
+}
+
+.section2 p {
+  width: 80%;
+}
+
+.section2 a {
+  text-decoration: none;
+  color: #fff;
 }

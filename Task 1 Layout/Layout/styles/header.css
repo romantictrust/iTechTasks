@@ -23,10 +23,14 @@
     justify-items: end;
     align-items: center;
     grid-column-gap: 10px;
-    color: #787878;
 }
 
-.navigation__home {
+.navigation a {
+    text-decoration: none;
+    color: #787878;
+  }
+
+.navigation__home a {
     color: #6dc5dd;
 }
 

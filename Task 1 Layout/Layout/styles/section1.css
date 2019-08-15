@@ -14,7 +14,7 @@
     display: grid;
     grid-template-rows: 7% 15% 19% 10%;
     grid-row-gap: 25px ;
-    margin: 91px 12.8%;
+    margin: 91px 12.8% 0 12.8%;
 }
 
 .section1__text h1, .section1__text h2, .section1__text h3 {
@@ -22,7 +22,7 @@
 }
 
 .section1__text_h1 {
-    color:#003d48
+    color:#003d48;
 }
 
 .section1__text_h2 {
@@ -33,7 +33,7 @@
     color: #8b8b8b;
 }
 
-.section1 button {
+.section1__button button{
     width: 129px;
     height: 44px;
     background: #f77462;
