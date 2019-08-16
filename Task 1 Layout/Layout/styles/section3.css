@@ -1,5 +1,4 @@
 .section3 {
-  width: 100%;
   display: grid;
   grid-template-columns: 67% auto;
   grid-gap: 10px;

@@ -1,6 +1,5 @@
 .header {
   border-radius: 5px 5px 0 0;
-  width: 100%;
   display: inline-grid;
   grid-template-columns: 210px auto;
 }

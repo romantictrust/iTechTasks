@@ -1,6 +1,5 @@
 .section1 {
     background: #ededed;
-    width: 100%;
     display: grid;
     grid-template-columns: 498px auto;
 }

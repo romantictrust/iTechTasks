@@ -1,10 +1,9 @@
 .footer {
   background: #6dc5dd;
-  width: 100%;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   display: grid;
-  grid-template-rows: 67% auto;
+  grid-template-rows: 68% auto;
 }
 
 .footer .upper {
