@@ -1,0 +1,125 @@
+.section5 {
+  height: 646px;
+  display: grid;
+  grid-template-rows: 25% auto;
+}
+
+.section5 .upper {
+  display: grid;
+  grid-template-rows: 70% auto;
+}
+
+.section5 .upper .title {
+  font-size: 32px;
+  color: rgb(0, 61, 72);
+  line-height: 0.9;
+  text-align: center;
+  padding-top: 13px;
+}
+
+.section5 .upper .text {
+  font-size: 22px;
+  text-align: center;
+  color: rgb(109, 197, 221);
+  line-height: 1.309;
+  border: 1px solid #ececec;
+  border-left: 0;
+  border-right: 0;
+  width: 95%;
+  margin-left: 2.5%;
+  padding-top: 10px;
+}
+
+.section5 .lower {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section5 .lower .leftSide {
+  display: grid;
+  grid-template-rows: 30% 30.5% auto;
+}
+
+.section5 .lower .leftSide .block .img {
+  margin: 34% 25%;
+}
+
+.section5 .lower .leftSide .block {
+  display: grid;
+  grid-template-columns: 120px auto;
+}
+
+.section5 .lower .leftSide .block .text a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.section5 .lower .leftSide .block .article {
+    margin-top: 8%;
+    margin-left: 2%;
+}
+
+.section5 .lower .leftSide .block .article h4 {
+  margin: 0;
+  font-size: 16px;
+  color: rgb(0, 61, 72);
+  line-height: 1.8;
+}
+
+.section5 .lower .leftSide .block .article span {
+  margin: 0px 0px 9px 0px;
+  font-size: 14px;
+  color: rgb(247, 116, 98);
+}
+
+.section5 .lower .leftSide .block .article p {
+  margin: 0;
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+  line-height: 1.6;
+}
+
+.section5 .lower .rightSide {
+  display: grid;
+  grid-template-rows: 42% 41%;
+}
+
+.section5 .lower .rightSide .block {
+  display: grid;
+  grid-template-columns: auto 25%;
+  background: #ececec;
+  height: 82%;
+  width: 92.2%;
+  margin-top: 40px;
+  margin-left: 15px;
+  border-radius: 3px;
+}
+
+.section5 .lower .rightSide .block .article {
+  margin-top: 10%;
+  margin-left: 9%;
+}
+
+.section5 .lower .rightSide .block .article .author {
+  margin-top: 1.5%;
+}
+
+.section5 .lower .rightSide .article__quote p {
+    font-size: 15px;
+    color: rgb(140, 145, 147);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .section5 .lower .rightSide .author h4 {
+      font-size: 16px;
+      color: rgb(247, 116, 98);
+      line-height: 1.8; 
+      margin: 0;
+  }
+
+.section5 .lower .rightSide img {
+    margin-top: 25%;
+    margin-left: 0%;
+    width: 79%;
+}

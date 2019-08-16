@@ -41,7 +41,7 @@
 
 .control {
   display: grid;
-  grid-template-columns: 105px 105px;
+  grid-template-columns: 28% 28%;
   grid-column-gap: 12px;
   color: #8b8b8b;
   margin-top: 0px;
@@ -74,7 +74,7 @@
 
 .container {
   width: 91%;
-  height: 386px;
+  height: 71%;
   border: 2px solid #ececec;
   border-top: 0;
   border-radius: 0 0 5px 5px;
@@ -82,7 +82,7 @@
 
 .containter__upper {
   background: #003d48;
-  width: 95%;
+  width: 91;
   height: 127px;
   margin-left: -1px;
   padding-top: 22px;
@@ -103,13 +103,13 @@
 
 .container__list ul {
   list-style-type: none;
-  padding-left: 27px;
-  padding-top: 8px;
+  padding-left: 9%;
+  margin-top: 12%;
 }
 
 .container__list li {
   color: #8b8b8b;
-  margin-top: 17px;
+  margin-top: 5%;
   font-size: 13px;
   font-weight: 600;
   width: 90%;
