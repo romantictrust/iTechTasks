@@ -1,6 +1,5 @@
 .section2 {
   background: #6dc5dd;
-  height: 270px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

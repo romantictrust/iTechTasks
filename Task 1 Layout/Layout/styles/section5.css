@@ -1,5 +1,5 @@
 .section5 {
-  height: 646px;
+  width: 100%;
   display: grid;
   grid-template-rows: 25% auto;
 }
