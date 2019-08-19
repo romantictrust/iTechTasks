@@ -1,40 +1,55 @@
 .section3 {
+  min-height: 573px;
   display: grid;
-  grid-template-columns: 67% auto;
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  break-inside: avoid;
+}
+
+.section3 .content {
+  grid-column: 2 span;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 220px auto;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   margin-left: 4%;
   margin-top: 60px;
   color: #8b8b8b;
 }
 
-.row__title h3 {
+.row .img {
+  grid-column: 1 span;
+}
+
+.row .article {
+  grid-column: 2 span;
+}
+
+.row .title h3 {
+  font-size: 19px;
+  font-family: "MyriadPro-Black";
+  line-height: 1.44;
   margin-top: 0;
   color: #003d48;
 }
 
-.row_text p {
-  width: 500px;
+.row .text p {
+  min-width: 100%;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .section3 button {
   width: 70px;
   height: 37px;
-  margin-top: 10px;
-}
-
-.section3 button h3 {
-  display: block;
-  margin: auto;
+  font-size: 13px;
 }
 
 .aside {
+  width: 95%;
   margin-top: 35px;
-  margin-left: 9px;
+  margin-left: 5%;
+  grid-column: 1 span;
 }
 
 .control {
@@ -59,8 +74,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #003d48;
+  border: 1px solid #003d48;
   height: 40px;
+  font-size: 18px;
+  font-family: "MyriadPro-Black";
 }
 
 .centro {
@@ -80,7 +97,6 @@
 
 .containter__upper {
   background: #003d48;
-  width: 91;
   height: 127px;
   margin-left: -1px;
   padding-top: 22px;
@@ -97,6 +113,8 @@
   color: #ffff;
   width: 85%;
   font-size: 14px;
+  line-height: 1.6;
+  
 }
 
 .container__list ul {
@@ -113,6 +131,14 @@
   width: 90%;
   padding-bottom: 5px;
   border-bottom: 1px solid #ececec;
+  font-family: "MyriadPro-Light";
+  font-size: 14px;
+}
+
+.container__list li img {
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .container__list li:last-child {

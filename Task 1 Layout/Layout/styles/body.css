@@ -3,6 +3,16 @@
     src: url('../styles/MyriadPro/MyriadPro-Regular.ttf');
 }
 
+@font-face {
+    font-family: "MyriadPro-Light";
+    src: url('../styles/MyriadPro/MyriadPro-Light.ttf');
+}
+
+@font-face {
+    font-family: "MyriadPro-Black";
+    src: url('../styles/MyriadPro/MyriadPro-Black.ttf');
+}
+
 body, html {
     height: 100%;
     margin: 0;

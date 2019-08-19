@@ -2,13 +2,16 @@
   background: #6dc5dd;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  min-height: 195px;
   display: grid;
-  grid-template-rows: 68% auto;
+  grid-template-rows: repeat(auto-fill, minmax(220px, 1fr));
+  break-inside: avoid;
 }
 
 .footer .upper {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-row: 1 span;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 }
 
 .footer .upper .box {
@@ -31,23 +34,28 @@
 .footer .upper .box .article {
   font-size: 14px;
   color: rgb(255, 255, 255);
+  font-family: "MyriadPro-Light";
   line-height: 1.943;
 }
 
 .footer .lower {
   display: grid;
-  grid-template-columns: 88% auto;
+  grid-row: 1 span;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   border-top: 1px solid #ececec;
   margin-left: 2.5%;
   width: 95%;
 }
 
 .footer .lower .copyright {
+  display: grid;
+  grid-column: 2 span;
   font-size: 15px;
   color: rgb(255, 255, 255);
+  font-family: "MyriadPro-Light";
   line-height: 1.2;
   margin-top: 42px;
-  width: 70%;
+  width: 89%;
 }
 
 .footer .lower .copyright p {
@@ -55,10 +63,16 @@ margin: 0;
 }
 
 .footer .lower .socials {
-  display: grid;
-  grid-template-columns: 36% 36%;
-  margin-top: 27px;
-  margin-left: 28%;
+  display: inline-grid;
+  grid-column: 1 span;
+  grid-template-columns: 85% auto;
+  justify-items: end;
+  align-items: center;
+}
+
+.footer .lower .socials .logo {
+  margin-right: 0;
+  width: 33px;
 }
 
 .footer .lower .socials a {
@@ -67,5 +81,5 @@ margin: 0;
 }
 
 .footer .lower .socials img {
-  widows: 100%;
+  width: 100%;
 }

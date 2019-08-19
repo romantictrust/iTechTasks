@@ -1,7 +1,9 @@
 .section2 {
   background: #6dc5dd;
+  min-height: 270px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  break-inside: avoid;
 }
 
 .flag,
@@ -12,23 +14,18 @@
   color: #fff;
   display: grid;
   grid-template-columns: 80px auto;
-
 }
 
-.flag__icon,
-.camera__icon,
-.house__icon {
-  background: #fff;
+.section2 .icon,
+.section2 .icon,
+.section2 .icon {
   height: 60px;
   width: 60px;
-  border: 1px solid #fff;
-  border-radius: 50%;
 }
 
-.section2 img {
-    display:block;
-    margin:auto;
-    margin-top: 15%;
+.section2 .icon img {
+  display: block;
+  margin: auto;
 }
 
 .section2 h3 {
@@ -36,10 +33,18 @@
 }
 
 .section2 p {
-  width: 80%;
+  width: 85%;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .section2 a {
   text-decoration: none;
   color: #fff;
+}
+
+.section2 a img {
+  margin-left: 2%;
+  display: inline-block;
+  vertical-align: middle;
 }

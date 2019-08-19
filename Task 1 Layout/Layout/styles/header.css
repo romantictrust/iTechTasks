@@ -1,12 +1,14 @@
 .header {
   border-radius: 5px 5px 0 0;
-  display: inline-grid;
-  grid-template-columns: 210px auto;
+  min-height: 99px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
 }
 
 .logo {
   margin: 12.5% 13.5%;
   display: grid;
+  grid-column: 1 span;
   grid-template-columns: 54px 75%;
 }
 
@@ -16,7 +18,9 @@
 
 .navigation {
   display: inline-grid;
-  grid-template-columns: 1fr repeat(4, 11%);
+  grid-column: 5 span;
+  grid-template-columns: 1fr repeat(4, 12%);
+  float: right;
   justify-items: end;
   align-items: center;
   grid-column-gap: 10px;
@@ -28,8 +32,10 @@
 }
 
 .navigation h4 {
-    border-right: 1px solid #ececec;
-    padding-right: 25px;
+  border-right: 1px solid #ececec;
+  padding-right: 35px;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .navigation__home a {
@@ -39,4 +45,3 @@
 .navigation:last-child {
   margin-right: 30px;
 }
-

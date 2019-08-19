@@ -1,15 +1,9 @@
 .page {
   background: #ffffff;
-  height: 2518px;
+  height: auto;
   margin: 99px 0;
   width: 61.5%;
   margin-left: 19.7%;
   border-radius: 5px;
-  display: grid;
-  grid-template-rows: 99px 2095px auto;
-}
-
-.body {
-  display: grid;
-  grid-template-rows: 400px 270px 573px 206px 646px;
+  box-sizing: border-box;
 }

@@ -1,10 +1,13 @@
 .section5 {
+  min-height: 646px;
   display: grid;
-  grid-template-rows: 25% auto;
+  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  break-inside: avoid;
 }
 
 .section5 .upper {
   display: grid;
+  grid-row: 1 span;
   grid-template-rows: 70% auto;
 }
 
@@ -13,17 +16,22 @@
   color: rgb(0, 61, 72);
   line-height: 0.9;
   text-align: center;
-  padding-top: 13px;
+  padding-top: 18px;
+  box-sizing: border-box;
+  margin-left: 24.3%;
+  width: 50%;
 }
 
 .section5 .upper .text {
   font-size: 22px;
   text-align: center;
+  font-family: "MyriadPro-Light";
   color: rgb(109, 197, 221);
   line-height: 1.309;
   border: 1px solid #ececec;
   border-left: 0;
   border-right: 0;
+  box-sizing: border-box;
   width: 95%;
   margin-left: 2.5%;
   padding-top: 10px;
@@ -31,12 +39,13 @@
 
 .section5 .lower {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-row: 5 span;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 }
 
 .section5 .lower .leftSide {
   display: grid;
-  grid-template-rows: 30% 30.5% auto;
+  grid-template-rows: 27% 30.5% auto;
 }
 
 .section5 .lower .leftSide .block .img {
@@ -45,17 +54,24 @@
 
 .section5 .lower .leftSide .block {
   display: grid;
-  grid-template-columns: 120px auto;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
-.section5 .lower .leftSide .block .text a {
+.section5 .lower .leftSide .block .img {
+  grid-column: 1 span;
+}
+
+.section5 .lower .leftSide .block .text a img{
   display: inline-block;
   vertical-align: middle;
+  margin-left: 2%;
 }
 
 .section5 .lower .leftSide .block .article {
+  grid-column: 4 span;
     margin-top: 8%;
     margin-left: 2%;
+    width: 93%;
 }
 
 .section5 .lower .leftSide .block .article h4 {
@@ -80,14 +96,16 @@
 
 .section5 .lower .rightSide {
   display: grid;
-  grid-template-rows: 42% 41%;
+  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  max-width: 100%;
+  max-height: 79%;
 }
 
 .section5 .lower .rightSide .block {
   display: grid;
   grid-template-columns: auto 25%;
   background: #ececec;
-  height: 82%;
+  min-height: 82%;
   width: 92.2%;
   margin-top: 40px;
   margin-left: 15px;
@@ -120,5 +138,5 @@
 .section5 .lower .rightSide img {
     margin-top: 25%;
     margin-left: 0%;
-    width: 79%;
+    max-width: 79%;
 }
