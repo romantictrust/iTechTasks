@@ -9,11 +9,7 @@
   margin: 12.5% 13.5%;
   display: grid;
   grid-column: 1 span;
-  grid-template-columns: 54px 75%;
-}
-
-.logo .companyImg {
-  padding: 4px 18px;
+  grid-template-columns: 70px 75%;
 }
 
 .navigation {
