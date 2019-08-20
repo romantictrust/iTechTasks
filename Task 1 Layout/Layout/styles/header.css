@@ -12,7 +12,7 @@
   grid-template-columns: 54px 75%;
 }
 
-.logo__companyImg {
+.logo .companyImg {
   padding: 4px 18px;
 }
 
@@ -38,10 +38,7 @@
   line-height: 1.2;
 }
 
-.navigation__home a {
+.navigation .home a {
   color: #6dc5dd;
 }
 
-.navigation:last-child {
-  margin-right: 30px;
-}

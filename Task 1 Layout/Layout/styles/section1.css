@@ -1,3 +1,30 @@
+@media screen and (max-width: 900px) {
+  .section1 .text_h1,
+  .section1 .text_h2,
+  .section1 .text_span,
+  .section1 .button {
+    font-size: 1.5vw;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  .section1 .text_h1,
+  .section1 .text_h2,
+  .section1 .text_span,
+  .section1 .button {
+    font-size: 1vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section1 .text_h1,
+  .section1 .text_h2,
+  .section1 .text_span,
+  .section1 .button {
+    font-size: 2.3vw;
+  }
+}
+
 .section1 {
   background: #ededed;
   height: auto;
@@ -6,52 +33,51 @@
   break-inside: avoid;
 }
 
-.section1__img img {
-  margin: 8.5% 0 0 17%;
-  width: 65%;
-  height: auto;
-  display: grid;
-  grid-template-rows: fit-content(40%);
+.section1 .img {
+  background: url(../source/pictures/header/Screen.png);
+  background-repeat: no-repeat;
+  background-size: 65%;
+  padding-bottom: 68.7%;
+  background-position: 49% 100%;
 }
 
-.section1__text {
+.section1 .text {
   display: grid;
-  grid-template-rows: fit-content(40%);
+  grid-template-rows: 1fr 1fr 1fr 3fr;
   margin-top: 91px;
 }
 
-.section1__text h1,
-.section1__text h2,
-.section1__text h3 {
+.section1 .text h1,
+.section1 .text h2,
+.section1 .text h3 {
   margin: 0;
 }
 
-.section1__text_h1,
-.section1__text_h2 {
-  font-size: 20px;
+.section1 .text_h1,
+.section1 .text_h2 {
   font-family: "MyriadPro-Black";
   color: rgb(0, 61, 72);
   line-height: 1.2;
 }
 
-.section1__text_h2 {
+.section1 .text_h2 {
   font-family: "MyriadPro-Light";
 }
 
-.section1__text_span {
-  font-size: 18px;
+.section1 .text_span {
   color: rgb(139, 139, 139);
   line-height: 1.2;
-  width: 92%;
+  width: 82%;
 }
 
-.section1__button button {
-  width: 129px;
-  height: 44px;
+.section1 button {
+  width: 22%;
+  height: 30%;
   background: #f77462;
   border: 1px solid #f77462;
   border-radius: 3px;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 0.8vw;
   text-transform: uppercase;
+  margin: 5% 0;
 }

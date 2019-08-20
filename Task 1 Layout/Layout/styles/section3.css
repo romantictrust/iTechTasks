@@ -11,7 +11,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   margin-left: 4%;
   margin-top: 60px;
   color: #8b8b8b;
@@ -22,7 +22,8 @@
 }
 
 .row .article {
-  grid-column: 2 span;
+  grid-column: 3 span;
+  margin-left: 5%;
 }
 
 .row .title h3 {
@@ -40,15 +41,23 @@
 }
 
 .section3 button {
+  background: #f77462;
+  border: 1px solid #f77462;
+  border-radius: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 5% 0;
   width: 70px;
   height: 37px;
   font-size: 13px;
+  margin: 0;
 }
 
 .aside {
   width: 95%;
   margin-top: 35px;
   margin-left: 5%;
+  margin-bottom: 5%;
   grid-column: 1 span;
 }
 

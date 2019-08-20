@@ -27,8 +27,8 @@
 }
 
 .footer .upper .box p {
-    margin: 0;
-    margin-bottom: 4px;
+  margin: 0;
+  margin-bottom: 4px;
 }
 
 .footer .upper .box .article {
@@ -54,19 +54,17 @@
   color: rgb(255, 255, 255);
   font-family: "MyriadPro-Light";
   line-height: 1.2;
-  margin-top: 42px;
+  margin: 42px 0;
   width: 89%;
 }
 
 .footer .lower .copyright p {
-margin: 0;
+  margin: 0;
 }
 
 .footer .lower .socials {
-  display: inline-grid;
-  grid-column: 1 span;
-  grid-template-columns: 85% auto;
-  justify-items: end;
+  display: grid;
+  margin-left: 50%;
   align-items: center;
 }
 
@@ -76,8 +74,8 @@ margin: 0;
 }
 
 .footer .lower .socials a {
-    width: 33px;
-    height: 33px;
+  width: 33px;
+  height: 33px;
 }
 
 .footer .lower .socials img {
