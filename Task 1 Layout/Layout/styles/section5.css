@@ -1,7 +1,25 @@
+@media screen and (max-width: 650px) {
+  .section5 {
+    display: block !important;
+  }
+  .section5 .lower {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+  .section5 .lower .leftSide {
+    grid-column: 2 span !important;
+  }
+  .section5 .lower .rightSide {
+    grid-column: 2 span !important;
+  }
+  .section5 .lower .leftSide .block p {
+    width: 75% !important;
+  }
+}
+
 .section5 {
   min-height: 646px;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-rows: repeat(2, auto);
   break-inside: avoid;
 }
 
@@ -40,12 +58,11 @@
 .section5 .lower {
   display: grid;
   grid-row: 5 span;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .section5 .lower .leftSide {
   display: grid;
-  grid-column: 2 span;
   grid-template-rows: repeat(3, 28.5%);
 }
 
@@ -95,7 +112,6 @@
 .section5 .lower .rightSide {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  grid-column: 2 span;
   max-width: 100%;
   max-height: 79%;
   margin-bottom: 10%;
