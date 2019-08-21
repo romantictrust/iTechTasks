@@ -1,29 +1,29 @@
 .header {
   border-radius: 5px 5px 0 0;
   min-height: 99px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .logo {
-  margin: 12.5% 13.5%;
-  display: grid;
-  grid-column: 1 span;
-  grid-template-columns: 54px 75%;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  min-width: 300px;
+  margin: 0 auto;
 }
 
 .logo__companyImg {
   padding: 4px 18px;
+  width: 60%;
 }
 
 .navigation {
-  display: inline-grid;
-  grid-column: 5 span;
-  grid-template-columns: 1fr repeat(4, 12%);
-  float: right;
-  justify-items: end;
-  align-items: center;
-  grid-column-gap: 10px;
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  justify-content: space-evenly;
+  flex-grow: 1;
 }
 
 .navigation a {
@@ -33,15 +33,11 @@
 
 .navigation h4 {
   border-right: 1px solid #ececec;
-  padding-right: 35px;
+  padding-right: 15px;
   font-size: 16px;
   line-height: 1.2;
 }
 
 .navigation__home a {
   color: #6dc5dd;
-}
-
-.navigation:last-child {
-  margin-right: 30px;
 }

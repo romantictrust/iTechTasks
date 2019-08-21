@@ -6,12 +6,12 @@
   break-inside: avoid;
 }
 
-.section1__img img {
-  margin: 8.5% 0 0 17%;
-  width: 65%;
-  height: auto;
-  display: grid;
-  grid-template-rows: fit-content(40%);
+  .section1__img{
+  background: url(../source/pictures/header/Screen.png);
+  background-repeat: no-repeat;
+  background-size: 65%;
+  padding-bottom: 100%;
+  background-position:85% 100%;
 }
 
 .section1__text {

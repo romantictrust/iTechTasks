@@ -27,8 +27,8 @@
 }
 
 .footer .upper .box p {
-    margin: 0;
-    margin-bottom: 4px;
+  margin: 0;
+  margin-bottom: 4px;
 }
 
 .footer .upper .box .article {
@@ -59,25 +59,31 @@
 }
 
 .footer .lower .copyright p {
-margin: 0;
+  margin: 0;
+  width: 60%;
+  margin: 0 auto;
+  min-width: 100%;
 }
 
 .footer .lower .socials {
-  display: inline-grid;
+  display: inline-block;
   grid-column: 1 span;
   grid-template-columns: 85% auto;
   justify-items: end;
   align-items: center;
+  width: 30%;
+  margin: 0 auto;
 }
 
 .footer .lower .socials .logo {
   margin-right: 0;
   width: 33px;
+  display: inline-block;
 }
 
 .footer .lower .socials a {
-    width: 33px;
-    height: 33px;
+  width: 33px;
+  height: 33px;
 }
 
 .footer .lower .socials img {

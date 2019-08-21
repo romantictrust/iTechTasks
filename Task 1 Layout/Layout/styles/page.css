@@ -1,9 +1,9 @@
 .page {
   background: #ffffff;
   height: auto;
-  margin: 99px 0;
+  margin: 99px auto;
   width: 61.5%;
-  margin-left: 19.7%;
+  min-width: 430px;
   border-radius: 5px;
   box-sizing: border-box;
 }

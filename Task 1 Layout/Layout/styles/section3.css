@@ -1,28 +1,22 @@
 .section3 {
   min-height: 573px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   break-inside: avoid;
+  margin-bottom: 50px;
+  grid-auto-flow: dense;
 }
 
 .section3 .content {
-  grid-column: 2 span;
+  grid-column: 3 span;
 }
 
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: 220px auto;
   margin-left: 4%;
   margin-top: 60px;
   color: #8b8b8b;
-}
-
-.row .img {
-  grid-column: 1 span;
-}
-
-.row .article {
-  grid-column: 2 span;
 }
 
 .row .title h3 {
@@ -46,10 +40,10 @@
 }
 
 .aside {
-  width: 95%;
+  width: auto;
   margin-top: 35px;
   margin-left: 5%;
-  grid-column: 1 span;
+  grid-column:  2 span;
 }
 
 .control {

@@ -40,11 +40,12 @@
 .section5 .lower {
   display: grid;
   grid-row: 5 span;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .section5 .lower .leftSide {
   display: grid;
+  grid-column: 2 span;
   grid-template-rows: 27% 30.5% auto;
 }
 
