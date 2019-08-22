@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script type="module" src="./app.js"></script>
   </head>
   <body>
     <div class="page">
@@ -20,6 +18,12 @@
             максимальна. Функция должна возвращать только эту сумму. <br />
             Например:
             1. getMaxSubSum([-1, 2, 3, -9]) = 5 <br />
+            2. getMaxSubSum([2, -1, 2, 3, -9]) = 6 <br />
+            3. getMaxSubSum([-1, 2, 3, -9, 11]) = 11 <br />
+            4. getMaxSubSum([-2, -1, 1, 2]) = 3 <br />
+            5. getMaxSubSum([100, -9, 2, -3, 5]) = 100 <br />
+            6. getMaxSubSum([1, 2, 3]) = 6 <br />
+            7. getMaxSubSum([-1, -2, -3]) = 0 <br />
             Написать два решения, сложность O(n 2 ) и O(n). <br><br> b. Search <br> Написать
             функционал поиска минимального, максимального, медианного значения в
             массиве. <br><br> c. Selection Task <br> Написать функционал поиска возрастающей
@@ -30,12 +34,13 @@
         </div>
         <div class="interface">
           <div class="in">
-            <input type="text" value="Your string here"/>
-            <button>ok</button>
+            <input type="text"/>
+            <button class="ConfirmT1">ok</button>
           </div>
           <div class="out"></div>
         </div>
       </div>
     </div>
   </body>
+  <script src="bundle.js"></script>
 </html>
