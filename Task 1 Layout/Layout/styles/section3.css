@@ -1,13 +1,16 @@
 @media screen and (max-width: 1080px) {
-  .section3 .container {
-    height: 83% !important;
+  .section3 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  }
+  .aside {
+    margin-left: 5% !important;
   }
 }
 
 .section3 {
   min-height: 573px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   break-inside: avoid;
 }
 
@@ -58,11 +61,10 @@
   border-radius: 3px;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 5% 0;
+  margin: 0 0 5% 0;
   width: 70px;
   height: 37px;
   font-size: 13px;
-  margin: 0;
 }
 
 .section3 .aside {
@@ -110,7 +112,7 @@
 
 .section3 .container {
   width: 91%;
-  height: 75%;
+  max-height: 83%;
   border: 2px solid #ececec;
   border-top: 0;
   border-radius: 0 0 5px 5px;

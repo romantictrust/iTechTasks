@@ -2,6 +2,9 @@
   .footer .lower .socials {
    margin-bottom: 5% !important; 
   }
+  .footer .upper {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+  }
 }
 
 .footer {
@@ -15,7 +18,7 @@
 .footer .upper {
   display: grid;
   grid-row: 1 span;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
 }
 
 .footer .upper .box {

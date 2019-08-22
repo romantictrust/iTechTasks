@@ -4,29 +4,34 @@
   color: #fff;
   min-height: 206px;
   display: grid;
-  grid-template-rows: 42% auto;
+  grid-template-rows: repeat(2, auto);
   break-inside: avoid;
 }
 
 .section4 .title,
 .section4 .text {
-  display: block;
-  margin: auto;
-  margin-top: 0;
+  margin: 0 auto;
 }
 
-.section4 h1 {
-  margin-top: 23%;
+.section4 .title {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.section4 .title h1 { 
+  margin: 0;
 }
 
 .section4 p {
+  margin: 0;
   font-size: 18px;
   font-family: "MyriadPro-Light";
   line-height: 1.6;
-  margin-left: 17%;
+  margin-left: 19%;
   width: 80%;
 }
 
 .section4 span {
-  margin-left: 30%;
+  margin-left: 28%;
 }
