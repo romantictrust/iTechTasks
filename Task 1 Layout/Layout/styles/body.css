@@ -14,15 +14,13 @@
 }
 
 body, html {
-    height: 100%;
     margin: 0;
-    background-image: url(../source/BG.png);
+    background-image: url(../source/ShortenedBG.png);
     width: 100%;
     height: 100%;
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
+    pointer-events: none;
     font-family: "MyriadPro-BlackCond";
 }
-
-  

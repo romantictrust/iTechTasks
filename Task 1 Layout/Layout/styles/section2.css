@@ -12,9 +12,7 @@
   break-inside: avoid;
 }
 
-.flag,
-.camera,
-.house {
+.section2 .block {
   margin: 62px 0 0 8%;
   z-index: 200;
   color: #fff;
