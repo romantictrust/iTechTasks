@@ -1,7 +1,25 @@
+@media screen and (max-width: 650px) {
+  .section5 {
+    display: block !important;
+  }
+  .section5 .lower {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+  .section5 .lower .leftSide {
+    grid-column: 2 span !important;
+  }
+  .section5 .lower .rightSide {
+    grid-column: 2 span !important;
+  }
+  .section5 .lower .leftSide .block p {
+    width: 75% !important;
+  }
+}
+
 .section5 {
   min-height: 646px;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-rows: repeat(2, auto);
   break-inside: avoid;
 }
 
@@ -40,39 +58,47 @@
 .section5 .lower {
   display: grid;
   grid-row: 5 span;
+<<<<<<< HEAD
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+=======
+  grid-template-columns: repeat(2, 1fr);
+>>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
 .section5 .lower .leftSide {
   display: grid;
+<<<<<<< HEAD
   grid-column: 2 span;
   grid-template-rows: 27% 30.5% auto;
 }
 
 .section5 .lower .leftSide .block .img {
   margin: 34% 25%;
+=======
+  grid-template-rows: repeat(3, 28.5%);
+>>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
 .section5 .lower .leftSide .block {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: 15% auto;
+  grid-column-gap: 14px;
 }
 
 .section5 .lower .leftSide .block .img {
-  grid-column: 1 span;
+  margin: 34% 33%;
 }
 
-.section5 .lower .leftSide .block .text a img{
+.section5 .lower .leftSide .block .text a img {
   display: inline-block;
   vertical-align: middle;
   margin-left: 2%;
 }
 
 .section5 .lower .leftSide .block .article {
-  grid-column: 4 span;
-    margin-top: 8%;
-    margin-left: 2%;
-    width: 93%;
+  margin-top: 6%;
+  margin-left: 5.5%;
+  width: 93%;
 }
 
 .section5 .lower .leftSide .block .article h4 {
@@ -93,13 +119,15 @@
   font-size: 15px;
   color: rgb(120, 120, 120);
   line-height: 1.6;
+  width: 90%;
 }
 
 .section5 .lower .rightSide {
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
   max-width: 100%;
   max-height: 79%;
+  margin-bottom: 10%;
 }
 
 .section5 .lower .rightSide .block {
@@ -116,6 +144,7 @@
 .section5 .lower .rightSide .block .article {
   margin-top: 10%;
   margin-left: 9%;
+  min-height: 125px;
 }
 
 .section5 .lower .rightSide .block .article .author {
@@ -123,21 +152,22 @@
 }
 
 .section5 .lower .rightSide .article__quote p {
-    font-size: 15px;
-    color: rgb(140, 145, 147);
-    line-height: 1.6;
-    margin: 0;
-  }
-  
-  .section5 .lower .rightSide .author h4 {
-      font-size: 16px;
-      color: rgb(247, 116, 98);
-      line-height: 1.8; 
-      margin: 0;
-  }
+  font-size: 15px;
+  color: rgb(140, 145, 147);
+  line-height: 1.6;
+  margin: 0;
+  width: 85%;
+}
+
+.section5 .lower .rightSide .author h4 {
+  font-size: 16px;
+  color: rgb(247, 116, 98);
+  line-height: 1.8;
+  margin: 0;
+}
 
 .section5 .lower .rightSide img {
-    margin-top: 25%;
-    margin-left: 0%;
-    max-width: 79%;
+  margin-top: 25%;
+  margin-left: 0%;
+  max-width: 79%;
 }

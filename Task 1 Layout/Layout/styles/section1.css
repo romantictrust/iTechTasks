@@ -1,57 +1,118 @@
+@media screen and (max-width: 650px) {
+  .section1 .img {
+    background-size: 15em auto !important;
+  }
+  .section1 .text h1,
+  .section1 .text h2 {
+    font-size: 2em !important;
+  }
+  .section1 .text h2 {
+    font-size: 1em !important;
+  }
+  .section1 .text .article {
+    font-size: 1em !important;
+    width: 90% !important;
+  }
+  .section1 .text button {
+    font-size: 0.6em !important;
+    width: 30% !important;
+    height: 30px !important;
+    margin: 0 !important;
+  }
+  .section1 .text {
+    margin-left: 1em !important;
+  }
+}
+
 .section1 {
-  background: #ededed;
+  background-image: -moz-linear-gradient(
+    90deg,
+    rgb(255, 255, 255) 0%,
+    rgb(243, 243, 243) 79%,
+    rgb(231, 231, 231) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    90deg,
+    rgb(255, 255, 255) 0%,
+    rgb(243, 243, 243) 79%,
+    rgb(231, 231, 231) 100%
+  );
+  background-image: -ms-linear-gradient(
+    90deg,
+    rgb(255, 255, 255) 0%,
+    rgb(243, 243, 243) 79%,
+    rgb(231, 231, 231) 100%
+  );
   height: auto;
   display: grid;
   grid-template-columns: 50% auto;
   break-inside: avoid;
 }
 
+<<<<<<< HEAD
   .section1__img{
   background: url(../source/pictures/header/Screen.png);
   background-repeat: no-repeat;
   background-size: 65%;
   padding-bottom: 100%;
   background-position:85% 100%;
+=======
+.section1 .img {
+  background: url(../source/pictures/header/Screen.png);
+  background-repeat: no-repeat;
+  background-size: 23.9em auto;
+  padding-bottom: 68.7%;
+  background-position: 49% 100%;
+>>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
-.section1__text {
+.section1 .text {
   display: grid;
   grid-template-rows: fit-content(40%);
-  margin-top: 91px;
+  margin-top: 5.5em;
 }
 
-.section1__text h1,
-.section1__text h2,
-.section1__text h3 {
+
+.section1 .text>div {
+  margin-bottom: 5px !important;
+}
+
+.section1 .text h1,
+.section1 .text h2 {
   margin: 0;
-}
-
-.section1__text_h1,
-.section1__text_h2 {
-  font-size: 20px;
   font-family: "MyriadPro-Black";
   color: rgb(0, 61, 72);
   line-height: 1.2;
+  font-size: 2.7em;
 }
 
-.section1__text_h2 {
+.section1 .text h2 {
+  font-size: 1.9em;
   font-family: "MyriadPro-Light";
 }
 
-.section1__text_span {
-  font-size: 18px;
+.section1 .text .article {
+  font-size: 1.1em;
   color: rgb(139, 139, 139);
   line-height: 1.2;
-  width: 92%;
+  width: 76%;
 }
 
-.section1__button button {
-  width: 129px;
-  height: 44px;
+.section1 .text h3 {
+  margin: 0;
+}
+
+.section1 .text button {
+  width: 22%;
+  height: 45px;
   background: #f77462;
   border: 1px solid #f77462;
   border-radius: 3px;
-  color: #ffffff;
-  font-size: 15px;
+  font-size: 0.9em;
   text-transform: uppercase;
+  margin-bottom: 8%;
+}
+
+.section1 .text button span {
+  color: #ffffff;
 }
