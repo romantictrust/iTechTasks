@@ -9,7 +9,7 @@
   .section1 .text h2 {
     font-size: 1em !important;
   }
-  .section1 .text .article {
+  .section1 .text__article {
     font-size: 1em !important;
     width: 90% !important;
   }
@@ -49,21 +49,12 @@
   break-inside: avoid;
 }
 
-<<<<<<< HEAD
-  .section1__img{
-  background: url(../source/pictures/header/Screen.png);
-  background-repeat: no-repeat;
-  background-size: 65%;
-  padding-bottom: 100%;
-  background-position:85% 100%;
-=======
 .section1 .img {
   background: url(../source/pictures/header/Screen.png);
   background-repeat: no-repeat;
   background-size: 23.9em auto;
   padding-bottom: 68.7%;
   background-position: 49% 100%;
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
 .section1 .text {
@@ -91,7 +82,7 @@
   font-family: "MyriadPro-Light";
 }
 
-.section1 .text .article {
+.section1 .text__article {
   font-size: 1.1em;
   color: rgb(139, 139, 139);
   line-height: 1.2;

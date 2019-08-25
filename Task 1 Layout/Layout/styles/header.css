@@ -1,41 +1,13 @@
 .header {
   border-radius: 5px 5px 0 0;
   min-height: 99px;
-<<<<<<< HEAD
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.logo {
-  display: flex;
-  justify-content: center;
-  width: 30%;
-  min-width: 300px;
-  margin: 0 auto;
-}
-
-.logo__companyImg {
-  padding: 4px 18px;
-  width: 60%;
-}
-
-.navigation {
-  display: flex;
-  margin: 0 auto;
-  width: 60%;
-  justify-content: space-evenly;
-  flex-grow: 1;
-}
-
-.navigation a {
-=======
   min-width: 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.header .logo {
+.header__logo {
   display: flex;
   justify-content: start;
   height: 46px;
@@ -54,23 +26,18 @@
 }
 
 .header .navigation a {
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
   text-decoration: none;
   color: #787878;
 }
 
 .header .navigation h4 {
   border-right: 1px solid #ececec;
-<<<<<<< HEAD
-  padding-right: 15px;
-=======
   padding: 0 1.5em 0 1.5em;
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
   font-size: 16px;
   line-height: 1.2;
   margin: 15px 0px;
 }
 
-.header .navigation .home a {
+.navigation__item_active a h4 {
   color: #6dc5dd;
 }

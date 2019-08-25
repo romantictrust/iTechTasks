@@ -1,27 +1,20 @@
 @media screen and (max-width: 1080px) {
-  .section3 .container {
-    height: 83% !important;
+  .section3 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  }
+  .aside {
+    margin-left: 5% !important;
   }
 }
 
 .section3 {
   min-height: 573px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   break-inside: avoid;
-  margin-bottom: 50px;
-  grid-auto-flow: dense;
 }
 
 .section3 .content {
-<<<<<<< HEAD
-  grid-column: 3 span;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 220px auto;
-=======
   grid-column: 2 span;
   display: inline-flex;
   flex-wrap: wrap;
@@ -32,28 +25,23 @@
 .section3 .row {
   display: flex;
   justify-content: flex-end;
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
   margin-left: 4%;
   margin-top: 32px;
   color: #8b8b8b;
 }
 
-<<<<<<< HEAD
-.row .title h3 {
-=======
-.section3 .row .img {
+.section3 .row_img {
   display: flex;
   justify-content: start;
   width: 186px;
   height: 196px;
 }
 
-.section3 .row .article {
+.section3 .row .text {
   margin-left: 5%;
 }
 
-.section3 .row .title h3 {
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
+.section3 .text__title h3 {
   font-size: 19px;
   font-family: "MyriadPro-Black";
   line-height: 1.44;
@@ -61,7 +49,7 @@
   color: #003d48;
 }
 
-.section3 .row .text p {
+.section3 .article p {
   width: 95%;
   font-size: 15px;
   line-height: 1.6;
@@ -73,27 +61,18 @@
   border-radius: 3px;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 5% 0;
+  margin: 0 0 5% 0;
   width: 70px;
   height: 37px;
   font-size: 13px;
-  margin: 0;
 }
 
-<<<<<<< HEAD
-.aside {
-  width: auto;
-  margin-top: 35px;
-  margin-left: 5%;
-  grid-column:  2 span;
-=======
 .section3 .aside {
   width: 95%;
   margin-top: 35px;
   margin-left: 5%;
   margin-bottom: 5%;
   grid-column: 1 span;
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
 .section3 .control {
@@ -109,31 +88,33 @@
   margin-top: 5px;
 }
 
-.section3 .eronped {
-  background: #003d48;
-  color: #f77462;
+.section3 .control__item {
+  background: #ffffff;
+  color: #8b8b8b;
+  border: 2px solid #ececec;
+  border-bottom: 0;
   border-radius: 3px 3px 0 0;
   margin-top: 29px;
   margin-left: 1%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #003d48;
   height: 40px;
   font-size: 18px;
   font-family: "MyriadPro-Black";
 }
 
-.section3 .centro {
-  background: #ffffff;
-  color: #8b8b8b;
-  border: 2px solid #ececec;
-  border-bottom: 0;
+.section3 .control__item_active {
+  background: #003d48;
+  color: #f77462;
+  border: 1px solid #003d48;
 }
+
+
 
 .section3 .container {
   width: 91%;
-  height: 75%;
+  max-height: 83%;
   border: 2px solid #ececec;
   border-top: 0;
   border-radius: 0 0 5px 5px;
@@ -148,12 +129,12 @@
   border-radius: 0 5px 0 0;
 }
 
-.section3 .container .title h3 {
+.section3 .upper__title h3 {
   color: #6dc5dd;
   margin: 0;
 }
 
-.section3 .upper .text {
+.section3 .upper__article {
   color: #ffff;
   width: 85%;
   font-size: 14px;
@@ -161,13 +142,13 @@
   
 }
 
-.section3 .container .list ul {
+.section3 .list ul {
   list-style-type: none;
   padding-left: 9%;
   margin-top: 12%;
 }
 
-.section3 .container .list li {
+.section3 .list li {
   color: #8b8b8b;
   margin-top: 5%;
   font-size: 13px;
@@ -179,12 +160,12 @@
   font-size: 14px;
 }
 
-.section3 .container .list li img {
+.section3 .list li img {
   margin-right: 10px;
   display: inline-block;
   vertical-align: middle;
 }
 
-.section3 .container .list li:last-child {
+.section3 .list li:last-child {
   border: 0;
 }

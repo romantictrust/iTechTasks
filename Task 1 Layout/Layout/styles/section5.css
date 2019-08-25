@@ -26,10 +26,10 @@
 .section5 .upper {
   display: grid;
   grid-row: 1 span;
-  grid-template-rows: 70% auto;
+  grid-template-rows: repeat(2, auto);
 }
 
-.section5 .upper .title {
+.section5 .upper .text__title {
   font-size: 32px;
   color: rgb(0, 61, 72);
   line-height: 0.9;
@@ -40,7 +40,11 @@
   width: 50%;
 }
 
-.section5 .upper .text {
+.section5 .upper .text__title h4 { 
+  margin: 7% 0 4% 0;
+}
+
+.section5 .upper .text__article {
   font-size: 22px;
   text-align: center;
   font-family: "MyriadPro-Light";
@@ -52,31 +56,17 @@
   box-sizing: border-box;
   width: 95%;
   margin-left: 2.5%;
-  padding-top: 10px;
+  padding: 10px 0;
 }
 
 .section5 .lower {
   display: grid;
-  grid-row: 5 span;
-<<<<<<< HEAD
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-=======
   grid-template-columns: repeat(2, 1fr);
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
 }
 
 .section5 .lower .leftSide {
   display: grid;
-<<<<<<< HEAD
-  grid-column: 2 span;
-  grid-template-rows: 27% 30.5% auto;
-}
-
-.section5 .lower .leftSide .block .img {
-  margin: 34% 25%;
-=======
-  grid-template-rows: repeat(3, 28.5%);
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
+  grid-template-rows: repeat(3, auto);
 }
 
 .section5 .lower .leftSide .block {
@@ -85,36 +75,36 @@
   grid-column-gap: 14px;
 }
 
-.section5 .lower .leftSide .block .img {
-  margin: 34% 33%;
+.section5 .lower .leftSide .block__img {
+  margin: 43% 33%;
 }
 
-.section5 .lower .leftSide .block .text a img {
+.section5 .lower .leftSide .block .text__article a img {
   display: inline-block;
   vertical-align: middle;
   margin-left: 2%;
 }
 
-.section5 .lower .leftSide .block .article {
-  margin-top: 6%;
+.section5 .lower .leftSide .block .text {
+  margin-top: 5%;
   margin-left: 5.5%;
   width: 93%;
 }
 
-.section5 .lower .leftSide .block .article h4 {
+.section5 .lower .leftSide .block .text h4 {
   margin: 0;
   font-size: 16px;
   color: rgb(0, 61, 72);
   line-height: 1.8;
 }
 
-.section5 .lower .leftSide .block .article span {
+.section5 .lower .leftSide .block .text span {
   margin: 0px 0px 9px 0px;
   font-size: 14px;
   color: rgb(247, 116, 98);
 }
 
-.section5 .lower .leftSide .block .article p {
+.section5 .lower .leftSide .block .text p {
   margin: 0;
   font-size: 15px;
   color: rgb(120, 120, 120);
@@ -126,7 +116,6 @@
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   max-width: 100%;
-  max-height: 79%;
   margin-bottom: 10%;
 }
 
@@ -141,17 +130,17 @@
   border-radius: 3px;
 }
 
-.section5 .lower .rightSide .block .article {
+.section5 .lower .rightSide .block .text {
   margin-top: 10%;
   margin-left: 9%;
   min-height: 125px;
 }
 
-.section5 .lower .rightSide .block .article .author {
+.section5 .lower .rightSide .block .text__author {
   margin-top: 1.5%;
 }
 
-.section5 .lower .rightSide .article__quote p {
+.section5 .lower .rightSide .text__quote p {
   font-size: 15px;
   color: rgb(140, 145, 147);
   line-height: 1.6;
@@ -159,7 +148,7 @@
   width: 85%;
 }
 
-.section5 .lower .rightSide .author h4 {
+.section5 .lower .rightSide .text__author h4 {
   font-size: 16px;
   color: rgb(247, 116, 98);
   line-height: 1.8;

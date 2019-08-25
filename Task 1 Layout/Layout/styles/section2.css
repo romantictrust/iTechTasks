@@ -1,14 +1,18 @@
+@media screen and (max-width: 1080px) {
+  .section2 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  }
+}
+
 .section2 {
   background: #6dc5dd;
   min-height: 270px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   break-inside: avoid;
 }
 
-.flag,
-.camera,
-.house {
+.section2 .block {
   margin: 62px 0 0 8%;
   z-index: 200;
   color: #fff;
@@ -16,14 +20,12 @@
   grid-template-columns: 80px auto;
 }
 
-.section2 .icon,
-.section2 .icon,
-.section2 .icon {
+.section2 .block__icon {
   height: 60px;
   width: 60px;
 }
 
-.section2 .icon img {
+.section2 .block__icon img {
   display: block;
   margin: auto;
 }

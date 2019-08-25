@@ -19,14 +19,8 @@
 .page {
   background: #ffffff;
   height: auto;
-<<<<<<< HEAD
-  margin: 99px auto;
-  width: 61.5%;
-  min-width: 430px;
-=======
   width: 61.4%;
   margin: 5.3% auto;
->>>>>>> e40fb6077a7df561ec79f35318853c35f9f44e70
   border-radius: 5px;
   box-sizing: border-box;
 }
