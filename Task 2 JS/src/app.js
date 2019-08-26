@@ -1,13 +1,21 @@
 import "./style.css";
 import APT from "./modules/T1_APT.js";
+import DDF from "./modules/T2_DDF.js";
 
 const inp = document.querySelector(".T1_APT input");
 const btn = document.querySelector(".T1_APT button");
 const out = document.querySelector(".T1_APT .out span");
 
-let aptExpample = new APT();
+let apt = new APT();
 
-applyOutput(aptExpample.subSumOn([-1, 2, 3, -9]))
+// APT
+// applyOutput('O(n)', apt.subSumOn([-1, 2, 3, -9]))
+// applyOutput('O(n^2)', apt.subSumOnSquared([-1, 2, 3, -9]))
+// applyOutput('Min', apt.minElement([-1, 2, 3, -9]));
+// applyOutput('Max', apt.maxElement([-1, 2, 3, -9]));
+// applyOutput('Average', apt.averageElement([-1, 2, 3, -9]));
+// applyOutput('Selection Task', apt.risingSubsting([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]))
+
 
 btn.addEventListener("click", inputWorker);
 
@@ -21,9 +29,9 @@ function cleanUp() {
 }
 
 // Применяем выходные данные в блок output
-function applyOutput(...outArgs) {
+function applyOutput(description = "result", ...outArgs) {
   outArgs.map(element => {
-    out.appendChild(document.createTextNode(`${element}  `));
+    out.appendChild(document.createTextNode(`${description}: ${element}  `));
   });
 }
 
@@ -35,13 +43,7 @@ function inputWorker() {
   cleanUp();
   const str = getInputData();
   const arr = getNumbersArray(str);
-  let aptExpample = new APT();
-  const result = aptExpample.subSumOn(arr);
-  applyOutput(result);
-
-  // applyOutput(`O(n):${subSumOn(arr)}`);
-  // applyOutput(`O(n**2):${subSumOnSquared(arr)}`);
-  // applyOutput(`Min:${minElement(arr)}`);
-  // applyOutput(`Max:${maxElement(arr)}`);
-  // applyOutput(`Average:${averageElement(arr)}`);
+  const result = apt.risingSubsting(arr);
+  const description = "Rising substring";
+  applyOutput(description, result);
 }

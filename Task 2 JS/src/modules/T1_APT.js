@@ -1,18 +1,18 @@
 export default class ArrayProcessingTool {
   numbersRegExp = new RegExp("^[0-9-+]+");
 
-  constructor(param = '0') {
+  constructor(param = "0") {
     if (!Number(param)) return 0;
     this.verify(param);
     this.val = this.getNumbersArray(param);
     this.arr = this.val;
   }
 
-  getNumbersArray (val = this.val) {
+  getNumbersArray(val = this.val) {
     return val.split(" ").map(Number);
   }
 
-  verify (val = this.val) {
+  verify(val = this.val) {
     if (!this.verifier(val)) throw "Wrong string";
   }
 
@@ -42,7 +42,7 @@ export default class ArrayProcessingTool {
   subSumOnSquared(arr = this.arr) {
     let cur = 0;
     let max = 0;
-    // баблсорт в мире проверки подмассива
+    // Баблсорт в мире проверки подмассива
     for (var i = 0; i < arr.length; i++) {
       for (var j = i; j < arr.length; j++) {
         cur += arr[j];
@@ -70,7 +70,39 @@ export default class ArrayProcessingTool {
   }
 
   averageElement(arr = this.arr) {
-    const average = arr.reduce((a, b) => a + b) / arr.length;
-    return average;
+    // Сортировка по возрастанию
+    const sortedArr = arr.sort((a, b) => {
+      return a - b;
+    });
+    // Проверка на чётность / нечётность
+    if (!(sortedArr.length % 2)) {
+      return (
+        (sortedArr[sortedArr.length / 2 - 1] +
+          sortedArr[sortedArr.length / 2]) /
+        2
+      );
+    } else {
+      return sortedArr[sortedArr.length / 2];
+    }
+  }
+
+  risingSubsting(arr = this.arr) {
+    let cur = [];
+    let max = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (cur.length == 0) {
+        cur.push(arr[i]);
+      } else if (cur[cur.length - 1] - arr[i] < 0) {
+        cur.push(arr[i]);
+      } else if (max.length <= cur.length) {
+        max = cur;
+        cur = [];
+        cur.push(arr[i]);
+      }
+      if (arr.length == i + 1 && cur.length >= max.length) {
+        max = cur;
+      }
+    }
+    return max;
   }
 }

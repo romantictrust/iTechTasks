@@ -40,6 +40,31 @@
           <div class="out"><span></span></div>
         </div>
       </div>
+      <div class="T2_DDF">
+          <h2>Date Display Formatter</h2>
+          <div class="task">
+            <p>
+                Разработать объект для форматирования дат (объект содержащий набор
+                функций). Объект должен позволять обрабатывать входные данные в виде
+                строки или в виде числа (ticks, ms). Объект должен поддерживать
+                возможность передачи внутрь регулярного выражения для разбора
+                исходной строки и построения выходной строки. <br>
+                Например: <br>
+                1. “31102011” =>; “31-10-2011” <br>
+                2. “31102011” =>; “31 October 2011” <br>
+                3. (“20130431”, “YYYYMMDD”) =>; 31 April 2013 <br>
+                4. (“20130431”, “YYYYMMDD”, “MM-DD-YYYY”) =>; 04-31-2013 <br>
+                5. (“2013-04-31”, “YYYY-MM-DD”).fromNow() =>; 2 years ago <br>
+            </p>
+          </div>
+          <div class="interface">
+            <div class="in">
+              <input type="text"/>
+              <button class="ConfirmT1">ok</button>
+            </div>
+            <div class="out"><span></span></div>
+          </div>
+      </div>
     </div>
   </body>
   <script src="bundle.js"></script>
