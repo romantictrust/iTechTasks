@@ -1,15 +1,15 @@
 export default class ArrayProcessingTool {
   numbersRegExp = new RegExp("^[0-9-+]+");
 
-  constructor(param = "0") {
-    if (!Number(param)) return 0;
-    this.verify(param);
-    this.val = this.getNumbersArray(param);
-    this.arr = this.val;
+  constructor(val = "0") {
+    this.verify(val);
+    this.arr = this.getNumbersArray(val);
   }
 
   getNumbersArray(val = this.val) {
+    if (typeof val == "string")
     return val.split(" ").map(Number);
+    else return val;
   }
 
   verify(val = this.val) {
