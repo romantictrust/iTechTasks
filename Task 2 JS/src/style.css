@@ -35,10 +35,9 @@ html {
 
 .interface {
     width: 95%;
-    min-height: 30%;
     margin-top: 4%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(2, auto)
 }
 
 .interface .in {
@@ -49,7 +48,7 @@ html {
 }
 
 .interface .out {
-    min-height: 50%;
+    min-height: 10px;
     background: #f3f3f3;
     border-radius: 5%;
 }
