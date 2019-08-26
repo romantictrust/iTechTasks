@@ -17,9 +17,8 @@
 
 .section4 .text__title {
   display: flex;
-
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 3em;
 }
 
 .section4 .text__title h1 { 

@@ -3,7 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
   }
   .aside {
-    margin-left: 5% !important;
+    margin-left: 1.5em !important;
   }
 }
 
@@ -25,7 +25,7 @@
 .section3 .row {
   display: flex;
   justify-content: flex-end;
-  margin-left: 4%;
+  margin-left: 2em;
   margin-top: 32px;
   color: #8b8b8b;
 }
@@ -38,7 +38,7 @@
 }
 
 .section3 .row .text {
-  margin-left: 5%;
+  margin: 0 1em;
 }
 
 .section3 .text__title h3 {
@@ -61,7 +61,7 @@
   border-radius: 3px;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 0 0 5% 0;
+  margin: 0 0 1em 0;
   width: 70px;
   height: 37px;
   font-size: 13px;
@@ -70,8 +70,8 @@
 .section3 .aside {
   width: 95%;
   margin-top: 35px;
-  margin-left: 5%;
-  margin-bottom: 5%;
+  margin-left: 1.3em;
+  margin-bottom: 2em;
   grid-column: 1 span;
 }
 
@@ -95,7 +95,7 @@
   border-bottom: 0;
   border-radius: 3px 3px 0 0;
   margin-top: 29px;
-  margin-left: 1%;
+  margin-left: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,13 +144,13 @@
 
 .section3 .list ul {
   list-style-type: none;
-  padding-left: 9%;
-  margin-top: 12%;
+  padding-left: 29px;
+  margin-top: 40px;
 }
 
 .section3 .list li {
   color: #8b8b8b;
-  margin-top: 5%;
+  margin-top: 16px;
   font-size: 13px;
   font-weight: 600;
   width: 90%;

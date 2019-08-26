@@ -1,6 +1,7 @@
 @media screen and (max-width: 650px) {
   .section1 .img {
     background-size: 15em auto !important;
+    padding-bottom: 20em !important;
   }
   .section1 .text h1,
   .section1 .text h2 {
@@ -53,7 +54,7 @@
   background: url(../source/pictures/header/Screen.png);
   background-repeat: no-repeat;
   background-size: 23.9em auto;
-  padding-bottom: 68.7%;
+  padding-bottom: 25em;
   background-position: 49% 100%;
 }
 
@@ -101,7 +102,7 @@
   border-radius: 3px;
   font-size: 0.9em;
   text-transform: uppercase;
-  margin-bottom: 8%;
+  margin-bottom: 3.2em;
 }
 
 .section1 .text button span {

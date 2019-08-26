@@ -20,7 +20,7 @@
   display: flex;
   justify-content: flex-end;
   margin: 0 auto;
-  height: 19%;
+  height: 50px;
   flex-grow: 1;
   margin: 24px 0;
 }

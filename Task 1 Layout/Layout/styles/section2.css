@@ -13,7 +13,7 @@
 }
 
 .section2 .block {
-  margin: 62px 0 0 8%;
+  margin: 62px 0 0 2em;
   z-index: 200;
   color: #fff;
   display: grid;
@@ -46,7 +46,7 @@
 }
 
 .section2 a img {
-  margin-left: 2%;
+  margin-left: 1em;
   display: inline-block;
   vertical-align: middle;
 }

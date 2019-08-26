@@ -1,6 +1,6 @@
 @media screen and (max-width: 650px) {
   .footer .lower .socials {
-   margin-bottom: 5% !important; 
+   margin-bottom: 2em !important; 
   }
   .footer .upper {
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
@@ -21,10 +21,14 @@
   grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
 }
 
+.footer .upper.wrap {
+  margin-bottom: 1em;
+}
+
 .footer .box {
-  margin-left: 16%;
-  margin-top: 28%;
-  width: 60%;
+  margin-left: 2em;
+  margin-top: 3em;
+  width: 110px;
 }
 
 .footer .box__title {
@@ -48,7 +52,6 @@
 .footer .lower {
   grid-row: 1 span;
   border-top: 1px solid #ececec;
-  margin-left: 2.5%;
   width: 95%;
   display: flex;
   flex-wrap: wrap;
