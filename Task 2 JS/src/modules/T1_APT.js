@@ -13,12 +13,9 @@ export default class ArrayProcessingTool {
   }
 
   verify(val = this.val) {
-    if (!this.verifier(val)) throw "Wrong string";
-  }
-
-  verifier(str) {
-    if (!this.numbersRegExp.test(str)) alert("Invalid String");
-    else return 1;
+    if (!this.numbersRegExp.test(val)) {
+      alert("Invalid numbers");
+      throw new Error("Invalid numbers")};
   }
 
   subSumOn(arr = this.arr) {

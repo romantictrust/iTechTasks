@@ -57,10 +57,32 @@
                 5. (“2013-04-31”, “YYYY-MM-DD”).fromNow() =>; 2 years ago <br>
             </p>
           </div>
+          <!-- Formats were taken from https://dev.1c-bitrix.ru/api_help/main/general/lang/format.php -->
           <div class="interface">
             <div class="in">
               <input type="text"/>
-              <button class="ConfirmT1">ok</button>
+              <select name="Inp">
+                <option value="EN" selected>DDMMYYYY</option>
+                <option value="USA">MMDDYYYY</option>
+                <option value="Canada">YYYYMMDD</option>
+              </select>
+              <select name="Out">
+                <option value="EN" selected>DD-MM-YYYY</option>
+                <option value="USA">MM-DD-YYYY</option>
+                <option value="Canada">YYYY-MM-DD</option>
+              </select>
+              <select name="Format">
+                  <option value="Short" selected>16-03-2000</option>
+                  <option value="Full">16-March-2000</option>
+                  <option value="FromNow">2 years ago</option>
+                </select>
+              <select name="Delimiters">
+                <option value="-" selected>-</option>
+                <option value=".">.</option>
+                <option value="/">/</option>
+                <option value=" ">" "</option>
+              </select>
+              <button class="ConfirmT2">ok</button>
             </div>
             <div class="out"><span></span></div>
           </div>

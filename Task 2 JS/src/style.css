@@ -19,6 +19,7 @@ html {
   box-sizing: border-box;
   display: grid;
   grid-template: 1fr;
+  box-sizing: border-box;
 }
 
 .page h2 {
@@ -32,10 +33,10 @@ html {
 }
 
 .interface {
-    width: 95%;
     margin-top: 4%;
     display: grid;
-    grid-template-columns: repeat(2, auto)
+    grid-template-columns: 470px auto;
+    margin-bottom: 1em;
 }
 
 .interface .in {
@@ -46,7 +47,19 @@ html {
 }
 
 .interface .out {
-    min-height: 10px;
+    max-height: 70px;
     background: #f3f3f3;
-    border-radius: 5%;
+}
+
+input, select {
+    border: 1px solid black;
+    border-radius: 4px;
+    min-height: 25px;
+    margin-bottom: 1em;
+    padding: 5px;
+    font-size: 14px;
+}
+
+button {
+    margin-bottom: 1em;
 }
