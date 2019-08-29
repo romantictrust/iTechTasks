@@ -7,15 +7,15 @@ export default class ArrayProcessingTool {
   }
 
   getNumbersArray(val = this.val) {
-    if (typeof val == "string")
-    return val.split(" ").map(Number);
+    if (typeof val == "string") return val.split(" ").map(Number);
     else return val;
   }
 
   verify(val = this.val) {
     if (!this.numbersRegExp.test(val)) {
-      alert("Invalid numbers");
-      throw new Error("Invalid numbers")};
+      alert(`Invalid numbers: ${val}`);
+      throw new Error(`Invalid numbers: ${val}`);
+    }
   }
 
   subSumOn(arr = this.arr) {

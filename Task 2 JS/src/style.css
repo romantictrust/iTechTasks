@@ -47,7 +47,7 @@ html {
 }
 
 .interface .out {
-    max-height: 70px;
+    min-height: 70px;
     background: #f3f3f3;
 }
 
@@ -62,4 +62,10 @@ input, select {
 
 button {
     margin-bottom: 1em;
+}
+
+textarea {
+    min-width: 20em;
+    min-height: 150px;
+    margin-bottom: 20px;
 }

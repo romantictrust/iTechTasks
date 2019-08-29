@@ -1,0 +1,4 @@
+TO RUN THIS PROJECT PLEASE TYPE:
+'npm i'
+'npm run dev'
+server runs on the localhost:3000

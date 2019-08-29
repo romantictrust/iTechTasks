@@ -1,11 +1,18 @@
-export default class DateDisplayFOrmatter {
+export default class DateDisplayFormatter {
   dateEnRegExp = /((0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])[12]\d{3})/;
   dateUSARegExp = /((0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[12]\d{3})/;
   dateCanadaRegExp = /[12]\d{3}((0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01]))/;
+  options = {};
+  result = "";
 
-  //   constructor(val, options) {
-  //     this.verify(val, options.Inp);
-  //   }
+  constructor(val, options) {
+    if (val) {
+      this.options = options;
+      this.verify(val, options.inp);
+      const date = this.getDateObject(val, options);
+      this.result = this.getOutputData(date, options);
+    }
+  }
 
   verify(val, option) {
     let Reg;
@@ -21,14 +28,14 @@ export default class DateDisplayFOrmatter {
         break;
     }
     if (!Reg.test(val)) {
-      alert("Invalid date");
-      throw new Error("Invalid date");
+      alert(`Invalid date: ${val}`);
+      throw new Error(`Invalid date: ${val}`);
     }
   }
 
   getDateObject(val, options) {
     let date = { day: 0, month: 0, year: 0 };
-    switch (options.Inp) {
+    switch (options.inp) {
       case "EN":
         date.day = val.slice(0, 2);
         date.month = val.slice(2, 4);
@@ -49,25 +56,12 @@ export default class DateDisplayFOrmatter {
   }
 
   getOutputData(date, options) {
-    let str = this.getFormattedDate(
-      date,
-      options.Out,
-      options.Delimiters,
-      options.Format
-    );
-    return str;
-  }
-
-  getFormattedDate(date, out, delimiter, format) {
     let str;
     let monthsList = this.getMonth();
-    let month = date.month;
-    let year = new Date().getFullYear();
-    let yearsHadPassed = year - date.year;
+    let { month } = date;
+    let { out, delimiter, format } = options;
     if (format == "FromNow") {
-      return yearsHadPassed > 0
-        ? `It was ${yearsHadPassed} years ago.`
-        : `It will be in ${-yearsHadPassed} years.`;
+      return this.fromNow(date);
     } else if (format == "Full") {
       month = monthsList[Number(date.month)];
     }
@@ -83,6 +77,14 @@ export default class DateDisplayFOrmatter {
         break;
     }
     return str;
+  }
+
+  fromNow(date) {
+    let year = new Date().getFullYear();
+    let yearsHadPassed = year - date.year;
+    return yearsHadPassed > 0
+      ? `It was ${yearsHadPassed} years ago.`
+      : `It will be in ${-yearsHadPassed} years.`;
   }
 
   getMonth() {
