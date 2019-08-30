@@ -1,9 +1,11 @@
 export default class ArrayProcessingTool {
   numbersRegExp = new RegExp("^[0-9-+]+");
 
-  constructor(val = "0") {
-    this.verify(val);
-    this.arr = this.getNumbersArray(val);
+  constructor(val) {
+    if (val) {
+      this.verify(val);
+      this.arr = this.getNumbersArray(val);
+    }
   }
 
   getNumbersArray(val = this.val) {
@@ -19,17 +21,21 @@ export default class ArrayProcessingTool {
   }
 
   subSumOn(arr = this.arr) {
+    let mutant = [...arr];
     let cur = 0;
     let max = 0;
     // удаляем первые неположительные элементы массива
-    while (arr[0] <= 0) arr.splice(0, 1);
-    for (let i = 0; i < arr.length; i++) {
+    while (mutant[0] <= 0) mutant.splice(0, 1);
+    for (let i = 0; i < mutant.length; i++) {
       // проверяем чтобы отрицательный элемент мог дать большую сумму
-      if (arr[i] < 0 && (arr[i] + arr[i + 1] <= 0 || arr[i] + cur <= 0)) {
+      if (
+        mutant[i] < 0 &&
+        (mutant[i] + mutant[i + 1] <= 0 || mutant[i] + cur <= 0)
+      ) {
         cur = 0;
         continue;
       }
-      cur += arr[i];
+      cur += mutant[i];
       // получаем большую сумму из массива
       if (cur > max) max = cur;
     }
@@ -67,19 +73,16 @@ export default class ArrayProcessingTool {
   }
 
   averageElement(arr = this.arr) {
+    const middle = Math.ceil(this.arr.length / 2);
     // Сортировка по возрастанию
     const sortedArr = arr.sort((a, b) => {
       return a - b;
     });
     // Проверка на чётность / нечётность
     if (!(sortedArr.length % 2)) {
-      return (
-        (sortedArr[sortedArr.length / 2 - 1] +
-          sortedArr[sortedArr.length / 2]) /
-        2
-      );
+      return (sortedArr[middle - 1] + sortedArr[middle]) / 2;
     } else {
-      return sortedArr[sortedArr.length / 2];
+      return sortedArr[middle];
     }
   }
 

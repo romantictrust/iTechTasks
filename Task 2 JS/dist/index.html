@@ -89,7 +89,7 @@
           <div class="out"><span></span></div>
         </div>
       </div>
-      <div class="T2_TF">
+      <div class="T3_TF">
         <h2>Text Formatter</h2>
         <div class="task">
           <p>
@@ -115,7 +115,7 @@
           <div class="out"><span></span></div>
         </div>
       </div>
-      <div class="T3_SC">
+      <div class="T4_SC">
         <h2>String Calculator</h2>
         <div class="task">
           <p>
@@ -133,31 +133,86 @@
           <div class="out"><span></span></div>
         </div>
       </div>
-      <div class="T4_AS">
-          <h2>Array Sorter</h2>
-          <div class="task">
-            <p>
-              Разработать объект сортировщик, позволяющий производить сортировки
-              целочисленных массивов не менее чем 4 способами.
-            </p>
+      <div class="T5_AS">
+        <h2>Array Sorter</h2>
+        <div class="task">
+          <p>
+            Разработать объект сортировщик, позволяющий производить сортировки
+            целочисленных массивов не менее чем 4 способами.
+          </p>
+        </div>
+        <div class="interface">
+          <div class="in">
+            <input type="text" />
+            <select name="sortOption">
+              <option value="increase" selected>increase</option>
+              <option value="decrease">decrease</option>
+            </select>
+            <select name="sortType">
+              <option value="bubble" selected>bubble</option>
+              <option value="quick">quick</option>
+              <option value="shell">shell</option>
+              <option value="insertion">insertion</option>
+            </select>
+            <button>ok</button>
           </div>
-          <div class="interface">
-            <div class="in">
-              <input type="text" />
-              <select name="sortOption">
-                  <option value="increase" selected>increase</option>
-                  <option value="decrease">decrease</option>
-                </select>
-              <select name="sortType">
-                  <option value="bubble" selected>bubble</option>
-                  <option value="quick">quick</option>
-                  <option value="shell">shell</option>
-                  <option value="simpleSelection">simpleSelection</option>
-                </select>
-              <button>ok</button>
-            </div>
-            <div class="out"><span></span></div>
+          <div class="out"><span></span></div>
+        </div>
+      </div>
+      <div class="T6_BC">
+        <h2>Binary Converter</h2>
+        <div class="task">
+          <p>
+            Создать объект позволяющий производить конвертацию чисел из двоичной
+            системы исчисления в десятеричную и обратно. Числа представлены в
+            виде векторов (массивов чисел, где индекс является разрядом).
+            Дополнительно: создать функции для перевода из любой системы в
+            любую.
+          </p>
+        </div>
+        <div class="interface">
+          <div class="in">
+            <input type="text" />
+            <select name="systemFrom">
+              <option value="2" selected>Binary</option>
+              <option value="8">Octal</option>
+              <option value="10">Decimal</option>
+              <option value="16">Hexadecimal</option>
+            </select>
+            <select name="systemTo">
+              <option value="2" selected>Binary</option>
+              <option value="8">Octal</option>
+              <option value="10">Decimal</option>
+              <option value="16">Hexadecimal</option>
+            </select>
+            <button>ok</button>
           </div>
+          <div class="out"><span></span></div>
+        </div>
+      </div>
+      <div class="T7_CC">
+        <h2>Caching calculator</h2>
+        <div class="task">
+          <p>
+            Написать функционал позволяющий производить операции над двумя
+            числами и кэширование результата выполнения операции так, чтобы при
+            повторном вызове функционала с теми же параметрами взялось
+            закэшированное значение и не производилось перевычисление
+            результата. Функционал обернуть в объект и сделать демонстрационную
+            страницу для тестирования функционала. Дополнительно: создать
+            функционал регистрации кэшируемых функций, который позволит
+            указывать кэшируемые функции и настройки кэша. Продемонстрировать
+            подключение кэширования нескольких функций и использование
+            кэшируемых результатов этих функций.
+          </p>
+        </div>
+        <div class="interface">
+          <div class="in">
+            <input type="text" />
+            <button>ok</button>
+          </div>
+          <div class="out"><span></span></div>
+        </div>
       </div>
     </div>
   </body>

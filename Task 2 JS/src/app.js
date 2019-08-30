@@ -4,6 +4,8 @@ import DDF from "./modules/T2_DDF.js";
 import TF from "./modules/T3_TF.js";
 import SC from "./modules/T4_SC.js";
 import AS from "./modules/T5_AS.js";
+import BC from "./modules/T6_BC.js";
+import CC from "./modules/T7_CC.js"
 
 let apt1 = new APT([-1, 2, 3, -9]);
 let ddf1 = new DDF("31102011", {
@@ -13,6 +15,13 @@ let ddf1 = new DDF("31102011", {
   delimiter: "-"
 });
 let sc1 = new SC("(2)**3+12");
+let as1 = new AS("1 2 3 4 5 1 2 3 4 5 5 4 3 2 1", {
+  sortOption: "increase",
+  sortType: "bubble"
+});
+let bc1 = new BC("112", { systemFrom: "10", systemTo: "16" });
+let cc = new CC();
+
 
 // APT
 // applyOutput(0, 'O(n)', apt1.subSumOn());
@@ -25,10 +34,10 @@ let sc1 = new SC("(2)**3+12");
 //DDF
 // applyOutput(
 //   1,
-//   `DDFobject: ${ddf1.options.inp}
-//   ${ddf1.options.out}
-//   ${ddf1.options.format}
-//   ${ddf1.options.delimiter}`,
+//   `DDFobject {${ddf1.options.inp},
+//   ${ddf1.options.out},
+//   ${ddf1.options.format},
+//   ${ddf1.options.delimiter}}/`,
 //   ddf1.result
 // );
 
@@ -36,6 +45,14 @@ let sc1 = new SC("(2)**3+12");
 // applyOutput(3, "Calculation result", sc1.getResult(sc1.val));
 
 //AS
+// applyOutput(
+//   4,
+//   `ASobject {${as1.options.sortOption}, ${as1.options.sortType}}`,
+//   as1.result
+// );
+
+//BC
+// applyOutput(5, `BSobject {${bc1.options.systemFrom}, ${bc1.options.systemTo}}`, bc1.result);
 
 const inp = document.querySelectorAll("input");
 const btn = document.querySelectorAll("button");
@@ -48,6 +65,8 @@ btn[1].addEventListener("click", inputWorkerDDF);
 btn[2].addEventListener("click", inputWorkerTF);
 btn[3].addEventListener("click", inputWorkerSC);
 btn[4].addEventListener("click", inputWorkerAS);
+btn[5].addEventListener("click", inputWorkerBC);
+btn[6].addEventListener("click", inputWorkerCC);
 
 function inputWorkerAPT() {
   cleanUp(0);
@@ -95,7 +114,7 @@ function inputWorkerSC() {
   applyOutput(3, "Result is", result);
 }
 
-function inputWorkerAS(){
+function inputWorkerAS() {
   cleanUp(4);
   const str = getInputData(inp, 6);
   const options = getSelectOptions([4, 5]);
@@ -105,6 +124,26 @@ function inputWorkerAS(){
   const result = as.getSortedArr(arr, options);
   const description = "Sorted sring";
   applyOutput(4, description, result);
+}
+
+function inputWorkerBC() {
+  cleanUp(5);
+  const str = getInputData(inp, 7);
+  const options = getSelectOptions([6, 7]);
+  let bc = new BC();
+  bc.verify(str, options);
+  const result = bc.getSystem(str, options);
+  const description = "Convertered number";
+  applyOutput(5, description, result);
+}
+
+function inputWorkerCC() {
+  cleanUp(6);
+  const str = getInputData(inp, 8);
+  cc.verify(str)
+  const result = cc.getMemoized(str);
+  const description = "Calculated";
+  applyOutput(6, description, result);
 }
 
 function getInputData(inpType = inp, inpNum = 0) {
@@ -135,6 +174,7 @@ function applyOutput(outNum, description = "result", ...outArgs) {
   });
 }
 
+// Выделяем массив чисел из строки
 function getNumbersArray(str) {
   return str.split(" ").map(Number);
 }

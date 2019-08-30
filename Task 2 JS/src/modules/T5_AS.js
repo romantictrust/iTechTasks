@@ -1,11 +1,26 @@
 export default class ArraySorter {
   numbersRegExp = new RegExp("^[0-9-+]+");
+  options = {};
+  result = "";
+
+  constructor(val, options){
+    if (val) {
+      this.options = options;
+      this.verify(val, options.inp);
+      let arr = this.getNumbersArray(val);
+      this.result = this.getSortedArr(arr, options);
+    }
+  }
 
   verify(val = this.val) {
     if (!this.numbersRegExp.test(val)) {
       alert(`Invalid numbers: ${val}`);
       throw new Error(`Invalid numbers: ${val}`);
     }
+  }
+
+  getNumbersArray(str) {
+    return str.split(" ").map(Number);
   }
 
   getSortedArr(arr, options) {
@@ -28,10 +43,10 @@ export default class ArraySorter {
         resultingArr = this.quickSort(arr, 0, arr.length - 1);
         break;
       case "shell":
-        resultingArr = this.shellSort(arr, sortOption);
+        resultingArr = this.shellSort(arr);
         break;
-      case "simpleSelection":
-        resultingArr = this.simpleSelectionSort(arr, sortOption);
+      case "insertion":
+        resultingArr = this.insertionSort(arr);
         break;
     }
     if (sortOption == 1) return resultingArr;
@@ -70,6 +85,46 @@ export default class ArraySorter {
     /* recursion */
     if (left < j) this.quickSort(arr, left, j);
     if (i < right) this.quickSort(arr, i, right);
+    return arr;
+  }
+
+  shellSort(arr) {
+    let increment = arr.length / 2;
+    while (increment > 0) {
+      for (let i = increment; i < arr.length; i++) {
+        let j = i;
+        let temp = arr[i];
+        while (j >= increment && arr[j - increment] > temp) {
+          arr[j] = arr[j - increment];
+          j = j - increment;
+        }
+        arr[j] = temp;
+      }
+      increment == 2
+        ? (increment = 1)
+        : (increment = parseInt((increment * 5) / 11));
+    }
+    return arr;
+  }
+
+  insertionSort(arr) {
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < arr[0]) {
+        // Передвигаем элемент на первую позицию
+        arr.unshift(arr.splice(i, 1)[0]);
+      } else if (arr[i] > arr[i - 1]) {
+        // Проверяем позицию элемента
+        continue;
+      } else {
+        // Смотрим куда элемент нужно переместить
+        for (let j = 1; j < i; j++) {
+          if (arr[i] >= arr[j - 1] && arr[i] <= arr[j]) {
+            // Перемещаем элемент
+            arr.splice(j, 0, arr.splice(i, 1)[0]);
+          }
+        }
+      }
+    }
     return arr;
   }
 }
