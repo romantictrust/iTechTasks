@@ -23,49 +23,51 @@ html {
 }
 
 .page h2 {
-    display: grid;
-    justify-content: center;
+  display: grid;
+  justify-content: center;
 }
 
 .task {
-    margin: 0 auto;
-    width: 80%;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .interface {
-    margin-top: 4%;
-    display: grid;
-    grid-template-columns: 470px auto;
-    margin-bottom: 1em;
+  margin-top: 4%;
+  display: grid;
+  grid-template-columns: 470px auto;
+  margin-bottom: 1em;
 }
 
 .interface .in {
-    width: 80%;
-    display: grid;
-    align-content: center;
-    justify-content: center;
+  width: 80%;
+  display: grid;
+  align-content: center;
+  justify-content: center;
 }
 
 .interface .out {
-    min-height: 70px;
-    background: #f3f3f3;
+  min-height: 70px;
+  background: #f3f3f3;
 }
 
-input, select {
-    border: 1px solid black;
-    border-radius: 4px;
-    min-height: 25px;
-    margin-bottom: 1em;
-    padding: 5px;
-    font-size: 14px;
+input,
+select {
+  border: 1px solid black;
+  border-radius: 4px;
+  min-height: 25px;
+  margin-bottom: 1em;
+  padding: 5px;
+  font-size: 14px;
 }
 
 button {
-    margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 textarea {
-    min-width: 20em;
-    min-height: 150px;
-    margin-bottom: 20px;
+  min-width: 20em;
+  min-height: 150px;
+  margin-bottom: 20px;
 }
+
