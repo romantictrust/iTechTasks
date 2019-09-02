@@ -5,8 +5,9 @@ import TF from "./modules/T3_TF.js";
 import SC from "./modules/T4_SC.js";
 import AS from "./modules/T5_AS.js";
 import BC from "./modules/T6_BC.js";
-import CC from "./modules/T7_CC.js"
+import CC from "./modules/T7_CC.js";
 
+// Объекты классов с примерами входных данных
 let apt1 = new APT([-1, 2, 3, -9]);
 let ddf1 = new DDF("31102011", {
   inp: "EN",
@@ -21,7 +22,6 @@ let as1 = new AS("1 2 3 4 5 1 2 3 4 5 5 4 3 2 1", {
 });
 let bc1 = new BC("112", { systemFrom: "10", systemTo: "16" });
 let cc = new CC();
-
 
 // APT
 // applyOutput(0, 'O(n)', apt1.subSumOn());
@@ -60,6 +60,7 @@ const out = document.querySelectorAll("span");
 const sel = document.querySelectorAll("select");
 const txt = document.querySelectorAll("textarea");
 
+// Добавляем листенеры на каждую кнопку
 btn[0].addEventListener("click", inputWorkerAPT);
 btn[1].addEventListener("click", inputWorkerDDF);
 btn[2].addEventListener("click", inputWorkerTF);
@@ -68,14 +69,30 @@ btn[4].addEventListener("click", inputWorkerAS);
 btn[5].addEventListener("click", inputWorkerBC);
 btn[6].addEventListener("click", inputWorkerCC);
 
+// Листенереры
 function inputWorkerAPT() {
   cleanUp(0);
   const str = getInputData(inp, 0);
   const apt = new APT();
   apt.verify(str);
   const arr = getNumbersArray(str);
-  const result = apt.risingSubsting(arr);
-  const description = "Rising substring";
+  let result = apt.subSumOn(arr);
+  let description = "O(n):";
+  applyOutput(0, description, result);
+  result = apt.subSumOnSquared(arr);
+  description = "O(n^2):";
+  applyOutput(0, description, result);
+  result = apt.minElement(arr);
+  description = "Min:";
+  applyOutput(0, description, result);
+  result = apt.maxElement(arr);
+  description = "Max:";
+  applyOutput(0, description, result);
+  result = apt.averageElement(arr);
+  description = "Average:";
+  applyOutput(0, description, result);
+  result = apt.risingSubsting(arr);
+  description = "Rising substring:";
   applyOutput(0, description, result);
 }
 
@@ -87,7 +104,7 @@ function inputWorkerDDF() {
   ddf.verify(str, options.inp);
   const date = ddf.getDateObject(str, options);
   const result = ddf.getOutputData(date, options);
-  const description = "Your date is";
+  const description = "Your date is:";
   applyOutput(1, description, result);
 }
 
@@ -111,7 +128,7 @@ function inputWorkerSC() {
   const sc = new SC();
   sc.verify(str);
   const result = sc.getResult(str);
-  applyOutput(3, "Result is", result);
+  applyOutput(3, "Result is:", result);
 }
 
 function inputWorkerAS() {
@@ -122,7 +139,7 @@ function inputWorkerAS() {
   as.verify(str);
   const arr = getNumbersArray(str);
   const result = as.getSortedArr(arr, options);
-  const description = "Sorted sring";
+  const description = "Sorted sring:";
   applyOutput(4, description, result);
 }
 
@@ -133,23 +150,25 @@ function inputWorkerBC() {
   let bc = new BC();
   bc.verify(str, options);
   const result = bc.getSystem(str, options);
-  const description = "Convertered number";
+  const description = "Convertered number:";
   applyOutput(5, description, result);
 }
 
 function inputWorkerCC() {
   cleanUp(6);
   const str = getInputData(inp, 8);
-  cc.verify(str)
+  cc.verify(str);
   const result = cc.getMemoized(str);
-  const description = "Calculated";
+  const description = "Calculated:";
   applyOutput(6, description, result);
 }
 
+// Возвращает строку из input
 function getInputData(inpType = inp, inpNum = 0) {
   if (inpType[inpNum].value) return inpType[inpNum].value;
 }
 
+// Возвращает массив опций из select
 function getSelectOptions(optionsArr) {
   const options = {};
   optionsArr.map(el => {
@@ -169,7 +188,7 @@ function applyOutput(outNum, description = "result", ...outArgs) {
   const out = document.querySelectorAll("span");
   outArgs.map(element => {
     out[outNum].appendChild(
-      document.createTextNode(`${description}: ${element}  `)
+      document.createTextNode(`${description} ${element}  `)
     );
   });
 }

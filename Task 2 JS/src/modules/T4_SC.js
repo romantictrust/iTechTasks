@@ -16,6 +16,7 @@ export default class StringCalculator {
     }
   }
 
+  // Eval() ¯\_(ツ)_/¯
   getResult(val) {
     let result = eval(val);
     return result;

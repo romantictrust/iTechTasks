@@ -3,7 +3,7 @@ export default class ArraySorter {
   options = {};
   result = "";
 
-  constructor(val, options){
+  constructor(val, options) {
     if (val) {
       this.options = options;
       this.verify(val, options.inp);
@@ -19,10 +19,12 @@ export default class ArraySorter {
     }
   }
 
+  // Возвращает массив чисел из строки
   getNumbersArray(str) {
     return str.split(" ").map(Number);
   }
 
+  // Выбор сортировки и режима сортировки
   getSortedArr(arr, options) {
     let sortOption = 0;
     let resultingArr = [];
@@ -70,7 +72,7 @@ export default class ArraySorter {
     let tmp;
     let pivotidx = (left + right) / 2;
     const pivot = parseInt(arr[pivotidx.toFixed()]);
-    /* partition */
+    // partition
     while (i <= j) {
       while (parseInt(arr[i]) < pivot) i++;
       while (parseInt(arr[j]) > pivot) j--;
@@ -82,7 +84,7 @@ export default class ArraySorter {
         j--;
       }
     }
-    /* recursion */
+    // recursion
     if (left < j) this.quickSort(arr, left, j);
     if (i < right) this.quickSort(arr, i, right);
     return arr;

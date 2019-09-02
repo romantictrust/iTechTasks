@@ -45,7 +45,6 @@ export default class ArrayProcessingTool {
   subSumOnSquared(arr = this.arr) {
     let cur = 0;
     let max = 0;
-    // Баблсорт в мире проверки подмассива
     for (var i = 0; i < arr.length; i++) {
       for (var j = i; j < arr.length; j++) {
         cur += arr[j];
@@ -72,8 +71,9 @@ export default class ArrayProcessingTool {
     return max;
   }
 
+  // Медианное значение массива
   averageElement(arr = this.arr) {
-    const middle = Math.ceil(this.arr.length / 2);
+    const middle = Math.ceil(arr.length / 2);
     // Сортировка по возрастанию
     const sortedArr = arr.sort((a, b) => {
       return a - b;
@@ -86,6 +86,7 @@ export default class ArrayProcessingTool {
     }
   }
 
+  // Возрастающая последовательность
   risingSubsting(arr = this.arr) {
     let cur = [];
     let max = [];

@@ -1,9 +1,8 @@
-import StringCalculator from "./T4_SC.js";
-
 export default class CachingCalculator {
   numbersRegExp = /[^0-9\/\(\).*+-]/;
   cache = {};
 
+  // Проверяем на наличие функции в кэше
   getMemoized(str) {
     console.log(this.cache);
     if (str in this.cache) {
@@ -24,6 +23,7 @@ export default class CachingCalculator {
     }
   }
 
+  // Считаем
   getResult(val) {
     let result = eval(val);
     return result;

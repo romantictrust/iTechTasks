@@ -33,6 +33,7 @@ export default class DateDisplayFormatter {
     }
   }
 
+  // Возвращает объект с day month year
   getDateObject(val, options) {
     let date = { day: 0, month: 0, year: 0 };
     switch (options.inp) {
@@ -55,6 +56,7 @@ export default class DateDisplayFormatter {
     return date;
   }
 
+  // Возвращает результат форматированной даты
   getOutputData(date, options) {
     let str;
     let monthsList = this.getMonth();
@@ -79,6 +81,7 @@ export default class DateDisplayFormatter {
     return str;
   }
 
+  // Возвращает сколько лет прошло
   fromNow(date) {
     let year = new Date().getFullYear();
     let yearsHadPassed = year - date.year;

@@ -14,6 +14,7 @@ export default class BinaryConverter {
     }
   }
 
+  // Проверяем входные данные на возможность конвертации
   verify(val = this.val, options = this.options) {
     switch (options["systemFrom"]) {
       case "2":
@@ -34,6 +35,7 @@ export default class BinaryConverter {
     }
   }
 
+  // Возвращает конвертированные данные
   getSystem(str, options) {
     const num = parseInt(str, options.systemFrom);
     return num.toString(options.systemTo);

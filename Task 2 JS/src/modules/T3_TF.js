@@ -8,11 +8,13 @@ export default class TextFormatter {
     }
   }
 
+  // Склеивает массив в строку и возвращает результат
   getFormattedText(str, options) {
     let result = this.chooseType(str, options);
     return result.join("");
   }
 
+  // Возвращает результат форматирования текста
   chooseType(str, options) {
     let { maxStrLen, rowsNumber, carryover } = options;
     let strCopy = [...str];
@@ -28,25 +30,40 @@ export default class TextFormatter {
     return strCopy;
   }
 
+  // Форматирование по количеству строк
   formatRowsNumber(str, rowsNumber) {
     rowsNumber = Number(rowsNumber);
-    let shortedStrLen = Math.ceil(str.length / rowsNumber);
+    let shortedStrLen = Math.ceil(str.length / rowsNumber + 1);
+    console.log(shortedStrLen, str.length);
     for (let i = shortedStrLen; i < str.length; i += shortedStrLen) {
       str.splice(i, 0, "\n");
     }
     return str;
   }
 
+  // Форматирование по длинне строк
   formatStrLen(str, maxStrLen) {
+    maxStrLen = Number(maxStrLen);
     for (let i = maxStrLen; i < str.length; i += maxStrLen + 1) {
       str.splice(i, 0, "\n");
     }
     return str;
   }
 
+  // Форматирование по разделителю/слову/подстроке
   formatCarryover(str, carryover) {
+    let carryLen = carryover.length;
     for (let i = 0; i < str.length; i++) {
-    if (str[i] == carryover) {str.splice(i+1, 0, "\n"); i++;}
+      let currPhrase = "";
+      if (str[i] == carryover[0]) {
+        for (let j = 0; j < carryLen; j++) {
+          currPhrase += str[i + j];
+        }
+        if (currPhrase == carryover) {
+          str.splice(i + carryLen, 0, "\n");
+          i += carryLen;
+        }
+      }
     }
     return str;
   }
