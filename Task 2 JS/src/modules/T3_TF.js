@@ -46,7 +46,7 @@ export default class TextFormatter {
 
   formatCarryover(str, carryover) {
     for (let i = 0; i < str.length; i++) {
-      if (str[i] == carryover) str.splice(i, 0, "\n"); i++;
+    if (str[i] == carryover) {str.splice(i+1, 0, "\n"); i++;}
     }
     return str;
   }
