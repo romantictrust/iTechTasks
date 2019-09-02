@@ -9,3 +9,7 @@ Layout:
 JS:
 ▪️ Array Processing Tool
 ▪️ Date Display Formatter
+▪️ String Calculator    
+▪️ Array Sorter 
+▪️ Binary Converter
+▪️ Caching calculator
