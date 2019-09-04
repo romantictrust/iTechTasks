@@ -11,7 +11,7 @@ export const body = {
   backgroundRepeat: "no-repeat",
   display: "flex",
   justifyContent: "center",
-  fontFamily: "Lucida Sans, sans-serif"
+  fontFamily: "Lexend Deca"
 };
 
 export const page = {
@@ -26,7 +26,12 @@ export const page = {
 
 export const upper = {
   background: "#6dafe8",
-  borderRadius: "5px 5px 0 0"
+  borderRadius: "5px 5px 0 0",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "#fff",
+  fontSize: "23px"
 };
 
 export const lower = {
@@ -39,7 +44,9 @@ export const head = {
   borderBottom: "2px solid #b6bbbf",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center"
+  alignItems: "center",
+  flexWrap: 'wrap',
+  minHeight: '100%'
 };
 
 export const input = {
@@ -72,7 +79,16 @@ export const main = {
 export const block = {
   marginTop: "3em",
   background: "#f0f0f0",
-  width: '14em',
-  height: '17em',
-  borderRadius: '3px'
+  width: '12em',
+  height: '15em',
+  borderRadius: '3px',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: 'column',
+  fontSize: '18px'
 };
+
+export const cloudBlue = {
+  width: '9em'
+}
