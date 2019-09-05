@@ -17,6 +17,7 @@ export const body = {
 export const page = {
   background: "#ffff",
   width: "65em",
+  height: "100%",
   margin: "3em auto ",
   borderRadius: "5px",
   boxSizing: "border-box",
@@ -77,8 +78,8 @@ export const main = {
 };
 
 export const block = {
-  marginTop: "3em",
-  background: "#f0f0f0",
+  margin: "2em 0 2em 0",
+  border: "2px solid #f0f0f0",
   width: '12em',
   height: '15em',
   borderRadius: '3px',
@@ -90,5 +91,5 @@ export const block = {
 };
 
 export const cloudBlue = {
-  width: '9em'
+  width: '6em'
 }
