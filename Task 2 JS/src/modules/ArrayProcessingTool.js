@@ -45,8 +45,8 @@ export default class ArrayProcessingTool {
   subSumOnSquared(arr = this.arr) {
     let cur = 0;
     let max = 0;
-    for (var i = 0; i < arr.length; i++) {
-      for (var j = i; j < arr.length; j++) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i; j < arr.length; j++) {
         cur += arr[j];
         // Проверяем максимальную сумму в данный проход цикла.
         if (cur < 0) continue;
@@ -73,9 +73,10 @@ export default class ArrayProcessingTool {
 
   // Медианное значение массива
   averageElement(arr = this.arr) {
+    let mutant = [...arr];
     const middle = Math.ceil(arr.length / 2);
     // Сортировка по возрастанию
-    const sortedArr = arr.sort((a, b) => {
+    const sortedArr = mutant.sort((a, b) => {
       return a - b;
     });
     // Проверка на чётность / нечётность
@@ -93,7 +94,9 @@ export default class ArrayProcessingTool {
     for (let i = 0; i < arr.length; i++) {
       if (cur.length == 0) {
         cur.push(arr[i]);
-      } else if (cur[cur.length - 1] - arr[i] < 0) {
+      } else if (arr[i] > 0 && cur[cur.length - 1] - arr[i] < 0) {
+        cur.push(arr[i]);
+      } else if (cur[cur.length - 1] < 0 && cur[cur.length - 1] + arr[i] < 0) {
         cur.push(arr[i]);
       } else if (max.length <= cur.length) {
         max = cur;

@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import * as Styles from "../styles/Styles";
-import cloudWhite from "../styles/icons/cloudWhite.png";
 
-class UpperTemplate extends Component {
+class UpperTemplate extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { dataSource: this.props.dataSource, cityData: this.props.cityData};
@@ -18,7 +17,7 @@ class UpperTemplate extends Component {
     return (
       <div style={Styles.upper}>
         <div>
-          <img src={cloudWhite} alt="White cloud"></img>
+          <img src={`http://openweathermap.org/img/wn/${this.state.dataSource.weather[0].icon}@2x.png`} alt="White cloud"></img>
         </div>
         <div>
           {this.state.cityData.name},{this.state.cityData.country}

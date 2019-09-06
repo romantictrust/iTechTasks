@@ -1,11 +1,11 @@
 import "./style.css";
-import APT from "./modules/T1_APT.js";
-import DDF from "./modules/T2_DDF.js";
-import TF from "./modules/T3_TF.js";
-import SC from "./modules/T4_SC.js";
-import AS from "./modules/T5_AS.js";
-import BC from "./modules/T6_BC.js";
-import CC from "./modules/T7_CC.js";
+import APT from "./modules/ArrayProcessingTool.js";
+import DDF from "./modules/DateDisplayFormatter.js";
+import TF from "./modules/TextFormatter.js";
+import SC from "./modules/StringCalculator.js";
+import AS from "./modules/ArraySorter.js";
+import BC from "./modules/BinaryConverter.js";
+import CC from "./modules/CachingCalculator.js";
 
 // Объекты классов с примерами входных данных
 let apt1 = new APT([-1, 2, 3, -9]);

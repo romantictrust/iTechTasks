@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import BlockTemplate from "./components/BlockTemplate";
 import UpperTemplate from "./components/UpperTemplate";
-import GLOBALS from "./Globals";
+import constants from "./constants";
 import * as Styles from "../src/styles/Styles";
 import weatherHelper from "./functions/weatherHelper";
 
@@ -15,28 +15,24 @@ class App extends Component {
       city: "",
       select: "1"
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.selectChange = this.selectChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ city: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     this.getData(this.state.city);
-    this.setState({ dataSource: this.state.dataSource });
     event.preventDefault();
   }
 
-  selectChange(event) {
+  selectChange = (event) => {
     this.setState({ select: event.target.value });
   }
 
   getData = (city = "Minsk") => {
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${GLOBALS.WEATHER_API_KEY}`
+      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${constants.WEATHER_API_KEY}`
     )
       .then(response => response.json())
       .then(responseJson => {

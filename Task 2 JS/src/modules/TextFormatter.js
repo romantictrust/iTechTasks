@@ -18,11 +18,11 @@ export default class TextFormatter {
   chooseType(str, options) {
     let { maxStrLen, rowsNumber, carryover } = options;
     let strCopy = [...str];
-    if (rowsNumber) {
-      strCopy = this.formatRowsNumber(strCopy, rowsNumber);
-    }
     if (maxStrLen) {
       strCopy = this.formatStrLen(strCopy, maxStrLen);
+    }
+    if (rowsNumber) {
+      strCopy = this.formatRowsNumber(strCopy, rowsNumber, maxStrLen);
     }
     if (carryover) {
       strCopy = this.formatCarryover(strCopy, carryover);
@@ -31,13 +31,15 @@ export default class TextFormatter {
   }
 
   // Форматирование по количеству строк
-  formatRowsNumber(str, rowsNumber) {
+  formatRowsNumber(str, rowsNumber, maxStrLen) {
     rowsNumber = Number(rowsNumber);
-    let shortedStrLen = Math.ceil(str.length / rowsNumber + 1);
-    console.log(shortedStrLen, str.length);
+    let shortedStrLen = 65;
     for (let i = shortedStrLen; i < str.length; i += shortedStrLen) {
       str.splice(i, 0, "\n");
     }
+    if (maxStrLen)
+    str.splice(maxStrLen*rowsNumber)
+    else str.splice(shortedStrLen*rowsNumber)
     return str;
   }
 
