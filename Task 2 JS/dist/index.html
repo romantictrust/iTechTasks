@@ -29,8 +29,8 @@
             значения в массиве. <br /><br />
             c. Selection Task <br />
             Написать функционал поиска возрастающей последовательности
-            максимальной длины в исходном массиве. Например: 1, 3, 7, 4, 6, 7,
-            8, 1, 2, 5, 7, 8, 90, 1 Все функции обернуть в один объект для
+            максимальной длины в исходном массиве. Например: 1 3 7 4 6 7
+            8 1 2 5 7 8 90 1 Все функции обернуть в один объект для
             обработки массивов.
           </p>
           <strong>Пожалуйста вводите числа через пробел</strong>
@@ -57,34 +57,15 @@
             2. “31102011” =>; “31 October 2011” <br />
             3. (“20130431”, “YYYYMMDD”) =>; 31 April 2013 <br />
             4. (“20130431”, “YYYYMMDD”, “MM-DD-YYYY”) =>; 04-31-2013 <br />
-            5. (“2013-04-31”, “YYYY-MM-DD”).fromNow() =>; 2 years ago <br />
+            5. (“2013-04-31”, “YYYY-MM-DD”).fromNow() =>; 2 years ago <br /><br />
+            <strong>Data examples: <br /> 20130431, YYYYMMDD, MM-DD-YYYY => 04-31-2013<br/>
+              20130431, YYYYMMDD, fromNow => 6 years ago</strong>
           </p>
         </div>
         <!-- Formats were taken from https://dev.1c-bitrix.ru/api_help/main/general/lang/format.php -->
         <div class="interface">
           <div class="in">
             <input type="text" />
-            <select name="inp">
-              <option value="EN" selected>DDMMYYYY</option>
-              <option value="USA">MMDDYYYY</option>
-              <option value="Canada">YYYYMMDD</option>
-            </select>
-            <select name="out">
-              <option value="EN" selected>DD-MM-YYYY</option>
-              <option value="USA">MM-DD-YYYY</option>
-              <option value="Canada">YYYY-MM-DD</option>
-            </select>
-            <select name="format">
-              <option value="Short" selected>16-03-2000</option>
-              <option value="Full">16-March-2000</option>
-              <option value="FromNow">2 years ago</option>
-            </select>
-            <select name="delimiter">
-              <option value="-" selected>-</option>
-              <option value=".">.</option>
-              <option value="/">/</option>
-              <option value=" ">" "</option>
-            </select>
             <button>ok</button>
           </div>
           <div class="out"><span></span></div>

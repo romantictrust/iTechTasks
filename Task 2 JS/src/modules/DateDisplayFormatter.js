@@ -1,36 +1,84 @@
 export default class DateDisplayFormatter {
-  dateEnRegExp = /((0[1-9]|[12]\d|3[01])(0[1-9]|1[0-2])[12]\d{3})/;
-  dateUSARegExp = /((0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[12]\d{3})/;
-  dateCanadaRegExp = /[12]\d{3}((0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01]))/;
+  DayReg = /((0[1-9]|[12]\d|3[01]))/;
+  MonthReg = /(0[1-9]|1[0-2])/;
+  YearReg = /([12]\d{3})/;
   options = {};
   result = "";
 
-  constructor(val, options) {
-    if (val) {
-      this.options = options;
-      this.verify(val, options.inp);
-      const date = this.getDateObject(val, options);
-      this.result = this.getOutputData(date, options);
+  constructor(str) {
+    if (str) {
+      let optionsArr = this.getOptionsFromString(str);
+      const result = this.getOutputData(optionsArr)
+      this.result = result;
     }
   }
 
-  verify(val, option) {
-    let Reg;
-    switch (option) {
-      case "EN":
-        Reg = this.dateEnRegExp;
-        break;
-      case "USA":
-        Reg = this.dateUSARegExp;
-        break;
-      case "Canada":
-        Reg = this.dateCanadaRegExp;
-        break;
+  prepareData(str, dateFrom = "DDMMYYYY") {
+    let date = { day: "", month: "", year: "" };
+    if (dateFrom.length != str.length) {
+      alert(`Your date doesn't match the format.`);
+      throw new Error(`Your date doesn't match the format.`);
     }
-    if (!Reg.test(val)) {
-      alert(`Invalid date: ${val}`);
-      throw new Error(`Invalid date: ${val}`);
+
+    for (let i = 0; i < str.length; i++) {
+      switch (dateFrom[i]) {
+        case "D":
+          date.day += str[i];
+          break;
+        case "M":
+          date.month += str[i];
+          break;
+        case "Y":
+          date.year += str[i];
+          break;
+      }
     }
+    return date;
+  }
+
+  verify(date) {
+    let { day, month, year } = date;
+    if (!this.DayReg.test(day)) {
+      alert(`Day should be more than 0 and less than 31, your day is ${day}`);
+      throw new Error(`Invalid day: ${day}`);
+    } else if (!this.MonthReg.test(month)) {
+      alert(
+        `Month should be more than 0 and less than 12, your month is ${month}`
+      );
+      throw new Error(`Invalid month: ${month}`);
+    } else if (!this.YearReg.test(year)) {
+      alert(
+        `Year should be more than 1000 and less than 3000, your year is ${year}`
+      );
+      throw new Error(`Invalid year: ${year}`);
+    }
+  }
+
+  processData(date, dateTo = "DD Month YYYY") {
+    let result = "";
+    if (dateTo == "DD Month YYYY") {
+      let monthsList = this.getMonth();
+      date.month = monthsList[Number(date.month)];
+    }
+    for (let i = 0; i < dateTo.length; i++) {
+      switch (dateTo[i]) {
+        case "D":
+          result += date.day;
+          i += date.day.length - 1;
+          break;
+        case "M":
+          result += date.month;
+          i += date.month.length - 1;
+          break;
+        case "Y":
+          result += date.year;
+          i += date.year.length - 1;
+          break;
+        default:
+          result += dateTo[i];
+      }
+    }
+    return result;
   }
 
   // Возвращает объект с day month year
@@ -57,28 +105,20 @@ export default class DateDisplayFormatter {
   }
 
   // Возвращает результат форматированной даты
-  getOutputData(date, options) {
-    let str;
-    let monthsList = this.getMonth();
-    let { month } = date;
-    let { out, delimiter, format } = options;
-    if (format == "FromNow") {
-      return this.fromNow(date);
-    } else if (format == "Full") {
-      month = monthsList[Number(date.month)];
+  getOutputData(options) {
+    if (options) {
+      let date = options[0];
+      const dateFrom = options[1];
+      const dateTo = options[2];
+      date = this.prepareData(date, dateFrom);
+      this.verify(date);
+      if (dateTo == "fromNow") {
+        return this.fromNow(date);
+      } else {
+        let result = this.processData(date, dateTo);
+        return result;
+      }
     }
-    switch (out) {
-      case "EN":
-        str = date.day + delimiter + month + delimiter + date.year;
-        break;
-      case "USA":
-        str = month + delimiter + date.day + delimiter + date.year;
-        break;
-      case "Canada":
-        str = date.year + delimiter + month + delimiter + date.day;
-        break;
-    }
-    return str;
   }
 
   // Возвращает сколько лет прошло
@@ -90,20 +130,25 @@ export default class DateDisplayFormatter {
       : `It will be in ${-yearsHadPassed} years.`;
   }
 
+  getOptionsFromString(str) {
+    const optionsArr = str.split(", ");
+    return optionsArr;
+  }
+
   getMonth() {
     return {
-      1: "January",
-      2: "February",
-      3: "March",
-      4: "April",
-      5: "May",
-      6: "June",
-      7: "July",
-      8: "August",
-      9: "September",
-      10: "October",
-      11: "November",
-      12: "December"
+      1: "January ",
+      2: "February ",
+      3: "March ",
+      4: "April ",
+      5: "May ",
+      6: "June ",
+      7: "July ",
+      8: "August ",
+      9: "September ",
+      10: "October ",
+      11: "November ",
+      12: "December "
     };
   }
 }

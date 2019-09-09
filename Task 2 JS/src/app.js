@@ -9,12 +9,7 @@ import CC from "./modules/CachingCalculator.js";
 
 // Объекты классов с примерами входных данных
 let apt1 = new APT([-1, 2, 3, -9]);
-let ddf1 = new DDF("31102011", {
-  inp: "EN",
-  out: "EN",
-  format: "Full",
-  delimiter: "-"
-});
+let ddf1 = new DDF(`20130431, YYYYMMDD, MM-DD-YYYY`);
 let sc1 = new SC("(2)**3+12");
 let as1 = new AS("1 2 3 4 5 1 2 3 4 5 5 4 3 2 1", {
   sortOption: "increase",
@@ -33,11 +28,6 @@ let cc = new CC();
 
 //DDF
 // applyOutput(
-//   1,
-//   `DDFobject {${ddf1.options.inp},
-//   ${ddf1.options.out},
-//   ${ddf1.options.format},
-//   ${ddf1.options.delimiter}}/`,
 //   ddf1.result
 // );
 
@@ -99,11 +89,9 @@ function inputWorkerAPT() {
 function inputWorkerDDF() {
   cleanUp(1);
   const str = getInputData(inp, 1);
-  const options = getSelectOptions([0, 1, 2, 3]);
+  const optionsArr = getOptionsFromString(str);
   const ddf = new DDF();
-  ddf.verify(str, options.inp);
-  const date = ddf.getDateObject(str, options);
-  const result = ddf.getOutputData(date, options);
+  const result = ddf.getOutputData(optionsArr)
   const description = "Your date is:";
   applyOutput(1, description, result);
 }
@@ -134,7 +122,7 @@ function inputWorkerSC() {
 function inputWorkerAS() {
   cleanUp(4);
   const str = getInputData(inp, 6);
-  const options = getSelectOptions([4, 5]);
+  const options = getSelectOptions([0, 1]);
   const as = new AS();
   as.verify(str);
   const arr = getNumbersArray(str);
@@ -146,7 +134,7 @@ function inputWorkerAS() {
 function inputWorkerBC() {
   cleanUp(5);
   const str = getInputData(inp, 7);
-  const options = getSelectOptions([6, 7]);
+  const options = getSelectOptions([2, 3]);
   let bc = new BC();
   bc.verify(str, options);
   const result = bc.getSystem(str, options);
@@ -175,6 +163,11 @@ function getSelectOptions(optionsArr) {
     options[sel[el].name] = sel[el].value;
   });
   return options;
+}
+
+function getOptionsFromString(str) {
+   const optionsArr = str.split(', ');
+   return optionsArr;
 }
 
 // Удаляем предыдущий output
