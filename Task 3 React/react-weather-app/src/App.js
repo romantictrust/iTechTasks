@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import BlockTemplate from "./components/BlockTemplate";
 import UpperTemplate from "./components/UpperTemplate";
 import constants from "./constants";
-import * as Styles from "../src/styles/Styles";
-import weatherHelper from "./functions/weatherHelper";
+import  "../src/styles/Styles.css";
 
 class App extends Component {
   constructor(props) {
@@ -59,6 +58,7 @@ class App extends Component {
         i--;
       }
     }
+    data.forEach((item)=> {item.main.temp = `+${Math.floor(item.main.temp - 273.15)}°`})
     return data;
   };
 
@@ -83,20 +83,19 @@ class App extends Component {
 
   componentDidMount() {
     this.getData();
-    weatherHelper();
   }
 
   render() {
     return (
-      <div style={Styles.body}>
-        <div style={Styles.page}>
-          <div style={Styles.upper}>{this.upperBlock()}</div>
-          <div style={Styles.lower}>
-            <div style={Styles.head}>
+      <div className='wrap'>
+        <div className='page'>
+          <div className='upper'>{this.upperBlock()}</div>
+          <div className='lower'>
+            <div className='head'>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
-                  style={Styles.input}
+                  className='input'
                   placeholder="City"
                   name="city"
                   value={this.state.city}
@@ -105,12 +104,12 @@ class App extends Component {
                 <input
                   type="submit"
                   value="Sumbit city"
-                  style={Styles.button}
+                  className='button'
                 />
               </form>
               <div>
                 <select
-                  style={Styles.select}
+                  className='select'
                   onChange={this.selectChange}
                   value={this.state.select}
                 >
@@ -120,14 +119,14 @@ class App extends Component {
                 </select>
               </div>
             </div>
-            <div style={Styles.main}>
+            <div className='main'>
               {this.blockList ? (
                 this.state.dataSource
                   .slice(0, this.state.select)
                   .map((item, key) => {
                     return (
                       <BlockTemplate
-                        key={key}
+                        key={item.dt}
                         cityData={this.state.cityData}
                         dataSource={item}
                       />

@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import * as Styles from "../styles/Styles";
 
 class BlockTemplate extends PureComponent {
   constructor(props) {
@@ -18,21 +17,23 @@ class BlockTemplate extends PureComponent {
 
   render() {
     return (
-      <div style={Styles.block}>
+      <div className="block">
         <div>
-        <img style={Styles.cloudBlue} alt='Weather icon'
+          <img
+            className="cloudBlue"
+            alt="Weather icon"
             src={`http://openweathermap.org/img/wn/${this.state.dataSource.weather[0].icon}@2x.png`}
           ></img>
         </div>
         <div>
-          Place: {this.state.cityData.name},{this.state.cityData.country}
-          <br></br>
-          Temperature: +{Math.floor(this.state.dataSource.main.temp - 273.15)}°
-          <br></br>
-          Wind: {this.state.dataSource.wind.speed}
-          <br></br>
-          Date: {this.state.dataSource.dt_txt.substring(0, 10)}
-          <br></br>
+          <div>
+            Place: {this.state.cityData.name},{this.state.cityData.country}
+          </div>
+          <div>
+            Temperature: {this.state.dataSource.main.temp}
+          </div>
+          <div>Wind: {this.state.dataSource.wind.speed}</div>
+          <div>Date: {this.state.dataSource.dt_txt.substring(0, 10)}</div>
         </div>
       </div>
     );
