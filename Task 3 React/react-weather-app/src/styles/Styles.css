@@ -12,18 +12,18 @@
   font-family: Lexend Deca;
 }
 
-.page  {
+.page {
   background: #ffff;
   width: 65em;
   height: 100%;
-  margin: 3em auto ;
+  margin: 3em auto;
   border-radius: 5px;
   box-sizing: border-box;
   display: grid;
   grid-template-rows: 8em auto;
 }
 
-.upper  {
+.header {
   background: #6dafe8;
   border-radius: 5px 5px 0 0;
   display: flex;
@@ -33,12 +33,12 @@
   font-size: 23px;
 }
 
-.lower  {
+.main {
   display: grid;
   grid-template-rows: 3em auto;
 }
 
-.head  {
+.inputsPannel {
   background: #f0f0f0;
   border-bottom: 2px solid #b6bbbf;
   display: flex;
@@ -48,12 +48,12 @@
   min-height: 100%;
 }
 
-.input  {
+.input {
   min-height: 20px;
   border: 2px solid #618bad;
 }
 
-.button  {
+.button {
   background: #618bad;
   border: 0;
   border-radius: 3px;
@@ -63,19 +63,19 @@
   color: #f0f0f0;
 }
 
-.select  {
+.select {
   min-height: 20px;
   margin-left: 5em;
   font-size: 15px;
 }
 
-.main  {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+.weatherBlockList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
-.block  {
+.weatherBlock {
   margin: 2em 0 2em 0;
   border: 2px solid #f0f0f0;
   width: 12em;
@@ -88,6 +88,6 @@
   font-size: 18px;
 }
 
-.cloudBlue  {
+.cloudBlue {
   width: 6em;
 }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-class BlockTemplate extends PureComponent {
+class WeatherShortInfo extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,6 +8,7 @@ class BlockTemplate extends PureComponent {
       cityData: this.props.cityData
     };
   }
+
   static getDerivedStateFromProps(newProps) {
     return {
       dataSource: newProps.dataSource,
@@ -17,26 +18,21 @@ class BlockTemplate extends PureComponent {
 
   render() {
     return (
-      <div className="block">
+      <div className="header">
         <div>
           <img
-            className="cloudBlue"
-            alt="Weather icon"
             src={`http://openweathermap.org/img/wn/${this.state.dataSource.weather[0].icon}@2x.png`}
+            alt="White cloud"
           ></img>
         </div>
         <div>
           <div>
-            Place: {this.state.cityData.name},{this.state.cityData.country}
+            {this.state.cityData.name},{this.state.cityData.country}
           </div>
-          <div>
-            Temperature: {this.state.dataSource.main.temp}
-          </div>
-          <div>Wind: {this.state.dataSource.wind.speed}</div>
-          <div>Date: {this.state.dataSource.dt_txt.substring(0, 10)}</div>
+          <div>{this.state.dataSource.main.temp}</div>
         </div>
       </div>
     );
   }
 }
-export default BlockTemplate;
+export default WeatherShortInfo;

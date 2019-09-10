@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import BlockTemplate from "./components/BlockTemplate";
-import UpperTemplate from "./components/UpperTemplate";
+import WeatherInfoItem from "./components/WeatherInfoItem";
+import WeatherShortInfo from "./components/WeatherShortInfo";
 import constants from "./constants";
 import  "../src/styles/Styles.css";
 
@@ -19,7 +19,7 @@ class App extends Component {
   handleChange = (event) => {
     this.setState({ city: event.target.value });
   }
-
+  WeatherInfoItem
   handleSubmit = (event) => {
     this.getData(this.state.city);
     event.preventDefault();
@@ -67,7 +67,7 @@ class App extends Component {
       return <div>No data</div>;
     } else {
       return (
-        <UpperTemplate
+        <WeatherShortInfo
           cityData={this.state.cityData}
           dataSource={this.state.dataSource[0]}
         />
@@ -89,9 +89,9 @@ class App extends Component {
     return (
       <div className='wrap'>
         <div className='page'>
-          <div className='upper'>{this.upperBlock()}</div>
-          <div className='lower'>
-            <div className='head'>
+          {this.upperBlock()}
+          <div className='main'>
+            <div className='inputsPannel'>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text"
@@ -119,13 +119,13 @@ class App extends Component {
                 </select>
               </div>
             </div>
-            <div className='main'>
+            <div className='weatherBlockList'>
               {this.blockList ? (
                 this.state.dataSource
                   .slice(0, this.state.select)
                   .map((item, key) => {
                     return (
-                      <BlockTemplate
+                      <WeatherInfoItem
                         key={item.dt}
                         cityData={this.state.cityData}
                         dataSource={item}
