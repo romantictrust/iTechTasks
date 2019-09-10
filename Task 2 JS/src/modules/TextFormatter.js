@@ -33,14 +33,28 @@ export default class TextFormatter {
   // Форматирование по количеству строк
   formatRowsNumber(str, rowsNumber, maxStrLen) {
     rowsNumber = Number(rowsNumber);
-    let shortedStrLen = 65;
-    for (let i = shortedStrLen; i < str.length; i += shortedStrLen) {
-      str.splice(i, 0, "\n");
+    maxStrLen = Number(maxStrLen);
+    let shortedStrLen = 73;
+    let txtLen = shortedStrLen * rowsNumber;
+    let mutant = [];
+    if (maxStrLen) {
+      txtLen = maxStrLen * rowsNumber;
+      shortedStrLen = maxStrLen;
+      for (let i = 0; i < txtLen; i++) {
+        if (str[i] == "\n") txtLen++;
+        mutant[i] = str[i];
+      }
+    } else {
+     loop1: for (let i = 0, j = 0; i < txtLen && rowsNumber != 0; i++) {
+        mutant[j + i] = str[i];
+        if (i % shortedStrLen == 0 && i != 0) {
+          mutant.splice(i, 0, "\n");
+          j++
+          rowsNumber--;
+        }
+      }
     }
-    if (maxStrLen)
-    str.splice(maxStrLen*rowsNumber)
-    else str.splice(shortedStrLen*rowsNumber)
-    return str;
+    return mutant;
   }
 
   // Форматирование по длинне строк
