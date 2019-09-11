@@ -1,0 +1,94 @@
+.wrap {
+    background-image: url(https://images.unsplash.com/photo-1561394104-be378db5659c?ixlibrb-1.2.1&ixideyJhcHBfaWQiOjEyMDd9&autoformat&fitcrop&w1950&q80);
+    opacity: 0.9;
+    margin: 0;
+    width: 100%;
+    min-height: 937px;
+    background-size: 100%;
+    background-size: cover;
+    background-position: 0 0;
+    display: flex;
+    justify-content: center;
+    font-family: Lexend Deca;
+  }
+  
+  .page {
+    background: #ffff;
+    width: 65em;
+    height: 100%;
+    margin: 3em auto;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 8em auto;
+  }
+  
+  .header {
+    background: #6dafe8;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 23px;
+  }
+  
+  .main {
+    display: grid;
+    grid-template-rows: 3em auto;
+  }
+  
+  .inputsPannel {
+    background: #f0f0f0;
+    border-bottom: 2px solid #b6bbbf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100%;
+  }
+  
+  .input {
+    min-height: 20px;
+    border: 2px solid #618bad;
+  }
+  
+  .button {
+    background: #618bad;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    min-height: 28px;
+    margin-left: 2em;
+    color: #f0f0f0;
+  }
+  
+  .select {
+    min-height: 20px;
+    margin-left: 5em;
+    font-size: 15px;
+  }
+  
+  .weatherBlockList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .weatherBlock {
+    margin: 2em 0 2em 0;
+    border: 2px solid #f0f0f0;
+    width: 12em;
+    height: 15em;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 18px;
+  }
+  
+  .cloudBlue {
+    width: 6em;
+  }
+  
