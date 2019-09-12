@@ -6,9 +6,9 @@ class InputsPannel extends PureComponent {
     this.props.setCity(event.target.value);
   };
 
-  getCityName = () => {
-    console.log(this.props.city);
-  };
+  sendCityName = () => {
+    this.props.setWeatherData(this.props.city)
+  }
 
   onDaysAmountChange = event => {
     this.props.setDaysAmount(event.target.value);
@@ -30,7 +30,7 @@ class InputsPannel extends PureComponent {
             type="button"
             value="Sumbit city"
             className="button"
-            onClick={this.getCityName}
+            onClick={this.sendCityName}
           />
         </form>
         <div>

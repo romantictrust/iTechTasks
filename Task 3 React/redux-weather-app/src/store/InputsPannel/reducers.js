@@ -1,8 +1,11 @@
-import { INPUT_CHANGE_CITY_TEXT, SELECT_CHANGE_DAYS_AMOUNT } from "./actions";
+import {
+  INPUT_CHANGE_CITY_TEXT,
+  SELECT_CHANGE_DAYS_AMOUNT
+} from "./actions";
 
 const defaultState = {
   city: "",
-  days: ""
+  days: null
 };
 
 const pannelReducer = (state = defaultState, action) => {

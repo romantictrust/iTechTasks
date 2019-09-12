@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import InputsPannel from "../InputsPannel";
 import { connect } from "react-redux";
 import { setCity, setDaysAmount } from "../../store/InputsPannel/actions";
+import { setWeatherData } from "../../store/FetchWeatherAPI/actions";
 
 class InputsPannelContainer extends PureComponent {
   render() {
@@ -11,6 +12,7 @@ class InputsPannelContainer extends PureComponent {
         days={this.props.days}
         setCity={this.props.setCity}
         setDaysAmount={this.props.setDaysAmount}
+        setWeatherData={this.props.setWeatherData}
       />
     );
   }
@@ -25,7 +27,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   setCity,
-  setDaysAmount
+  setDaysAmount,
+  setWeatherData
 };
 
 export default connect(
