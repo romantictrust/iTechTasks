@@ -1,7 +1,7 @@
 import { FETCH_WEATHER_API_DATA } from "./actions";
 
 const defaultState = {
-  weatherData: {}
+  weatherData: null
 };
 
 const fetchedDataReducer = (state = defaultState, action) => {

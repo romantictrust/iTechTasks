@@ -1,17 +1,19 @@
 import React, { PureComponent } from "react";
-import HeaderWeatherInfo from '../HeaderWeatherInfo';
+import HeaderWeatherInfo from "../HeaderWeatherInfo";
 import { connect } from "react-redux";
 
 class HeaderWeatherInfoContainer extends PureComponent {
   render() {
-    return <HeaderWeatherInfo/>
+    if(this.props.weatherData)
+    return <HeaderWeatherInfo weatherData={this.props.weatherData}/>;
+    else return 'NO DATA'
   }
 }
 
-const mapStateToProps = () => {
-    return {};
-}
+const mapStateToProps = state => {
+  return {
+    weatherData: state.fetchedData.weatherData
+  };
+};
 
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderWeatherInfoContainer);
+export default connect(mapStateToProps)(HeaderWeatherInfoContainer);

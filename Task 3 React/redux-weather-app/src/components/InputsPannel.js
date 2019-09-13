@@ -7,7 +7,7 @@ class InputsPannel extends PureComponent {
   };
 
   sendCityName = () => {
-    this.props.setWeatherData(this.props.city)
+ 
   }
 
   onDaysAmountChange = event => {
