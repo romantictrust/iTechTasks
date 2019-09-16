@@ -4,8 +4,8 @@ import {
 } from "./actions";
 
 const defaultState = {
-  city: "",
-  days: null
+  city: "Minsk",
+  days: 1
 };
 
 const pannelReducer = (state = defaultState, action) => {

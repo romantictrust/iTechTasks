@@ -3,24 +3,11 @@ import MainWeatherInfo from "../MainWeatherInfo";
 import { connect } from "react-redux";
 
 class MainWeatherInfoContainer extends PureComponent {
-  //  constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     weatherData: this.props.weatherData
-  //   };
-  // }
-  
-  // static getDerivedStateFromProps(newProps) {
-  //   return {
-  //     weatherData: newProps.weatherData
-  //   };
-  // }
-
   render() {
     if (this.props.weatherData)
       return (
         <div className="weatherBlockList">
-          {this.props.weatherData.list.map((item, key) => {
+          {this.props.weatherData.list.slice(0, this.props.days).map((item, key) => {
             return (
               <MainWeatherInfo
                 key={item.dt}
@@ -37,7 +24,8 @@ class MainWeatherInfoContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    weatherData: state.fetchedData.weatherData
+    weatherData: state.fetchedData.weatherData,
+    days : state.weatherInputs.days
   };
 };
 

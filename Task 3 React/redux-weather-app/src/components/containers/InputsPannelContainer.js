@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   setCity,
-  setDaysAmount,
+  setDaysAmount
 };
 
 export default connect(

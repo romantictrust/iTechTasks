@@ -1,17 +1,11 @@
 import React, { PureComponent } from "react";
+import FetchContainer from "./containers/FetchContainer";
 import "../styles/Styles.css";
 
 class InputsPannel extends PureComponent {
-  onCityChange = event => {
-    this.props.setCity(event.target.value);
-  };
-
-  sendCityName = () => {
- 
-  }
-
-  onDaysAmountChange = event => {
-    this.props.setDaysAmount(event.target.value);
+  setOptions = (event) => {
+    this.props.setCity(this.cityInput.value);
+    this.props.setDaysAmount(Number(this.selectChange.value));
   };
 
   render() {
@@ -23,21 +17,19 @@ class InputsPannel extends PureComponent {
             className="input"
             placeholder="City"
             spellCheck={false}
-            value={this.props.city}
-            onChange={this.onCityChange}
+            ref={(input) => { this.cityInput = input}}
           ></input>
           <input
             type="button"
             value="Sumbit city"
             className="button"
-            onClick={this.sendCityName}
+            onClick={this.setOptions}
           />
         </form>
         <div>
           <select
             className="select"
-            value={this.props.city}
-            onChange={this.onDaysAmountChange}
+            ref={(select) => { this.selectChange = select}}
           >
             <option value={1}>Day</option>
             <option value={3}>3 days</option>

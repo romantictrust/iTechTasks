@@ -7,7 +7,7 @@ import { setWeatherData } from "../../store/FetchWeatherAPI/actions";
 import constants from "../../constants";
 
 class FetchContainer extends PureComponent {
-  getData = (city = "Minsk") => {
+  getData = (city) => {
     return fetch(
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${constants.WEATHER_API_KEY}`
     )
@@ -17,7 +17,7 @@ class FetchContainer extends PureComponent {
         this.props.setWeatherData(responseJson);
       })
       .catch(error => {
-        alert("Wrong city");
+        alert("Chosen city doesn't exist");
       });
   };
 
@@ -36,7 +36,7 @@ class FetchContainer extends PureComponent {
   };
 
   render() {
-    if (!this.props.weatherData) this.getData();
+    if (!this.props.weatherData) this.getData(this.props.city);
     return (
       <div className="page">
         <HeaderWeatherInfoContainer />
@@ -47,9 +47,15 @@ class FetchContainer extends PureComponent {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    city: state.weatherInputs.city
+  };
+};
+
 const mapDispatchToProps = { setWeatherData };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(FetchContainer);
