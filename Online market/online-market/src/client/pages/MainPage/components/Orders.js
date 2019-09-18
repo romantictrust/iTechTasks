@@ -1,60 +1,63 @@
-import React from 'react';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Title from './Title';
+import React from "react";
+import Link from "@material-ui/core/Link";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Title from "./Title";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import useStyles from "../styles/TabPanelStyle";
+import Box from "@material-ui/core/Box";
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, date, resource, qty, amount) {
+  return { id, date, resource, qty, amount };
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44)
+  createData(
+    0,
+    "16 Mar, 2019",
+    "Iron",
+    4,
+    312.44
+  )
 ];
-
-const useStyles = makeStyles(theme => ({
-  seeMore: {
-    marginTop: theme.spacing(3),
-  },
-}));
 
 export default function Orders() {
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Title>Recent Orders</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+    <Grid item xs={12}>
+      <Paper className={classes.paper}>
+        <Title>Recent Orders</Title>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>#</TableCell>
+              <TableCell>Resource</TableCell>
+              <TableCell>Qty</TableCell>
+              <TableCell>Amount</TableCell>
+              <TableCell align="right">Date</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary">
-          See more orders
-        </Link>
-      </div>
-    </React.Fragment>
+          </TableHead>
+          <TableBody>
+            {rows.map(row => (
+              <TableRow key={row.id}>
+                <TableCell>{row.id}</TableCell>
+                <TableCell>{row.resource}</TableCell>
+                <TableCell>{row.qty}</TableCell>
+                <TableCell>{row.amount}</TableCell>
+                <TableCell align="right">{row.date}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Box m={1.5}>
+          <Link color="primary">See more orders</Link>
+        </Box>
+      </Paper>
+    </Grid>
   );
 }
