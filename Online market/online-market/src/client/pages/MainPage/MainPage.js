@@ -6,9 +6,13 @@ import Grid from "@material-ui/core/Grid";
 export default class MainPage extends PureComponent {
   render() {
     return (
-      <Grid container direction="column" spacing={10}>
-          <Grid item><Header/></Grid>
-          <Grid item><Page/></Grid>
+      <Grid container direction="column">
+        <Grid item>
+          <Header />
+        </Grid>
+        <Grid item>
+          <Page />
+        </Grid>
       </Grid>
     );
   }

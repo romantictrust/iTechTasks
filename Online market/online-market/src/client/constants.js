@@ -1,0 +1,1 @@
+export const materialsAPIurl = "http://localhost:8000/api/materials";

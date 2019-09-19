@@ -4,9 +4,10 @@ import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import Link from "@material-ui/core/Link";
-import { Doughnut } from "react-chartjs-2";
+import DoughnutChart from '../components/DoughnutChart';
 
-export default function Deposits() {
+export default function Deposits(materialsData) {
+  // const data = materialsData.materialsData;
   return (
     <React.Fragment>
       <Title>Portfolio</Title>
@@ -17,21 +18,13 @@ export default function Deposits() {
         <Divider orientation="vertical" />
         <Grid item>
           <Grid item>
-            <Typography>Wood: 34 </Typography>
-            <Link color="primary">Sell</Link>
-          </Grid>
-          <Grid item>
-            <Typography>Iron: 45</Typography>
-            <Link color="primary">Sell</Link>
-          </Grid>
-          <Grid item>
-            <Typography>oil: 67</Typography>
+            <Typography>Iron: 34 </Typography>
             <Link color="primary">Sell</Link>
           </Grid>
         </Grid>
         <Divider orientation="vertical" />
         <Grid item>
-          <Doughnut data={{}} width={100} height={100} />
+          <DoughnutChart />
         </Grid>
       </Grid>
     </React.Fragment>

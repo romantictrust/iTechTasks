@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "@material-ui/core/Link";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -9,7 +8,6 @@ import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import useStyles from "../styles/TabPanelStyle";
-import Box from "@material-ui/core/Box";
 
 // Generate Order Data
 function createData(id, date, resource, qty, amount) {
@@ -54,9 +52,6 @@ export default function Orders() {
             ))}
           </TableBody>
         </Table>
-        <Box m={1.5}>
-          <Link color="primary">See more orders</Link>
-        </Box>
       </Paper>
     </Grid>
   );
