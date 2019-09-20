@@ -11,8 +11,7 @@ const mainPageReducer = (state = defaultState, action) => {
     case FETCH_CHANGE_MATERIAL_DATA:
       return { ...state, data: action.payload };
     // ?
-    default: {
-    }
+    default: {}
   }
   return state;
 };
