@@ -1,27 +1,19 @@
 import React, { Component } from "react";
 import AuthPage from "../AuthPage";
-import { connect } from "react-redux";
-import { setUserEmail, setUserPassword } from "../../../store/AuthPage/actions";
+import Grid from "@material-ui/core/Grid";
+import Header from '../../../basicComponents/components/Header';
 
-class AuthPageContainer extends Component {
+export default class AuthPageContainer extends Component {
   render() {
-    return <AuthPage />;
+    return (
+      <Grid container direction="column">
+        <Grid item>
+          <Header />
+        </Grid>
+        <Grid item>
+        <AuthPage />
+        </Grid>
+      </Grid>
+    );
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    email: state.user.email,
-    password: state.user.password
-  };
-};
-
-const mapDispatchToProps = {
-  setUserEmail,
-  setUserPassword
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AuthPageContainer);

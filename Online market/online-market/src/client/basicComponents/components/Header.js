@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   logo: {
     width: "60px",
     height: "60px"
-  },
+  }
 }));
 
 export default function Header() {
@@ -27,15 +27,27 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar>
           <Grid container className={classes.root}>
-            <Grid item>
-              <img className={classes.logo} src={logo} alt="Company Logo" />
+            <Grid item className={classes.root}>
+              <Link to="/">
+                <img className={classes.logo} src={logo} alt="Company Logo" />
+              </Link>
             </Grid>
             <Grid item>
               <Button color="inherit" disableRipple={true}>
-              <Link to='/authorization' style={{ textDecoration: 'none', color: 'white' }}>Login</Link>
+                <Link
+                  to="/authorization"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Login
+                </Link>
               </Button>
               <Button color="inherit" disableRipple={true}>
-              <Link to='/registration' style={{ textDecoration: 'none', color: 'white' }}>Register</Link>
+                <Link
+                  to="/registration"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Register
+                </Link>
               </Button>
             </Grid>
           </Grid>

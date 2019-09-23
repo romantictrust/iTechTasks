@@ -1,39 +1,43 @@
 const port = 8000;
 const adress = "localhost";
 const express = require("express");
+const session = require("express-session");
+const cors = require('cors');
+const mongoose = require('mongoose');
+const dbUrl = "mongodb://admin:admin1@ds255403.mlab.com:55403/online-market";
 
 const app = express();
 
-app.listen(port, adress, function() {
+app.listen(port, adress, () => {
   console.log("Server started on port:", adress + ":" + port);
 });
 
+//Configure mongoose's promise to global promise
+mongoose.promise = global.Promise;
+
+//Configure Mongoose
+mongoose.connect(dbUrl);
+mongoose.set('debug', true);
+
+//Configure app
+app.use(cors());
 app.use(express.json());
-app.set('json spaces', 2);
+app.set("json spaces", 2);
+app.use(
+  session({
+    secret: "online-market",
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
+//Models && routes
+require('./models/Users');
+require('./config/passport');
+const materials = require("./routes/api/materials");
+const archive = require("./routes/api/archive");
+app.use(require('./routes'))
 
-app.use(function (req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  // Request methods you wish to allow
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  // Pass to next layer of middleware
-  next();
-});
-
-
-const index = require("./routes/index");
-const materials = require("./routes/materials");
-const archive = require("./routes/archive")
-const users = require("./routes/users")
-
-
-app.get("/", index);
 app.get("/api/materials", materials);
-app.get("/api/archive", archive)
-app.get("/api/users", users)
+app.get("/api/archive", archive);

@@ -1,20 +1,52 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import useStyles from './styles/RegisterPageStyles';
-
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import useStyles from "./styles/RegisterPageStyles";
+import { registerUserUrl } from "../../constants";
+import {
+  validateEmail,
+  validatePassword
+} from "../../basicComponents/functions/Validate";
 
 export default function SignUp() {
+  const registerUser = user => {
+    return fetch(registerUserUrl, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => alert(JSON.stringify(response)));
+  };
   const classes = useStyles();
+
+  const confirmReg = event => {
+    event.preventDefault();
+    const email = SignUp.email.value;
+    const password = SignUp.password.value;
+    const firstName = SignUp.fname.value;
+    const lastName = SignUp.lname.value;
+    validateEmail(email);
+    validatePassword(password);
+    const user = {
+      user: {
+        email: email,
+        password: password,
+        firstName: firstName,
+        lastName: lastName
+      }
+    };
+    registerUser(user);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -26,7 +58,12 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form
+          className={classes.form}
+          onSubmit={confirmReg}
+          autoComplete="off"
+          noValidate
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -38,6 +75,9 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                inputRef={el => {
+                  SignUp.fname = el;
+                }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -49,6 +89,9 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                inputRef={el => {
+                  SignUp.lname = el;
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -60,6 +103,9 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                inputRef={el => {
+                  SignUp.email = el;
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -72,12 +118,9 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                inputRef={el => {
+                  SignUp.password = el;
+                }}
               />
             </Grid>
           </Grid>
@@ -92,7 +135,10 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link
+                to="/authorization"
+                style={{ textDecoration: "none", color: "purple" }}
+              >
                 Already have an account? Sign in
               </Link>
             </Grid>

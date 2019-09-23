@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import MainPageContainer from "../src/client/pages/MainPage/containers/MainPageContainer";
 import AuthPageContainer from "../src/client/pages/AuthPage/containers/AuthPageContainer";
 import UsersListPage from "../src/client/pages/UsersListPage/UsersListPage";
-import RegisterPage from '../src/client/pages/RegisterPage/RegisterPage';
+import RegisterPageContainer from '../src/client/pages/RegisterPage/containers/RegisterPageContainer';
 import store from './client/store/store';
 
 
@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" component={MainPageContainer} />
         <Route exact path="/authorization" component={AuthPageContainer} />
         <Route exact path="/users" component={UsersListPage} />
-        <Route exact path="/registration" component={RegisterPage} />
+        <Route exact path="/registration" component={RegisterPageContainer} />
         </Provider>
       </div>
     </Router>
