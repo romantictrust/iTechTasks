@@ -63,6 +63,9 @@ export default function NavTabs() {
 
   return (
     <Grid container className={classes.root}>
+      {console.log(sessionStorage.getItem('Token'))}
+      {console.log(sessionStorage.getItem('Id'))}
+      {console.log(sessionStorage.getItem('Email'))}
       <Container maxWidth="md" fixed>
         <AppBar position="static">
           <Tabs

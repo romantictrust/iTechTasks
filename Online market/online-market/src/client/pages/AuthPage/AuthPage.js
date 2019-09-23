@@ -11,7 +11,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
-import { loginUserUrl, currentRootUrl } from "../../constants";
+import { loginUserUrl } from "../../constants";
 import {
   validateEmail,
   validatePassword
@@ -27,25 +27,13 @@ export default function SignIn() {
       }
     })
       .then(res => res.json())
-      .then(response => getId(response.user.token))
+      .then(response => {
+        sessionStorage.setItem("Token", response.user.token);
+        sessionStorage.setItem("Id", response.user._id);
+        sessionStorage.setItem("Email", response.user.email);
+      })
       .catch(error => console.error("Ошибка:", error));
   };
-
-  // To get id everywhere 
-  const getId = token => {
-    return fetch(currentRootUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Token " + token
-      }
-    }).then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      console.log(JSON.stringify(myJson));
-    });
-  }
 
   const classes = useStyles();
 
