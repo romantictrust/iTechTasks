@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import RegisterPage from "../RegisterPage";
 import Grid from "@material-ui/core/Grid";
-import Header from '../../../basicComponents/components/Header';
+import HeaderContainer from "../../../basicComponents/containers/HeaderContainer";
 
 export default class RegisterPageContainer extends Component {
-    render() {
-      return (
-        <Grid container direction="column">
-          <Grid item>
-            <Header />
-          </Grid>
-          <Grid item>
-          <RegisterPage />
-          </Grid>
+  render() {
+    return (
+      <Grid container direction="column">
+        <Grid item>
+          <HeaderContainer />
         </Grid>
-      );
-    }
+        <Grid item>
+          <RegisterPage />
+        </Grid>
+      </Grid>
+    );
   }
+}

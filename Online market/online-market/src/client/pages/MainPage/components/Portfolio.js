@@ -6,8 +6,7 @@ import Divider from "@material-ui/core/Divider";
 import Link from "@material-ui/core/Link";
 import DoughnutChart from '../components/DoughnutChart';
 
-export default function Deposits(materialsData) {
-  // const data = materialsData.materialsData;
+export default function Portfolio(props) {
   return (
     <React.Fragment>
       <Title>Portfolio</Title>

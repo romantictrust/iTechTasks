@@ -1,11 +1,11 @@
 import React, { PureComponent } from "react";
-import MainPage from "../MainPage";
+import Header from "../components/Header";
 import { connect } from "react-redux";
-import { setUsersData } from "../../../store/MainPage/actions";
+import { setUsersData } from "../../store/MainPage/actions";
 
-class MainPageContainer extends PureComponent {
+class HeaderContainer extends PureComponent {
   render() {
-    return <MainPage setUsersData={this.props.setUsersData} />;
+    return <Header userData={this.props.user} setUsersData={this.props.setUsersData}/>;
   }
 }
 
@@ -22,4 +22,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MainPageContainer);
+)(HeaderContainer);

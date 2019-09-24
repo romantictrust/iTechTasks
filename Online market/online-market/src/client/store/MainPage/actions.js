@@ -1,6 +1,12 @@
-export const FETCH_CHANGE_MATERIAL_DATA = "FETCH_CHANGE_MATERIAL_DATA"
+export const FETCH_CHANGE_MATERIAL_DATA = "FETCH_CHANGE_MATERIAL_DATA";
+export const STORAGE_CHANGE_USER_DATA = "STORAGE_CHANGE_USER_DATA";
 
 export const setMaterialData = data => ({
     type: FETCH_CHANGE_MATERIAL_DATA,
     payload: data
+})
+
+export const setUsersData = user => ({
+    type: STORAGE_CHANGE_USER_DATA,
+    payload: user
 })

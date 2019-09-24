@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
@@ -17,7 +17,7 @@ import {
   validatePassword
 } from "../../basicComponents/functions/Validate";
 
-export default function SignIn() {
+function SignIn(props) {
   const loginUser = user => {
     return fetch(loginUserUrl, {
       method: "POST",
@@ -37,14 +37,15 @@ export default function SignIn() {
 
   const classes = useStyles();
 
-  const confirmAuth = event => {
+  const confirmAuth = async event => {
     event.preventDefault();
     const email = SignIn.email.value;
     const password = SignIn.password.value;
     validateEmail(email);
     validatePassword(password);
     const user = { user: { email: email, password: password } };
-    loginUser(user);
+    await loginUser(user);
+    props.history.replace("/");
   };
 
   return (
@@ -117,3 +118,4 @@ export default function SignIn() {
     </Container>
   );
 }
+export default withRouter(SignIn);

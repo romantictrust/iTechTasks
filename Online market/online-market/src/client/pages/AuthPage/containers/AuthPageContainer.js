@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import AuthPage from "../AuthPage";
 import Grid from "@material-ui/core/Grid";
-import Header from '../../../basicComponents/components/Header';
+import HeaderContainer from '../../../basicComponents/containers/HeaderContainer';
 
 export default class AuthPageContainer extends Component {
   render() {
     return (
       <Grid container direction="column">
         <Grid item>
-          <Header />
+          <HeaderContainer />
         </Grid>
         <Grid item>
         <AuthPage />

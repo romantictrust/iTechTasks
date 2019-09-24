@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import useStyles from "../styles/TabPanelStyle";
 import Activities from "./Activities";
-import Operations from "./Operations";
+import OperationsContainer from "../containers/OperationsContainer";
 import Orders from "./Orders";
 
 function TabPanel(props) {
@@ -63,9 +63,6 @@ export default function NavTabs() {
 
   return (
     <Grid container className={classes.root}>
-      {console.log(sessionStorage.getItem('Token'))}
-      {console.log(sessionStorage.getItem('Id'))}
-      {console.log(sessionStorage.getItem('Email'))}
       <Container maxWidth="md" fixed>
         <AppBar position="static">
           <Tabs
@@ -79,7 +76,7 @@ export default function NavTabs() {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <Operations/>
+          <OperationsContainer/>
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Orders/>

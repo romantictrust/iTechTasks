@@ -7,11 +7,10 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import clsx from "clsx";
-import Portfolio from "../components/Portfolio";
+import PortfolioContainer from "../containers/PortfolioContainer";
 import Profit from "../components/Profit";
-import { connect } from "react-redux";
 
-function Operations(props) {
+export default function Operations(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   if (props.data) {
@@ -36,10 +35,10 @@ function Operations(props) {
               </Grid>
               <Divider />
               <Grid item>
-                <Portfolio materialsData={props.data} />
+                <PortfolioContainer/>
               </Grid>
               <Grid item>
-                <Profit materialsData={props.data} />
+                <Profit/>
               </Grid>
             </Grid>
           </Container>
@@ -53,14 +52,3 @@ function Operations(props) {
       </Container>
     );
 }
-
-const mapStateToProps = state => {
-  return {
-    data: state.materials.data
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Operations);

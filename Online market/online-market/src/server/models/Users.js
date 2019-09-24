@@ -23,9 +23,17 @@ const UsersSchema = new Schema({
     minlength: 5,
     maxlength: 50
   },
+  balance: {
+    type: Number,
+    default: 200
+  },
+  materials: {
+    type: Object,
+    default: {}
+  },
   hash: String,
   salt: String
-});
+}, { minimize: false });
 
 UsersSchema.methods.setPassword = function(password) {
   this.salt = crypto.randomBytes(16).toString("hex");

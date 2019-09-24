@@ -43,6 +43,8 @@ router.post('/', auth.optional, (req, res, next) => {
   const finalUser = new Users(user);
 
   finalUser.setPassword(user.password);
+  
+  console.log(finalUser)
 
   return finalUser.save((err)=>{
     if (err){

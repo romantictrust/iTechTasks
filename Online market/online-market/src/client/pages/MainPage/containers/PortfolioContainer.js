@@ -1,11 +1,16 @@
 import React, { PureComponent } from "react";
-import MainPage from "../MainPage";
+import Portfolio from "../components/Portfolio";
 import { connect } from "react-redux";
 import { setUsersData } from "../../../store/MainPage/actions";
 
-class MainPageContainer extends PureComponent {
+class PortfolioContainer extends PureComponent {
   render() {
-    return <MainPage setUsersData={this.props.setUsersData} />;
+    return (
+      <Portfolio
+        userData={this.props.user}
+        setUsersData={this.props.setUsersData}
+      />
+    );
   }
 }
 
@@ -22,4 +27,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MainPageContainer);
+)(PortfolioContainer);
