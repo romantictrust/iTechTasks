@@ -28,9 +28,7 @@ function SignIn(props) {
     })
       .then(res => res.json())
       .then(response => {
-        sessionStorage.setItem("Token", response.user.token);
-        sessionStorage.setItem("Id", response.user._id);
-        sessionStorage.setItem("Email", response.user.email);
+        sessionStorage.setItem("user", JSON.stringify(response.user));
       })
       .catch(error => console.error("Ошибка:", error));
   };

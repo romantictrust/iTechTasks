@@ -6,7 +6,8 @@ import AuthPageContainer from "../src/client/pages/AuthPage/containers/AuthPageC
 import UsersListPage from "../src/client/pages/UsersListPage/UsersListPage";
 import RegisterPageContainer from '../src/client/pages/RegisterPage/containers/RegisterPageContainer';
 import store from './client/store/store';
-
+import socketIOClient from "socket.io-client";
+socketIOClient("http://localhost:8000");
 
 function App() {
   return (

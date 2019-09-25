@@ -25,7 +25,7 @@ export default function SignUp() {
       }
     })
       .then(res => res.json())
-      .then(response => alert(JSON.stringify(response)));
+      .then(res => sessionStorage.setItem("user", JSON.stringify(res.user)));
   };
   const classes = useStyles();
 

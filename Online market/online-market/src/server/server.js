@@ -1,23 +1,23 @@
 const port = 8000;
 const adress = "localhost";
 const express = require("express");
+const app = express();
 const session = require("express-session");
-const cors = require('cors');
-const mongoose = require('mongoose');
+const cors = require("cors");
+const mongoose = require("mongoose");
 const dbUrl = "mongodb://admin:admin1@ds255403.mlab.com:55403/online-market";
 
-const app = express();
-
-app.listen(port, adress, () => {
-  console.log("Server started on port:", adress + ":" + port);
-});
+//Socket connection
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
+console.log("Server started on port:", adress + ":" + port);
 
 //Configure mongoose's promise to global promise
 mongoose.promise = global.Promise;
 
 //Configure Mongoose
 mongoose.connect(dbUrl);
-mongoose.set('debug', true);
+mongoose.set("debug", true);
 
 //Configure app
 app.use(cors());
@@ -32,12 +32,22 @@ app.use(
   })
 );
 
+//Socket
+io.sockets.on("connect", socket => {
+  console.log(`Socket ${socket.id} connected.`);
+  console.log(`${io.engine.clientsCount} sockets connected`);
+  socket.on("disconnect", () => {
+    console.log(`Socket ${socket.id} disconnected.`);
+    console.log(`${io.engine.clientsCount} sockets connected`);
+  });
+});
+
 //Models && routes
-require('./models/Users');
-require('./config/passport');
+require("./models/Users");
+require("./config/passport");
 const materials = require("./routes/api/materials");
-const archive = require("./routes/api/archive");
-app.use(require('./routes'))
+app.use(require("./routes"));
 
 app.get("/api/materials", materials);
-app.get("/api/archive", archive);
+
+server.listen(port);

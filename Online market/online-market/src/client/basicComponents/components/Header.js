@@ -25,9 +25,7 @@ function Header(props) {
   const logOut = () => {
     const user = {};
     props.setUsersData(user);
-    sessionStorage.removeItem("Id");
-    sessionStorage.removeItem("Email");
-    sessionStorage.removeItem("Token");
+    sessionStorage.removeItem("user");
     props.history.replace("/authorization");
   };
   return (

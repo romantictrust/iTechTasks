@@ -1,33 +1,28 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from "react";
 import { Doughnut } from "react-chartjs-2";
 
-const data = {
-	labels: [
-		'Wood',
-		'Iron',
-		'Oil'
-	],
-	datasets: [{
-		data: [34, 45, 67],
-		backgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		],
-		hoverBackgroundColor: [
-		'#FF6384',
-		'#36A2EB',
-		'#FFCE56'
-		]
-	}]
-};
-
 export default class DoughnutChart extends PureComponent {
-    render() {
-        return (
-            <div>
-                <Doughnut data={data} width={210} height={210} />
-            </div>
-        )
+  data = {
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+      }
+    ]
+  };
+  render() {
+    let counter = 0;
+    for (let o of this.props.data) {
+      this.data.labels[counter] = o.material;
+	  this.data.datasets[0].data[counter] = o.amount;
+	  counter++;
     }
+    return (
+      <div>
+        <Doughnut data={this.data} width={190} height={190} />
+      </div>
+    );
+  }
 }

@@ -25,11 +25,27 @@ const UsersSchema = new Schema({
   },
   balance: {
     type: Number,
-    default: 200
+    default: 0
   },
   materials: {
     type: Object,
-    default: {}
+    default: [
+      {
+          "material": "Wood",
+          "amount": 0,
+          "cost": 12
+      },
+      {
+          "material": "Iron",
+          "amount": 0,
+          "cost": 34
+      },
+      {
+          "material": "Oil",
+          "amount": 0,
+          "cost": 26
+      }
+  ]
   },
   hash: String,
   salt: String
@@ -66,8 +82,10 @@ UsersSchema.methods.generateJWT = function() {
 
 UsersSchema.methods.toAuthJSON = function() {
   return {
-    _id: this._id,
+    id: this._id,
     email: this.email,
+    balance: this.balance,
+    materials: this.materials,
     token: this.generateJWT()
   };
 };
