@@ -16,17 +16,17 @@ export const altUser = {
   materials: [
     {
       material: "Wood",
-      amount: 100,
+      amount: 25,
       cost: 12
     },
     {
       material: "Iron",
-      amount: 100,
+      amount: 50,
       cost: 34
     },
     {
       material: "Oil",
-      amount: 100,
+      amount: 25,
       cost: 26
     }
   ]

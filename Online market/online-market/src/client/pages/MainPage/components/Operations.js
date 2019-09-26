@@ -8,7 +8,7 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import clsx from "clsx";
 import PortfolioContainer from "../containers/PortfolioContainer";
-import Profit from "../components/Profit";
+import ProfitConatainer from '../containers/ProfitConatainer';
 
 export default function Operations(props) {
   const classes = useStyles();
@@ -38,7 +38,7 @@ export default function Operations(props) {
                 <PortfolioContainer/>
               </Grid>
               <Grid item>
-                <Profit/>
+                <ProfitConatainer/>
               </Grid>
             </Grid>
           </Container>

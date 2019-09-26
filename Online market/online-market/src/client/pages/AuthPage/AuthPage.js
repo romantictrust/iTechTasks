@@ -27,10 +27,12 @@ function SignIn(props) {
       }
     })
       .then(res => res.json())
-      .then(response => {
-        sessionStorage.setItem("user", JSON.stringify(response.user));
-      })
-      .catch(error => console.error("Ошибка:", error));
+      .then(response =>
+        sessionStorage.setItem("user", JSON.stringify(response.user))
+      )
+      .catch(error => {
+        throw new Error("Wrong user");
+      });
   };
 
   const classes = useStyles();

@@ -79,8 +79,9 @@ router.post('/login', auth.optional, (req, res, next) => {
   }
 
   return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
-    if(err) {
-      return next(err);
+    
+    if(info) {
+      return next(info);
     }
 
     if(passportUser) {

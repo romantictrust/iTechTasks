@@ -3,8 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
-import Link from "@material-ui/core/Link";
-import DoughnutChart from "../components/DoughnutChart";
+import DoughnutChartContainer from "../containers/DoughnutChartContainer";
+import FormDialog from "../components/FormDialog";
 
 export default function Portfolio(props) {
   const user = props.userData;
@@ -35,7 +35,14 @@ export default function Portfolio(props) {
                   <Typography>Bought for: {item.cost}</Typography>
                 </Grid>
                 <Grid item>
-                  <Link color="primary">Sell</Link>
+                  <FormDialog
+                    material={item.material}
+                    data={props.data}
+                    profit={props.profit}
+                    userData={props.userData}
+                    setUsersData={props.setUsersData}
+                    setProfitData={props.setProfitData}
+                  />
                 </Grid>
               </Grid>
             );
@@ -43,7 +50,7 @@ export default function Portfolio(props) {
         </Grid>
         <Divider orientation="vertical" />
         <Grid item>
-          <DoughnutChart data={user.materials} />
+          <DoughnutChartContainer/>
         </Grid>
       </Grid>
     </React.Fragment>

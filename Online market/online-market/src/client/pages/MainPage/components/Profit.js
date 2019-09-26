@@ -7,10 +7,22 @@ export default class Profit extends PureComponent {
     return (
       <div>
         <Title>Profit</Title>
-        <Typography>Total: -460.00$</Typography>
-        <Typography>Wood: -700.00$</Typography>
-        <Typography>Iron: 240.00$</Typography>
-        <Typography>Oil: 220.00$</Typography>
+        {this.props.profit.total ? (
+          <div>
+            <Typography>Total: {this.props.profit.total}</Typography>
+            {this.props.profit.materials.map(item => {
+              return (
+                <Typography key={item.material}>
+                  {item.material}: {item.profit}
+                </Typography>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <Typography>No operations yet.</Typography>
+          </div>
+        )}
       </div>
     );
   }
