@@ -12,6 +12,7 @@ export const passRef = new RegExp(/^(?=.*\d)[0-9a-z]{7,}$/);
 //   [a-zA-Z0-9]{7,}   // should contain at least 8 from the mentioned characters
 
 export const altUser = {
+  id: 'test',
   balance: 10000,
   materials: [
     {

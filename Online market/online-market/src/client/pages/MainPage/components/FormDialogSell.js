@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-export default function FormDialog(props) {
+export default function FormDialogSell(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -22,13 +22,12 @@ export default function FormDialog(props) {
     let userMaterial = { material: "", amount: 0, cost: 0 };
     let counter = 0;
     let materialPosition = 0;
-    let fieldValue = Number(FormDialog.amount.value);
-    let modifiedUser = {};
-    let modifiedProfit = {};
+    let fieldValue = Number(FormDialogSell.amount.value);
+    let modifiedUser = { ...props.userData };
+    let modifiedProfit = { ...props.profit };
     let operationValue = 0;
-    Object.assign(modifiedUser, props.userData);
-    Object.assign(modifiedProfit, props.profit);
-    for (let arr of props.userData.materials) {
+    let arr = [];
+    for (arr of props.userData.materials) {
       if (arr.material === props.material) {
         userMaterial.material = arr.material;
         userMaterial.amount = arr.amount;
@@ -53,6 +52,7 @@ export default function FormDialog(props) {
       modifiedProfit.total += operationValue;
       modifiedProfit.total = Number(modifiedProfit.total.toFixed(1));
       modifiedUser.balance += modifiedProfit.total;
+      modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
       modifiedProfit.materials[materialPosition].profit += operationValue;
       modifiedProfit.materials[materialPosition].profit = Number(
         modifiedProfit.materials[materialPosition].profit
@@ -86,7 +86,7 @@ export default function FormDialog(props) {
             type="number"
             fullWidth
             inputRef={el => {
-              FormDialog.amount = el;
+              FormDialogSell.amount = el;
             }}
           />
         </DialogContent>

@@ -1,11 +1,16 @@
 import React, { PureComponent } from "react";
 import Header from "../components/Header";
 import { connect } from "react-redux";
-import { setUsersData } from "../../store/MainPage/actions";
+import { clearStorage } from "../../store/MainPage/actions";
 
 class HeaderContainer extends PureComponent {
   render() {
-    return <Header userData={this.props.user} setUsersData={this.props.setUsersData}/>;
+    return (
+      <Header
+        userData={this.props.user}
+        clearStorage={this.props.clearStorage}
+      />
+    );
   }
 }
 
@@ -16,7 +21,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  setUsersData
+  clearStorage
 };
 
 export default connect(

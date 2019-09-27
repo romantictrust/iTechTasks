@@ -71,8 +71,8 @@ export default function NavTabs() {
             onChange={handleChange}
             aria-label="nav tabs example"
           >
-            <LinkTab label="Operations" href="/drafts" {...applyProps(0)} />
-            <LinkTab label="Archive" href="/trash" {...applyProps(1)} />
+            <LinkTab label="Operations" href="/operations" {...applyProps(0)} />
+            <LinkTab label="Archive" href="/archive" {...applyProps(1)} />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>

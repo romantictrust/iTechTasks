@@ -4,7 +4,7 @@ import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import DoughnutChartContainer from "../containers/DoughnutChartContainer";
-import FormDialog from "../components/FormDialog";
+import FormDialogSell from "../components/FormDialogSell";
 
 export default function Portfolio(props) {
   const user = props.userData;
@@ -35,7 +35,7 @@ export default function Portfolio(props) {
                   <Typography>Bought for: {item.cost}</Typography>
                 </Grid>
                 <Grid item>
-                  <FormDialog
+                  <FormDialogSell
                     material={item.material}
                     data={props.data}
                     profit={props.profit}

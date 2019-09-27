@@ -23,9 +23,8 @@ const useStyles = makeStyles(theme => ({
 function Header(props) {
   const classes = useStyles();
   const logOut = () => {
-    const user = {};
-    props.setUsersData(user);
     sessionStorage.removeItem("user");
+    props.clearStorage();
     props.history.replace("/authorization");
   };
   return (
@@ -38,7 +37,7 @@ function Header(props) {
                 <img className={classes.logo} src={logo} alt="Company Logo" />
               </Link>
             </Grid>
-            {props.userData.id ? (
+            {props.userData.email ? (
               <Grid item>
                 <Button color="inherit" disableRipple={true}>
                   <Typography>{props.userData.email}</Typography>

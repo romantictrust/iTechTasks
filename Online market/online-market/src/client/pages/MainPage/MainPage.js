@@ -8,7 +8,10 @@ export default class MainPage extends PureComponent {
   render() {
     const user = JSON.parse(sessionStorage.getItem("user"));
     if (user) this.props.setUsersData(user);
-    else this.props.setUsersData(altUser);
+    else {
+      sessionStorage.setItem("user", JSON.stringify(altUser))
+      this.props.setUsersData(altUser);
+    }
     return (
       <Grid container direction="column">
         <Grid item>
