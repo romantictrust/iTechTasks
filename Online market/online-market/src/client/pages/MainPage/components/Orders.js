@@ -10,13 +10,14 @@ import Paper from "@material-ui/core/Paper";
 import useStyles from "../styles/TabPanelStyle";
 
 // Generate Order Data
-function createData(id, date, resource, qty, amount) {
-  return { id, date, resource, qty, amount };
+function createData(id, operation, date, resource, qty, amount) {
+  return { id, operation, date, resource, qty, amount };
 }
 
 const rows = [
   createData(
     0,
+    "sell",
     "16 Mar, 2019",
     "Iron",
     4,
@@ -34,6 +35,7 @@ export default function Orders() {
           <TableHead>
             <TableRow>
               <TableCell>#</TableCell>
+              <TableCell>Operation</TableCell>
               <TableCell>Resource</TableCell>
               <TableCell>Qty</TableCell>
               <TableCell>Amount</TableCell>
@@ -44,6 +46,7 @@ export default function Orders() {
             {rows.map(row => (
               <TableRow key={row.id}>
                 <TableCell>{row.id}</TableCell>
+                <TableCell>{row.operation}</TableCell>
                 <TableCell>{row.resource}</TableCell>
                 <TableCell>{row.qty}</TableCell>
                 <TableCell>{row.amount}</TableCell>

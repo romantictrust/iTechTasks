@@ -17,7 +17,7 @@ export default function Portfolio(props) {
         </Grid>
         <Divider orientation="vertical" />
         <Grid item xs={6}>
-          {props.userData.materials.map(item => {
+          {props.userData.materials.map((item, index) => {
             return (
               <Grid
                 key={item.material}
@@ -37,11 +37,13 @@ export default function Portfolio(props) {
                 <Grid item>
                   <FormDialogSell
                     material={item.material}
+                    materialIndex={index}
                     data={props.data}
                     profit={props.profit}
                     userData={props.userData}
                     setUsersData={props.setUsersData}
                     setProfitData={props.setProfitData}
+                    setPaymentOperation={props.setPaymentOperation}
                   />
                 </Grid>
               </Grid>

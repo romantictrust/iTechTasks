@@ -8,9 +8,9 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import useStyles from "../styles/TabPanelStyle";
-import Activities from "./Activities";
+import ActivitiesContainer from "../containers/ActivitiesContainer";
 import OperationsContainer from "../containers/OperationsContainer";
-import Orders from "./Orders";
+import OrdersContainer from "../containers/OrdersContainer";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -79,11 +79,11 @@ export default function NavTabs() {
           <OperationsContainer/>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Orders/>
+          <OrdersContainer/>
         </TabPanel>
       </Container>
       <Container maxWidth="sm">
-        <Activities />
+        <ActivitiesContainer />
       </Container>
     </Grid>
   );

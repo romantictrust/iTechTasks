@@ -23,7 +23,15 @@ export default function Deposits(props) {
             on {new Date().toLocaleString()}
           </Typography>
           <div>
-            <FormDialogBuy material={materialsData.material} price={materialsData.price}/>
+            <FormDialogBuy
+              material={materialsData.material}
+              price={materialsData.price}
+              materialIndex={props.materialIndex}
+              userData={props.userData}
+              setProfitData={props.setProfitData}
+              setUsersData={props.setUsersData}
+              setPaymentOperation={props.setPaymentOperation}
+            />
           </div>
         </Paper>
       </Grid>

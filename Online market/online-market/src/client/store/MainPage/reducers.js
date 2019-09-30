@@ -2,6 +2,7 @@ import {
   FETCH_CHANGE_MATERIAL_DATA,
   STORAGE_CHANGE_USER_DATA,
   STORAGE_CHANGE_PROFIT_DATA,
+  STORAGE_ADD_PAYMENT_OPERATION,
   STORAGE_CLEAR
 } from "./actions";
 
@@ -15,7 +16,8 @@ const defaultState = {
       { material: "Iron", profit: 0 },
       { material: "Oil", profit: 0 }
     ]
-  }
+  },
+  payment: []
 };
 
 const mainPageReducer = (state = defaultState, action) => {
@@ -26,6 +28,8 @@ const mainPageReducer = (state = defaultState, action) => {
       return { ...state, user: action.payload };
     case STORAGE_CHANGE_PROFIT_DATA:
       return { ...state, profit: action.payload };
+    case STORAGE_ADD_PAYMENT_OPERATION:
+      return { ...state, payment: [...state.payment, action.payload]}
     case STORAGE_CLEAR:
       return defaultState;
     default: {

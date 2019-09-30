@@ -47,6 +47,10 @@ const UsersSchema = new Schema({
       }
   ]
   },
+  orders: {
+    type: Array,
+    default: []
+  },
   hash: String,
   salt: String
 }, { minimize: false });
@@ -86,6 +90,7 @@ UsersSchema.methods.toAuthJSON = function() {
     email: this.email,
     balance: this.balance,
     materials: this.materials,
+    orders: this.orders,
     token: this.generateJWT()
   };
 };

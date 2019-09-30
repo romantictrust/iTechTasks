@@ -39,6 +39,7 @@ function SignIn(props) {
 
   const confirmAuth = async event => {
     event.preventDefault();
+    props.clearStorage();
     const email = SignIn.email.value;
     const password = SignIn.password.value;
     validateEmail(email);

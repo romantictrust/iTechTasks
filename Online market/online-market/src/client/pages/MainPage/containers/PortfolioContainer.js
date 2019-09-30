@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import Portfolio from "../components/Portfolio";
 import { connect } from "react-redux";
-import { setUsersData, setProfitData } from "../../../store/MainPage/actions";
+import { setUsersData, setProfitData, setPaymentOperation } from "../../../store/MainPage/actions";
 
 class PortfolioContainer extends PureComponent {
   render() {
@@ -12,6 +12,7 @@ class PortfolioContainer extends PureComponent {
         profit={this.props.profit}
         setUsersData={this.props.setUsersData}
         setProfitData={this.props.setProfitData}
+        setPaymentOperation={this.props.setPaymentOperation}
       />
     );
   }
@@ -27,7 +28,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   setUsersData,
-  setProfitData
+  setProfitData,
+  setPaymentOperation
 };
 
 export default connect(

@@ -20,14 +20,29 @@ export default function FormDialogBuy(props) {
 
   const handleSell = () => {
     let fieldValue = Number(FormDialogBuy.amount.value);
-    console.log(fieldValue)
+    let balance = Number(props.userData.balance);
+    let summaryCost = fieldValue * props.price;
+    let modifiedUser = { ...props.userData };
     if (fieldValue <= 0) {
       alert(`Please enter correct amount`);
       throw Error(`Please enter correct amount`);
-    } else if (0) {
-      alert(`You dont have ${fieldValue} of ${props.material}`);
-      throw Error(`You dont have ${fieldValue} of ${props.material}`);
+    } else if (balance < summaryCost) {
+      alert(`You dont have ${summaryCost} on your account`);
+      throw Error(`You dont have ${summaryCost} on your account`);
     } else {
+      modifiedUser.balance -= summaryCost;
+      modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
+      modifiedUser.materials[props.materialIndex].amount += fieldValue;
+      let paymentOperation = {
+        index: 0,
+        flag: 'buy',
+        material: props.material,
+        amount: fieldValue,
+        price: summaryCost,
+        date: new Date().toLocaleString()
+      };
+      props.setPaymentOperation(paymentOperation)
+      props.setUsersData(modifiedUser);
       setOpen(false);
     }
   };

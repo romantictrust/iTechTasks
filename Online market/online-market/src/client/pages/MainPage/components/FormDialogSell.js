@@ -19,23 +19,13 @@ export default function FormDialogSell(props) {
   };
 
   const handleSell = () => {
-    let userMaterial = { material: "", amount: 0, cost: 0 };
-    let counter = 0;
-    let materialPosition = 0;
+    let materialPosition = props.materialIndex;
+    let userMaterial = props.userData.materials[materialPosition];
     let fieldValue = Number(FormDialogSell.amount.value);
+    let summaryCost = props.data[materialPosition].price * fieldValue;
     let modifiedUser = { ...props.userData };
     let modifiedProfit = { ...props.profit };
     let operationValue = 0;
-    let arr = [];
-    for (arr of props.userData.materials) {
-      if (arr.material === props.material) {
-        userMaterial.material = arr.material;
-        userMaterial.amount = arr.amount;
-        userMaterial.cost = arr.cost;
-        materialPosition = counter;
-      }
-      counter++;
-    }
     if (fieldValue <= 0) {
       alert(`Please enter correct amount`);
       throw Error(`Please enter correct amount`);
@@ -57,8 +47,17 @@ export default function FormDialogSell(props) {
       modifiedProfit.materials[materialPosition].profit = Number(
         modifiedProfit.materials[materialPosition].profit
       );
+      let paymentOperation = {
+        index: 0,
+        flag: 'sell',
+        material: userMaterial.material,
+        amount: fieldValue,
+        price: summaryCost,
+        date: new Date().toLocaleString()
+      };
       props.setUsersData(modifiedUser);
       props.setProfitData(modifiedProfit);
+      props.setPaymentOperation(paymentOperation);
       setOpen(false);
     }
   };
