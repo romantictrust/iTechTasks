@@ -1,22 +1,29 @@
-const port = 8000;
-const adress = "localhost";
+const { ADRESS, PORT } = require('./config')
 const express = require("express");
 const app = express();
 const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dbUrl = "mongodb://admin:admin1@ds255403.mlab.com:55403/online-market";
+require('dotenv').config();
 
 //Socket connection
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
-console.log("Server started on port:", adress + ":" + port);
+console.log("Server started on port:", ADRESS + ":" + PORT);
 
 //Configure mongoose's promise to global promise
 mongoose.promise = global.Promise;
 
+// To get rid of all those semi-annoying Mongoose deprecation warnings.
+const options = {
+  useCreateIndex: true,
+  useNewUrlParser: true,
+  useFindAndModify: false
+}
+
 //Configure Mongoose
-mongoose.connect(dbUrl);
+mongoose.connect(dbUrl, options);
 mongoose.set("debug", true);
 
 //Configure app
@@ -50,4 +57,4 @@ app.use(require("./routes"));
 
 app.get("/api/materials", materials);
 
-server.listen(port);
+server.listen(PORT);

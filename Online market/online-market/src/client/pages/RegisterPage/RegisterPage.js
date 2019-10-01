@@ -14,8 +14,11 @@ import {
   validateEmail,
   validatePassword
 } from "../../basicComponents/functions/Validate";
+import Snackbar from "../../basicComponents/components/Snackbars";
 
 export default function SignUp() {
+  const [snackMessage, setSnackMessage] = React.useState();
+
   const registerUser = user => {
     return fetch(registerUserUrl, {
       method: "POST",
@@ -24,13 +27,21 @@ export default function SignUp() {
         "Content-Type": "application/json"
       }
     })
-      .then(res => res.json())
-      .then(res => sessionStorage.setItem("user", JSON.stringify(res.user)));
+    .then(res => res.json())
+      .then(res => {
+        if (res.errors){
+          setSnackMessage(res.errors);
+        }
+        else {
+          setSnackMessage('Please, confirm your email');
+        }
+      })
   };
   const classes = useStyles();
 
   const confirmReg = event => {
     event.preventDefault();
+    setSnackMessage();
     const email = SignUp.email.value;
     const password = SignUp.password.value;
     const firstName = SignUp.fname.value;
@@ -144,6 +155,7 @@ export default function SignUp() {
             </Grid>
           </Grid>
         </form>
+        {snackMessage ? <Snackbar message={snackMessage} /> : null}
       </div>
     </Container>
   );

@@ -7,9 +7,16 @@ import { altUser } from "../../constants";
 export default class MainPage extends PureComponent {
   render() {
     const user = JSON.parse(sessionStorage.getItem("user"));
-    if (user) this.props.setUsersData(user);
-    else {
-      sessionStorage.setItem("user", JSON.stringify(altUser))
+    if (user) {
+      if (user.confirmed) {
+        this.props.setUsersData(user);
+      } else {
+        alert("Please, confirm your adress!");
+        sessionStorage.setItem("user", JSON.stringify(altUser));
+        this.props.setUsersData(altUser);
+      }
+    } else {
+      sessionStorage.setItem("user", JSON.stringify(altUser));
       this.props.setUsersData(altUser);
     }
     return (

@@ -12,12 +12,11 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
 import { loginUserUrl } from "../../constants";
-import {
-  validateEmail,
-  validatePassword
-} from "../../basicComponents/functions/Validate";
+import Snackbar from "../../basicComponents/components/Snackbars";
 
 function SignIn(props) {
+  const [snackMessage, setSnackMessage] = React.useState();
+
   const loginUser = user => {
     return fetch(loginUserUrl, {
       method: "POST",
@@ -27,11 +26,13 @@ function SignIn(props) {
       }
     })
       .then(res => res.json())
-      .then(response =>
-        sessionStorage.setItem("user", JSON.stringify(response.user))
-      )
-      .catch(error => {
-        throw new Error("Wrong user");
+      .then(res => {
+        if (res.errors) {
+          setSnackMessage(res.errors);
+          throw new Error(res.errors);
+        } else {
+          sessionStorage.setItem("user", JSON.stringify(res.user));
+        }
       });
   };
 
@@ -39,11 +40,10 @@ function SignIn(props) {
 
   const confirmAuth = async event => {
     event.preventDefault();
+    setSnackMessage();
     props.clearStorage();
     const email = SignIn.email.value;
     const password = SignIn.password.value;
-    validateEmail(email);
-    validatePassword(password);
     const user = { user: { email: email, password: password } };
     await loginUser(user);
     props.history.replace("/");
@@ -115,6 +115,7 @@ function SignIn(props) {
             </Grid>
           </Grid>
         </form>
+        {snackMessage ? <Snackbar message={snackMessage} /> : null}
       </div>
     </Container>
   );

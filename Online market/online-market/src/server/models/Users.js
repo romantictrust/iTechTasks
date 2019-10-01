@@ -4,6 +4,10 @@ const jwt = require("jsonwebtoken");
 const { Schema } = mongoose;
 
 const UsersSchema = new Schema({
+  confirmed: {
+    type: Boolean,
+    default: false
+  },
   firstName: {
     type: String,
     required: true,
@@ -88,6 +92,7 @@ UsersSchema.methods.toAuthJSON = function() {
   return {
     id: this._id,
     email: this.email,
+    confirmed: this.confirmed,
     balance: this.balance,
     materials: this.materials,
     orders: this.orders,
