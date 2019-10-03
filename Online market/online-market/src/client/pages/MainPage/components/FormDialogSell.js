@@ -6,9 +6,11 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Snackbar from "../../../basicComponents/components/Snackbars";
 
 export default function FormDialogSell(props) {
   const [open, setOpen] = React.useState(false);
+  const [snackMessage, setSnackMessage] = React.useState();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,6 +21,7 @@ export default function FormDialogSell(props) {
   };
 
   const handleSell = () => {
+    setSnackMessage();
     let materialPosition = props.materialIndex;
     let userMaterial = props.userData.materials[materialPosition];
     let fieldValue = Number(FormDialogSell.amount.value);
@@ -27,10 +30,12 @@ export default function FormDialogSell(props) {
     let modifiedProfit = { ...props.profit };
     let operationValue = 0;
     if (fieldValue <= 0) {
-      alert(`Please enter correct amount`);
+      setSnackMessage({ notification: `Please enter correct amount` });
       throw Error(`Please enter correct amount`);
     } else if (userMaterial.amount < fieldValue) {
-      alert(`You dont have ${fieldValue} of ${props.material}`);
+      setSnackMessage({
+        notification: `You dont have ${fieldValue} ${props.material}`
+      });
       throw Error(`You dont have ${fieldValue} of ${props.material}`);
     } else {
       modifiedUser.materials[materialPosition].amount -= fieldValue;
@@ -48,13 +53,16 @@ export default function FormDialogSell(props) {
         modifiedProfit.materials[materialPosition].profit
       );
       let paymentOperation = {
-        index: 0,
-        flag: 'sell',
+        index: props.userData.orders[0]
+          ? props.userData.orders.length
+          : 0,
+        flag: "sell",
         material: userMaterial.material,
         amount: fieldValue,
         price: summaryCost,
         date: new Date().toLocaleString()
       };
+      modifiedUser.orders.push(paymentOperation);
       props.setUsersData(modifiedUser);
       props.setProfitData(modifiedProfit);
       props.setPaymentOperation(paymentOperation);
@@ -98,6 +106,7 @@ export default function FormDialogSell(props) {
           </Button>
         </DialogActions>
       </Dialog>
+      {snackMessage ? <Snackbar message={snackMessage} /> : null}
     </div>
   );
 }

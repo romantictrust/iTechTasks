@@ -2,14 +2,16 @@ import React, { PureComponent } from "react";
 import MainPage from "../MainPage";
 import { connect } from "react-redux";
 import { setUsersData } from "../../../store/MainPage/actions";
+import updateUser from "../functions/updateUser";
 
 class MainPageContainer extends PureComponent {
   render() {
     let sessionUser = JSON.parse(sessionStorage.getItem("user"));
     if (this.props.user.id) {
-      if (this.props.user.materials !== sessionUser.materials) {
+      if (this.props.user.balance !== sessionUser.balance) {
         let mergedObj = { ...sessionUser, ...this.props.user };
         sessionStorage.setItem("user", JSON.stringify(mergedObj));
+        if (this.props.user.email) updateUser(mergedObj);
       }
     }
 

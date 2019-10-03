@@ -1,15 +1,18 @@
-import React from 'react';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-
-
+import React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Button from "@material-ui/core/Button";
 
 export default function SimpleSnackbar(props) {
   const [open, setOpen] = React.useState(true);
 
+  // Pass props *Object in SimpleSnackbar! According to that schema!
+  let defaultProps = { notification: "", button: "", onClick: () => {} };
+  const modifiedProps = {...defaultProps, ...props.message};
+
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
@@ -19,17 +22,25 @@ export default function SimpleSnackbar(props) {
     <div>
       <Snackbar
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
+          vertical: "bottom",
+          horizontal: "left"
         }}
         open={open}
         autoHideDuration={6000}
         onClose={handleClose}
         ContentProps={{
-          'aria-describedby': 'message-id',
+          "aria-describedby": "message-id"
         }}
-        message={<span id="message-id">{props.message}</span>}
+        message={<span id="message-id">{modifiedProps.notification}</span>}
         action={[
+          <Button
+            key="undo"
+            color="secondary"
+            size="small"
+            onClick={modifiedProps.onClick}
+          >
+            {modifiedProps.button}
+          </Button>,
           <IconButton
             key="close"
             aria-label="close"
@@ -37,7 +48,7 @@ export default function SimpleSnackbar(props) {
             onClick={handleClose}
           >
             <CloseIcon />
-          </IconButton>,
+          </IconButton>
         ]}
       />
     </div>

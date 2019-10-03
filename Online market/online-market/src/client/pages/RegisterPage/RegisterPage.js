@@ -30,10 +30,10 @@ export default function SignUp() {
     .then(res => res.json())
       .then(res => {
         if (res.errors){
-          setSnackMessage(res.errors);
+          setSnackMessage({notification: res.errors});
         }
         else {
-          setSnackMessage('Please, confirm your email');
+          setSnackMessage({notification: 'Please, confirm your email'});
         }
       })
   };

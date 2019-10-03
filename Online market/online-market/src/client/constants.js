@@ -2,6 +2,8 @@ export const materialsAPIurl = "http://localhost:8000/api/materials";
 export const registerUserUrl = "http://localhost:8000/api/users";
 export const loginUserUrl = "http://localhost:8000/api/users/login";
 export const currentRootUrl = "http://localhost:8000/api/users/current";
+export const reconfirmUrl = "http://localhost:8000/api/users/reconfirm";
+export const updateUrl = "http://localhost:8000/api/users/update";
 
 export const emailReg = new RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -30,5 +32,6 @@ export const altUser = {
       amount: 25,
       cost: 26
     }
-  ]
+  ],
+  orders: []
 };

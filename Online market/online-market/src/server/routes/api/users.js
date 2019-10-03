@@ -43,13 +43,16 @@ router.post("/", auth.optional, (req, res, next) => {
     if (err) {
       if (err.name === "MongoError" && err.code === 11000) {
         // Duplicate username
-        return res
-          .status(422)
-          .json({ errors: "User already exists!" });
+        return res.status(422).json({ errors: "User already exists!" });
       }
-      return res.status(422).json({ errors: err});
+      return res.status(422).json({ errors: err });
     } else res.json({ user: finalUser.toAuthJSON() });
   });
+});
+
+//POST resend confirmation letter
+router.post("/reconfirm", auth.optional, (req, res, next) => {
+  emailController.collectEmail(req.body);
 });
 
 router.get("/confirm/:id", emailController.confirmEmail);
@@ -106,6 +109,22 @@ router.get("/current", auth.required, (req, res, next) => {
 
     return res.json({ user: user.toAuthJSON() });
   });
+});
+
+router.post("/update", auth.optional, (req, res, next) => {
+  const { id, materials, balance, orders } = req.body;
+  return Users.findByIdAndUpdate(id, {
+    $set: { materials: materials, balance: balance, orders: orders }
+  }).exec((err, user)=>{
+    if(err){
+      console.log(err);
+      res.status(500).json({
+        errors: err
+      });
+    } else {
+      res.status(200).send(user)
+    }
+  })
 });
 
 module.exports = router;

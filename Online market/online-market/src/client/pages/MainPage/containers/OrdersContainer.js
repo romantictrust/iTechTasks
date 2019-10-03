@@ -1,8 +1,21 @@
 import React, { PureComponent } from "react";
 import Orders from "../components/Orders";
+import { connect } from "react-redux";
 
-export default class OrdersContainer extends PureComponent {
+
+class OrdersContainer extends PureComponent {
   render() {
-    return <Orders />;
+    return <Orders userData={this.props.user}/>;
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.mainPage.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(OrdersContainer);

@@ -13,6 +13,7 @@ import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
 import { loginUserUrl } from "../../constants";
 import Snackbar from "../../basicComponents/components/Snackbars";
+import sendConfirmation from "./functions/sendConfirmation";
 
 function SignIn(props) {
   const [snackMessage, setSnackMessage] = React.useState();
@@ -28,10 +29,20 @@ function SignIn(props) {
       .then(res => res.json())
       .then(res => {
         if (res.errors) {
-          setSnackMessage(res.errors);
+          setSnackMessage({notification: res.errors});
           throw new Error(res.errors);
         } else {
-          sessionStorage.setItem("user", JSON.stringify(res.user));
+          if (!res.user.confirmed) {
+            setSnackMessage({
+              notification:
+                "Please, confirm your email! Click to send another email confirmation.",
+              button: "Click",
+              onClick: () => {
+                sendConfirmation(res.user);
+              }
+            });
+            throw new Error("Please, confirm your email!");
+          } else sessionStorage.setItem("user", JSON.stringify(res.user));
         }
       });
   };

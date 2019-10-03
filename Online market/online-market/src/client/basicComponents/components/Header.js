@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import logo from "../../style/icons/logoIcon/logo.png";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import rechargeBalance from '../functions/rechargeBalance';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,6 +40,9 @@ function Header(props) {
             </Grid>
             {props.userData.email ? (
               <Grid item>
+                <Button  color="secondary" disableRipple={true} onClick={rechargeBalance}>
+                  <Typography>{props.userData.balance}$</Typography>
+                </Button>
                 <Button color="inherit" disableRipple={true}>
                   <Typography>{props.userData.email}</Typography>
                 </Button>
