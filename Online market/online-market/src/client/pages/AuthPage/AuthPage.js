@@ -29,7 +29,7 @@ function SignIn(props) {
       .then(res => res.json())
       .then(res => {
         if (res.errors) {
-          setSnackMessage({notification: res.errors});
+          setSnackMessage({ notification: res.errors });
           throw new Error(res.errors);
         } else {
           if (!res.user.confirmed) {
@@ -42,7 +42,13 @@ function SignIn(props) {
               }
             });
             throw new Error("Please, confirm your email!");
-          } else sessionStorage.setItem("user", JSON.stringify(res.user));
+          } else {
+            sessionStorage.setItem("user", JSON.stringify(res.user));
+            if (res.user.isAdmin)
+            props.history.replace("/admin")
+            else
+            props.history.replace("/");
+          }
         }
       });
   };
@@ -57,7 +63,6 @@ function SignIn(props) {
     const password = SignIn.password.value;
     const user = { user: { email: email, password: password } };
     await loginUser(user);
-    props.history.replace("/");
   };
 
   return (

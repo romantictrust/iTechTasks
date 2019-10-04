@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import clsx from "clsx";
 import useStyles from "../styles/TabPanelStyle";
-import Title from "./Title";
+import Title from "../../../basicComponents/components/Title";
 import FormDialogBuy from "../components/FormDialogBuy";
 
 export default function Deposits(props) {

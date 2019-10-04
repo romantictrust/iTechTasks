@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import Typography from "@material-ui/core/Typography";
-import Title from "./Title";
+import Title from "../../../basicComponents/components/Title";
 
 export default class Profit extends PureComponent {
   render() {
