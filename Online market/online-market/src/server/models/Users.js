@@ -8,6 +8,10 @@ const UsersSchema = new Schema({
     type: Boolean,
     default: false
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   firstName: {
     type: String,
     required: true,
@@ -89,10 +93,20 @@ UsersSchema.methods.generateJWT = function() {
 };
 
 UsersSchema.methods.toAuthJSON = function() {
+  if (this.isAdmin)
   return {
     id: this._id,
     email: this.email,
     confirmed: this.confirmed,
+    isAdmin: this.isAdmin,
+    token: this.generateJWT()
+  }
+  else
+  return {
+    id: this._id,
+    email: this.email,
+    confirmed: this.confirmed,
+    isAdmin: this.isAdmin,
     balance: this.balance,
     materials: this.materials,
     orders: this.orders,

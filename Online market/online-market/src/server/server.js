@@ -52,9 +52,7 @@ io.sockets.on("connect", socket => {
 //Models && routes
 require("./models/Users");
 require("./config/passport");
-const materials = require("./routes/api/materials");
-app.use(require("./routes"));
 
-app.get("/api/materials", materials);
+app.use(require("./routes"));
 
 server.listen(PORT);
