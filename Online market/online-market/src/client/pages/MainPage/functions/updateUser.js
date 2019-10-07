@@ -5,16 +5,20 @@ const updateUser = user => {
     method: "POST",
     body: JSON.stringify(user),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: "Token " + user.token
     }
   })
     .then(res => res.json())
     .then(res => {
-      let currentUser = {...JSON.parse(sessionStorage.getItem("user"))};
+      let currentUser = { ...JSON.parse(sessionStorage.getItem("user")) };
       currentUser.materials = res.materials;
       currentUser.balance = res.balance;
-      currentUser.materials = res.materials;
+      currentUser.orders = res.orders;
       sessionStorage.setItem("user", JSON.stringify(currentUser));
+    })
+    .catch(err => {
+      throw new Error("Token auth failed")
     });
 };
 

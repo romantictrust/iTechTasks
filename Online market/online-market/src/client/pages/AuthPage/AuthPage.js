@@ -42,6 +42,8 @@ function SignIn(props) {
               }
             });
             throw new Error("Please, confirm your email!");
+          } else if (res.user.isBlocked) {
+            props.history.replace("/blockpage")
           } else {
             sessionStorage.setItem("user", JSON.stringify(res.user));
             if (res.user.isAdmin)

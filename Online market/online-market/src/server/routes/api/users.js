@@ -104,27 +104,28 @@ router.get("/current", auth.required, (req, res, next) => {
 
   return Users.findById(id).then(user => {
     if (!user) {
-      return res.sendStatus(400);
+      return res.sendStatus(400).json({
+        errors: "User not found"
+      });
     }
 
     return res.json({ user: user.toAuthJSON() });
   });
 });
 
-router.post("/update", auth.optional, (req, res, next) => {
+router.post("/update", auth.required, (req, res, next) => {
   const { id, materials, balance, orders } = req.body;
   return Users.findByIdAndUpdate(id, {
     $set: { materials: materials, balance: balance, orders: orders }
-  }).exec((err, user)=>{
-    if(err){
-      console.log(err);
+  }).exec((err, user) => {
+    if (err) {
       res.status(500).json({
         errors: err
       });
     } else {
-      res.status(200).send(user)
+      res.status(200).send(user);
     }
-  })
+  });
 });
 
 module.exports = router;

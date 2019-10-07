@@ -12,6 +12,10 @@ const UsersSchema = new Schema({
     type: Boolean,
     default: false
   },
+  isBlocked: {
+    type: Boolean,
+    default: false
+  },
   firstName: {
     type: String,
     required: true,
@@ -107,6 +111,7 @@ UsersSchema.methods.toAuthJSON = function() {
     email: this.email,
     confirmed: this.confirmed,
     isAdmin: this.isAdmin,
+    isBlocked: this.isBlocked,
     balance: this.balance,
     materials: this.materials,
     orders: this.orders,

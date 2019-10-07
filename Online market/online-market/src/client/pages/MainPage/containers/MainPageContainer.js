@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 import { setUsersData } from "../../../store/MainPage/actions";
 import updateUser from "../functions/updateUser";
 
+async function updateUserAsync(mergedObj) {
+  await updateUser(mergedObj);
+}
+
 class MainPageContainer extends PureComponent {
   render() {
     let sessionUser = JSON.parse(sessionStorage.getItem("user"));
@@ -11,10 +15,9 @@ class MainPageContainer extends PureComponent {
       if (this.props.user.balance !== sessionUser.balance) {
         let mergedObj = { ...sessionUser, ...this.props.user };
         sessionStorage.setItem("user", JSON.stringify(mergedObj));
-        if (this.props.user.email) updateUser(mergedObj);
+        if (this.props.user.email) updateUserAsync(mergedObj);
       }
     }
-
     return <MainPage setUsersData={this.props.setUsersData} />;
   }
 }

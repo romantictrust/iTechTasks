@@ -13,12 +13,7 @@ import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
 import Title from "../../../basicComponents/components/Title";
 import TablePaginationActions from "../../../basicComponents/components/Pagination";
-import BlockUser from '../functions/BlockUser';
-
-const userList = [
-  { index: 0, id: "fewfwevew", email: "fewfwevew@usef.com" },
-  { index: 1, id: "grt", email: "grt@usef.com" }
-];
+import BlockUser from "../functions/BlockUser";
 
 export default function Activities(props) {
   const classes = useStyles();
@@ -39,7 +34,6 @@ export default function Activities(props) {
       <Paper className={fixedHeightPaper}>
         <Title>Users Pannel</Title>
         <div className={classes.tableWrapper}>
-          <Title>Recent Orders</Title>
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
@@ -50,22 +44,37 @@ export default function Activities(props) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {userList
+              {props.usersList
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(row => (
-                  <TableRow key={row.id}>
-                    <TableCell>{row.index}</TableCell>
-                    <TableCell>{row.id}</TableCell>
+                .map((row, index) => (
+                  <TableRow key={row._id}>
+                    <TableCell>{index}</TableCell>
+                    <TableCell>{row._id}</TableCell>
                     <TableCell>{row.email}</TableCell>
                     <TableCell align="right">
-                      <Button
-                        color="secondary"
-                        variant="contained"
-                        size="small"
-                        onClick={()=>{BlockUser(row.id)}}
-                      >
-                        Block
-                      </Button>
+                      {!row.isBlocked ? (
+                        <Button
+                          color="secondary"
+                          variant="contained"
+                          size="small"
+                          onClick={() => {
+                            BlockUser(row._id, 1);
+                          }}
+                        >
+                          Block
+                        </Button>
+                      ) : (
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          size="small"
+                          onClick={() => {
+                            BlockUser(row._id, 0);
+                          }}
+                        >
+                          Unblock
+                        </Button>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -75,7 +84,7 @@ export default function Activities(props) {
                 <TablePagination
                   rowsPerPageOptions={[5, 10, 25]}
                   colSpan={3}
-                  count={userList.length}
+                  count={props.usersList.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   SelectProps={{

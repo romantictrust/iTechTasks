@@ -1,7 +1,6 @@
 import { currentRootUrl } from '../../constants';
 
-// To get id everywhere
-export const getId = token => {
+export const getUserByToken = token => {
   return fetch(currentRootUrl, {
     method: "GET",
     headers: {
