@@ -7,8 +7,6 @@ import RegisterPageContainer from "../src/client/pages/RegisterPage/containers/R
 import AdminPageContainer from "../src/client/pages/AdminPage/containers/AdminPageContainer";
 import BlockPage from "../src/client/pages/BlockPage/BlockPage";
 import store from "./client/store/store";
-import socketIOClient from "socket.io-client";
-socketIOClient("http://localhost:8000");
 
 function App() {
   return (

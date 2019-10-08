@@ -20,7 +20,7 @@ export default function Deposits(props) {
             Price: {materialsData.price}$
           </Typography>
           <Typography color="textSecondary" flex="1">
-            on {new Date().toLocaleString()}
+            on {materialsData.date}
           </Typography>
           <div>
             <FormDialogBuy

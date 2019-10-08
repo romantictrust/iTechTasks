@@ -13,9 +13,9 @@ import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
 import Title from "../../../basicComponents/components/Title";
 import TablePaginationActions from "../../../basicComponents/components/Pagination";
-import BlockUser from "../functions/BlockUser";
+import blockUser from "../functions/blockUser";
 
-export default function Activities(props) {
+export default function UsersPanel(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const [page, setPage] = React.useState(0);
@@ -29,6 +29,25 @@ export default function Activities(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const adminPassport = {
+    token: props.admin.token,
+    isAdmin: props.admin.isAdmin
+  };
+
+  const processUser = (adminPassport, id, status) => {
+    const req = {
+      adminPassport: adminPassport,
+      userTarget: { id: id, status: status }
+    };
+    blockUser(req).then(res => {
+      let modifiedUsersList = [...props.usersList];
+      let toChangeIndex = modifiedUsersList.findIndex(x => x._id === res._id);
+      modifiedUsersList[toChangeIndex] = res;
+      props.setUsersList(modifiedUsersList);
+    });
+  };
+
   return (
     <Grid item className={classes.operationsBox}>
       <Paper className={fixedHeightPaper}>
@@ -58,7 +77,7 @@ export default function Activities(props) {
                           variant="contained"
                           size="small"
                           onClick={() => {
-                            BlockUser(row._id, 1);
+                            processUser(adminPassport, row._id, true);
                           }}
                         >
                           Block
@@ -69,7 +88,7 @@ export default function Activities(props) {
                           variant="contained"
                           size="small"
                           onClick={() => {
-                            BlockUser(row._id, 0);
+                            processUser(adminPassport, row._id, false);
                           }}
                         >
                           Unblock

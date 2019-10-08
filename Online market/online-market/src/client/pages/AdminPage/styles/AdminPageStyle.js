@@ -13,9 +13,14 @@ const useStyles = makeStyles(theme => ({
     overflow: "auto",
     flexDirection: "column"
   },
+  operationBoxWrap: {
+    direction: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center"
+  },
   operationsBox: {
-    marginTop: "2em",
-    marginBottom: "2em"
-  }
+    marginTop: "1em",
+    marginBottom: "1em"
+  },
 }));
 export default useStyles;

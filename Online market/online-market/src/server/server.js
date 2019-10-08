@@ -1,11 +1,11 @@
-const { ADRESS, PORT } = require('./config')
+const { ADRESS, PORT } = require("./config");
 const express = require("express");
 const app = express();
 const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dbUrl = "mongodb://admin:admin1@ds255403.mlab.com:55403/online-market";
-require('dotenv').config();
+require("dotenv").config();
 
 //Socket connection
 const server = require("http").Server(app);
@@ -20,7 +20,7 @@ const options = {
   useCreateIndex: true,
   useNewUrlParser: true,
   useFindAndModify: false
-}
+};
 
 //Configure Mongoose
 mongoose.connect(dbUrl, options);
@@ -43,6 +43,11 @@ app.use(
 io.sockets.on("connect", socket => {
   console.log(`Socket ${socket.id} connected.`);
   console.log(`${io.engine.clientsCount} sockets connected`);
+
+  socket.on("updateMaterial", data => {
+    io.sockets.emit("updateMaterial", data);
+  });
+  
   socket.on("disconnect", () => {
     console.log(`Socket ${socket.id} disconnected.`);
     console.log(`${io.engine.clientsCount} sockets connected`);
@@ -51,6 +56,7 @@ io.sockets.on("connect", socket => {
 
 //Models && routes
 require("./models/Users");
+require("./models/Materials");
 require("./config/passport");
 
 app.use(require("./routes"));

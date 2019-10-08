@@ -18,7 +18,6 @@ class AdminPageContainer extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    user: state.mainPage.user,
     usersList: state.adminPage.usersList
   };
 };

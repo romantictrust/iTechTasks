@@ -1,22 +1,15 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { materialsAPIurl } from "../../../constants";
-import Operations from "../components/Operations";
+import getMaterials from "../../../basicComponents/functions/getMaterials";
 import { setMaterialData } from "../../../store/MainPage/actions";
+import Operations from "../components/Operations";
 
 class OperationsContainer extends PureComponent {
-  getData = () => {
-    return fetch(materialsAPIurl)
-      .then(response => response.json())
-      .then(responseJson => {
-        this.props.setMaterialData(responseJson);
-      })
-      .catch(error => {
-        alert(error);
-      });
-  };
   render() {
-    if (!this.props.data) this.getData();
+    if (!this.props.data)
+      getMaterials().then(res => {
+        this.props.setMaterialData(res);
+      });
     return <Operations data={this.props.data} />;
   }
 }

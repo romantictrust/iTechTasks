@@ -1,12 +1,13 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { setUsersList } from "../../../store/AdminPage/actions";
-import UsersPannel from "../components/UsersPannel";
+import UsersPanel from "../components/UsersPanel";
 
-class UsersPannelContainer extends PureComponent {
+class UsersPanelContainer extends PureComponent {
   render() {
     return (
-      <UsersPannel
+      <UsersPanel
+        admin={this.props.user}
         usersList={this.props.usersList}
         setUsersList={this.props.setUsersList}
       />
@@ -15,6 +16,7 @@ class UsersPannelContainer extends PureComponent {
 }
 const mapStateToProps = state => {
   return {
+    user: state.mainPage.user,
     usersList: state.adminPage.usersList
   };
 };
@@ -25,4 +27,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UsersPannelContainer);
+)(UsersPanelContainer);
