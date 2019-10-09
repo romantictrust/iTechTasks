@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import Typography from "@material-ui/core/Typography";
-import Title from "../../../basicComponents/components/Title";
+import React, { PureComponent } from 'react';
+import Typography from '@material-ui/core/Typography';
+import Title from '../../../basicComponents/components/Title';
 
 export default class Profit extends PureComponent {
   render() {
@@ -9,14 +9,17 @@ export default class Profit extends PureComponent {
         <Title>Profit</Title>
         {this.props.profit.total ? (
           <div>
-            <Typography>Total: {this.props.profit.total}</Typography>
-            {this.props.profit.materials.map(item => {
-              return (
-                <Typography key={item.material}>
-                  {item.material}: {item.profit}
-                </Typography>
-              );
-            })}
+            <Typography>
+Total:
+              {this.props.profit.total}
+            </Typography>
+            {this.props.profit.materials.map((item) => (
+              <Typography key={item.material}>
+                {item.material}
+:
+                {item.profit}
+              </Typography>
+            ))}
           </div>
         ) : (
           <div>

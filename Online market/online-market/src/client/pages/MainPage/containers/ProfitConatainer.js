@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import Profit from "../components/Profit";
-import { connect } from "react-redux";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import Profit from '../components/Profit';
 
 class ProfitConatainer extends PureComponent {
   render() {
@@ -12,13 +12,11 @@ class ProfitConatainer extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    profit: state.mainPage.profit
-  };
-};
+const mapStateToProps = (state) => ({
+  profit: state.mainPage.profit,
+});
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(ProfitConatainer);

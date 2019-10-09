@@ -1,10 +1,10 @@
-import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import useStyles from "../styles/TabPanelStyle";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Divider from "@material-ui/core/Divider";
-import PortfolioContainer from "../containers/PortfolioContainer";
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import useStyles from '../styles/TabPanelStyle';
+import PortfolioContainer from '../containers/PortfolioContainer';
 import ProfitConatainer from '../containers/ProfitConatainer';
 import DepositsContainer from '../containers/DepositsContainer';
 
@@ -21,20 +21,19 @@ export default function Operations(props) {
               <DepositsContainer />
               <Divider />
               <Grid item>
-                <PortfolioContainer/>
+                <PortfolioContainer />
               </Grid>
               <Grid item>
-                <ProfitConatainer/>
+                <ProfitConatainer />
               </Grid>
             </Grid>
           </Container>
         </main>
       </div>
     );
-  } else
-    return (
-      <Container maxWidth="lg" className={classes.container}>
+  } return (
+    <Container maxWidth="lg" className={classes.container}>
         NO DATA YET
-      </Container>
-    );
+    </Container>
+  );
 }

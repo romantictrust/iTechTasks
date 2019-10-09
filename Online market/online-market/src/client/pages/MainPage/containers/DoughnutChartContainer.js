@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
-import DoughnutChart from "../components/DoughnutChart";
-import { connect } from "react-redux";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import DoughnutChart from '../components/DoughnutChart';
 
 class DoughnutChartContainer extends PureComponent {
   render() {
@@ -8,13 +8,11 @@ class DoughnutChartContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.mainPage.user
-  };
-};
+const mapStateToProps = (state) => ({
+  user: state.mainPage.user,
+});
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(DoughnutChartContainer);

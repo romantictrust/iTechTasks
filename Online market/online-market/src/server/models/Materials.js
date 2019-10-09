@@ -1,18 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 const { Schema } = mongoose;
 
 const MaterialsSchema = new Schema({
   material: {
-    type: String
+    type: String,
   },
   price: {
     type: Number,
-    default: 0
+    default: 0,
   },
   date: {
     type: String,
-    default: new Date().toLocaleString()
-  }
+    default: new Date().toLocaleString(),
+  },
 });
 
-mongoose.model("Materials", MaterialsSchema);
+mongoose.model('Materials', MaterialsSchema);

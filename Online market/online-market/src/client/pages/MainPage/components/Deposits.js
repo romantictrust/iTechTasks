@@ -1,26 +1,31 @@
-import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import clsx from "clsx";
-import useStyles from "../styles/TabPanelStyle";
-import Title from "../../../basicComponents/components/Title";
-import FormDialogBuy from "../components/FormDialogBuy";
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import clsx from 'clsx';
+import useStyles from '../styles/TabPanelStyle';
+import Title from '../../../basicComponents/components/Title';
+import FormDialogBuy from './FormDialogBuy';
 
 export default function Deposits(props) {
-  const materialsData = props.materialsData;
+  const { materialsData } = props;
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   return (
-    <React.Fragment>
+    <>
       <Grid item className={classes.operationsBox}>
         <Paper className={fixedHeightPaper}>
           <Title>{materialsData.material}</Title>
           <Typography component="p" variant="h4">
-            Price: {materialsData.price}$
+            Price:
+            {' '}
+            {materialsData.price}
+$
           </Typography>
           <Typography color="textSecondary" flex="1">
-            on {materialsData.date}
+            on
+            {' '}
+            {materialsData.date}
           </Typography>
           <div>
             <FormDialogBuy
@@ -35,6 +40,6 @@ export default function Deposits(props) {
           </div>
         </Paper>
       </Grid>
-    </React.Fragment>
+    </>
   );
 }

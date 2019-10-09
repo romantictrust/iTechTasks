@@ -1,37 +1,38 @@
-const mongoose = require("mongoose");
-const passport = require("passport");
-const router = require("express").Router();
-const auth = require("../auth");
-const Users = mongoose.model("Users");
-const emailController = require("../../controllers/email.controller");
+const mongoose = require('mongoose');
+const passport = require('passport');
+const router = require('express').Router();
+const auth = require('../auth');
 
-//POST new user route (optional, everyone has access)
-router.post("/", auth.optional, (req, res, next) => {
+const Users = mongoose.model('Users');
+const emailController = require('../../controllers/email.controller');
+
+// POST new user route (optional, everyone has access)
+router.post('/', auth.optional, (req, res, next) => {
   const {
-    body: { user }
+    body: { user },
   } = req;
 
   if (!user.firstName) {
     return res.status(422).json({
-      errors: "Firstname is required"
+      errors: 'Firstname is required',
     });
   }
 
   if (!user.lastName) {
     return res.status(422).json({
-      errors: "Lastname is required"
+      errors: 'Lastname is required',
     });
   }
 
   if (!user.email) {
     return res.status(422).json({
-      errors: "Email is required"
+      errors: 'Email is required',
     });
   }
 
   if (!user.password) {
     return res.status(422).json({
-      errors: "Password is required"
+      errors: 'Password is required',
     });
   }
 
@@ -39,44 +40,44 @@ router.post("/", auth.optional, (req, res, next) => {
   emailController.collectEmail(finalUser.toAuthJSON());
   finalUser.setPassword(user.password);
 
-  return finalUser.save(err => {
+  return finalUser.save((err) => {
     if (err) {
-      if (err.name === "MongoError" && err.code === 11000) {
+      if (err.name === 'MongoError' && err.code === 11000) {
         // Duplicate username
-        return res.status(422).json({ errors: "User already exists!" });
+        return res.status(422).json({ errors: 'User already exists!' });
       }
       return res.status(422).json({ errors: err });
-    } else res.json({ user: finalUser.toAuthJSON() });
+    } res.json({ user: finalUser.toAuthJSON() });
   });
 });
 
-//POST resend confirmation letter
-router.post("/reconfirm", auth.optional, (req, res, next) => {
+// POST resend confirmation letter
+router.post('/reconfirm', auth.optional, (req, res, next) => {
   emailController.collectEmail(req.body);
 });
 
-router.get("/confirm/:id", emailController.confirmEmail);
+router.get('/confirm/:id', emailController.confirmEmail);
 
-//POST login route (optional, everyone has access)
-router.post("/login", auth.optional, (req, res, next) => {
+// POST login route (optional, everyone has access)
+router.post('/login', auth.optional, (req, res, next) => {
   const {
-    body: { user }
+    body: { user },
   } = req;
 
   if (!user.email) {
     return res.status(422).json({
-      errors: "Email is required"
+      errors: 'Email is required',
     });
   }
 
   if (!user.password) {
     return res.status(422).json({
-      errors: "Password is required"
+      errors: 'Password is required',
     });
   }
 
   return passport.authenticate(
-    "local",
+    'local',
     { session: false },
     (err, passportUser, info) => {
       if (err) {
@@ -90,22 +91,22 @@ router.post("/login", auth.optional, (req, res, next) => {
       }
 
       return res.status(400).json({
-        errors: "User not found"
+        errors: 'User not found',
       });
-    }
+    },
   )(req, res, next);
 });
 
-//GET current route (required, only authenticated users have access)
-router.get("/current", auth.required, (req, res, next) => {
+// GET current route (required, only authenticated users have access)
+router.get('/current', auth.required, (req, res, next) => {
   const {
-    payload: { id }
+    payload: { id },
   } = req;
 
-  return Users.findById(id).then(user => {
+  return Users.findById(id).then((user) => {
     if (!user) {
       return res.sendStatus(400).json({
-        errors: "User not found"
+        errors: 'User not found',
       });
     }
 
@@ -113,14 +114,16 @@ router.get("/current", auth.required, (req, res, next) => {
   });
 });
 
-router.post("/update", auth.required, (req, res, next) => {
-  const { id, materials, balance, orders } = req.body;
+router.post('/update', auth.required, (req, res, next) => {
+  const {
+    id, materials, balance, orders,
+  } = req.body;
   return Users.findByIdAndUpdate(id, {
-    $set: { materials: materials, balance: balance, orders: orders }
+    $set: { materials, balance, orders },
   }).exec((err, user) => {
     if (err) {
       res.status(500).json({
-        errors: err
+        errors: err,
       });
     } else {
       res.status(200).send(user);

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import AuthPage from "../AuthPage";
-import Grid from "@material-ui/core/Grid";
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
+import AuthPage from '../AuthPage';
 import HeaderContainer from '../../../basicComponents/containers/HeaderContainer';
-import { connect } from "react-redux";
-import { clearStorage } from "../../../store/MainPage/actions";
+import { clearStorage } from '../../../store/MainPage/actions';
 
 class AuthPageContainer extends Component {
   render() {
@@ -13,7 +13,7 @@ class AuthPageContainer extends Component {
           <HeaderContainer />
         </Grid>
         <Grid item>
-        <AuthPage clearStorage={this.props.clearStorage} />
+          <AuthPage clearStorage={this.props.clearStorage} />
         </Grid>
       </Grid>
     );
@@ -21,10 +21,10 @@ class AuthPageContainer extends Component {
 }
 
 const mapDispatchToProps = {
-  clearStorage
+  clearStorage,
 };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AuthPageContainer);

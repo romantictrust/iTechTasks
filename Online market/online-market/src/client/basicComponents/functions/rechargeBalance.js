@@ -1,5 +1,5 @@
 const rechargeBalance = () => {
-    alert('rechargeBalance')
-}
+  alert('rechargeBalance');
+};
 
 export default rechargeBalance;

@@ -1,7 +1,7 @@
-import { FETCH_CHANGE_USERS_LIST_DATA } from "./actions";
+import { FETCH_CHANGE_USERS_LIST_DATA } from './actions';
 
 const defaultState = {
-  usersList: []
+  usersList: [],
 };
 
 const adminPageReducer = (state = defaultState, action) => {

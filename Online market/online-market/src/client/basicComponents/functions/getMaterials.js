@@ -1,12 +1,8 @@
-import { materialsAPIurl } from "../../constants";
+import { materialsAPIurl } from '../../constants';
 
-const getMaterials = () => {
-  return fetch(materialsAPIurl)
-    .then(res => {
-      return res.json();
-    })
-    .catch(error => {
-      alert(error);
-    });
-};
+const getMaterials = () => fetch(materialsAPIurl)
+  .then((res) => res.json())
+  .catch((error) => {
+    alert(error);
+  });
 export default getMaterials;

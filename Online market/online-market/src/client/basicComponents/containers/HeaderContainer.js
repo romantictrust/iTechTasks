@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
-import Header from "../components/Header";
-import { connect } from "react-redux";
-import { clearStorage } from "../../store/MainPage/actions";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import Header from '../components/Header';
+import { clearStorage } from '../../store/MainPage/actions';
 
 class HeaderContainer extends PureComponent {
   render() {
@@ -14,17 +14,15 @@ class HeaderContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.mainPage.user
-  };
-};
+const mapStateToProps = (state) => ({
+  user: state.mainPage.user,
+});
 
 const mapDispatchToProps = {
-  clearStorage
+  clearStorage,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(HeaderContainer);

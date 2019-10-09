@@ -1,12 +1,12 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Snackbar from "../../../basicComponents/components/Snackbars";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Snackbar from '../../../basicComponents/components/Snackbars';
 
 export default function FormDialogBuy(props) {
   const [open, setOpen] = React.useState(false);
@@ -22,29 +22,29 @@ export default function FormDialogBuy(props) {
 
   const handleSell = () => {
     setSnackMessage();
-    let fieldValue = Number(FormDialogBuy.amount.value);
-    let balance = Number(props.userData.balance);
-    let summaryCost = fieldValue * props.price;
-    let modifiedUser = { ...props.userData };
+    const fieldValue = Number(FormDialogBuy.amount.value);
+    const balance = Number(props.userData.balance);
+    const summaryCost = fieldValue * props.price;
+    const modifiedUser = { ...props.userData };
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: `Please enter correct amount` });
-      throw Error(`Please enter correct amount`);
+      setSnackMessage({ notification: 'Please enter correct amount' });
+      throw Error('Please enter correct amount');
     } else if (balance < summaryCost) {
       setSnackMessage({
-        notification: `You dont have ${summaryCost} on your account`
+        notification: `You dont have ${summaryCost} on your account`,
       });
       throw Error(`You dont have ${summaryCost} on your account`);
     } else {
       modifiedUser.balance -= summaryCost;
       modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
       modifiedUser.materials[props.materialIndex].amount += fieldValue;
-      let paymentOperation = {
+      const paymentOperation = {
         index: props.userData.orders[0] ? props.userData.orders.length : 0,
-        flag: "buy",
+        flag: 'buy',
         material: props.material,
         amount: fieldValue,
         price: summaryCost,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
       };
       modifiedUser.orders.push(paymentOperation);
       props.setUsersData(modifiedUser);
@@ -57,7 +57,9 @@ export default function FormDialogBuy(props) {
   return (
     <div>
       <Button color="primary" onClick={handleClickOpen}>
-        Buy {props.material}
+        Buy
+        {' '}
+        {props.material}
       </Button>
       <Dialog
         open={open}
@@ -67,7 +69,11 @@ export default function FormDialogBuy(props) {
         <DialogTitle id="form-dialog-title">Buy materials</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please enter amount of the {props.material} to Buy.
+            Please enter amount of the
+            {' '}
+            {props.material}
+            {' '}
+to Buy.
           </DialogContentText>
           <TextField
             autoFocus
@@ -76,7 +82,7 @@ export default function FormDialogBuy(props) {
             label={`${props.material} amount`}
             type="number"
             fullWidth
-            inputRef={el => {
+            inputRef={(el) => {
               FormDialogBuy.amount = el;
             }}
           />
@@ -86,7 +92,9 @@ export default function FormDialogBuy(props) {
             Cancel
           </Button>
           <Button onClick={handleSell} color="primary">
-            Buy {props.material}
+            Buy
+            {' '}
+            {props.material}
           </Button>
         </DialogActions>
       </Dialog>

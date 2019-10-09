@@ -1,7 +1,7 @@
-import React, { PureComponent } from "react";
-import Portfolio from "../components/Portfolio";
-import { connect } from "react-redux";
-import { setUsersData, setProfitData, setPaymentOperation } from "../../../store/MainPage/actions";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import Portfolio from '../components/Portfolio';
+import { setUsersData, setProfitData, setPaymentOperation } from '../../../store/MainPage/actions';
 
 class PortfolioContainer extends PureComponent {
   render() {
@@ -18,21 +18,19 @@ class PortfolioContainer extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.mainPage.user,
-    data: state.mainPage.data,
-    profit: state.mainPage.profit
-  };
-};
+const mapStateToProps = (state) => ({
+  user: state.mainPage.user,
+  data: state.mainPage.data,
+  profit: state.mainPage.profit,
+});
 
 const mapDispatchToProps = {
   setUsersData,
   setProfitData,
-  setPaymentOperation
+  setPaymentOperation,
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PortfolioContainer);

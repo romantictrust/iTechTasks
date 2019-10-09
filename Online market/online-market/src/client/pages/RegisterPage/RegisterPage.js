@@ -1,45 +1,42 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import useStyles from "./styles/RegisterPageStyles";
-import { registerUserUrl } from "../../constants";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import { Link } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import useStyles from './styles/RegisterPageStyles';
+import { registerUserUrl } from '../../constants';
 import {
   validateEmail,
-  validatePassword
-} from "../../basicComponents/functions/Validate";
-import Snackbar from "../../basicComponents/components/Snackbars";
+  validatePassword,
+} from '../../basicComponents/functions/Validate';
+import Snackbar from '../../basicComponents/components/Snackbars';
 
 export default function SignUp() {
   const [snackMessage, setSnackMessage] = React.useState();
 
-  const registerUser = user => {
-    return fetch(registerUserUrl, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json"
+  const registerUser = (user) => fetch(registerUserUrl, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.errors) {
+        setSnackMessage({ notification: res.errors });
+      } else {
+        setSnackMessage({ notification: 'Please, confirm your email' });
       }
-    })
-    .then(res => res.json())
-      .then(res => {
-        if (res.errors){
-          setSnackMessage({notification: res.errors});
-        }
-        else {
-          setSnackMessage({notification: 'Please, confirm your email'});
-        }
-      })
-  };
+    });
   const classes = useStyles();
 
-  const confirmReg = event => {
+  const confirmReg = (event) => {
     event.preventDefault();
     setSnackMessage();
     const email = SignUp.email.value;
@@ -50,11 +47,11 @@ export default function SignUp() {
     validatePassword(password);
     const user = {
       user: {
-        email: email,
-        password: password,
-        firstName: firstName,
-        lastName: lastName
-      }
+        email,
+        password,
+        firstName,
+        lastName,
+      },
     };
     registerUser(user);
   };
@@ -86,7 +83,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
-                inputRef={el => {
+                inputRef={(el) => {
                   SignUp.fname = el;
                 }}
               />
@@ -100,7 +97,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
-                inputRef={el => {
+                inputRef={(el) => {
                   SignUp.lname = el;
                 }}
               />
@@ -114,7 +111,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                inputRef={el => {
+                inputRef={(el) => {
                   SignUp.email = el;
                 }}
               />
@@ -129,7 +126,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                inputRef={el => {
+                inputRef={(el) => {
                   SignUp.password = el;
                 }}
               />
@@ -148,7 +145,7 @@ export default function SignUp() {
             <Grid item>
               <Link
                 to="/authorization"
-                style={{ textDecoration: "none", color: "purple" }}
+                style={{ textDecoration: 'none', color: 'purple' }}
               >
                 Already have an account? Sign in
               </Link>

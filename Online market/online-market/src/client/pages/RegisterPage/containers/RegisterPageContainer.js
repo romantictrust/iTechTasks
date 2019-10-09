@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import RegisterPage from "../RegisterPage";
-import Grid from "@material-ui/core/Grid";
-import HeaderContainer from "../../../basicComponents/containers/HeaderContainer";
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import RegisterPage from '../RegisterPage';
+import HeaderContainer from '../../../basicComponents/containers/HeaderContainer';
 
 export default class RegisterPageContainer extends Component {
   render() {

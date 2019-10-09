@@ -1,69 +1,62 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import { Link, withRouter } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import useStyles from "./styles/AuthPageStyles";
-import { loginUserUrl } from "../../constants";
-import Snackbar from "../../basicComponents/components/Snackbars";
-import sendConfirmation from "./functions/sendConfirmation";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import { Link, withRouter } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import useStyles from './styles/AuthPageStyles';
+import { loginUserUrl } from '../../constants';
+import Snackbar from '../../basicComponents/components/Snackbars';
+import sendConfirmation from './functions/sendConfirmation';
 
 function SignIn(props) {
   const [snackMessage, setSnackMessage] = React.useState();
 
-  const loginUser = user => {
-    return fetch(loginUserUrl, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json"
+  const loginUser = (user) => fetch(loginUserUrl, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.errors) {
+        setSnackMessage({ notification: res.errors });
+        throw new Error(res.errors);
+      } else if (!res.user.confirmed) {
+        setSnackMessage({
+          notification:
+                'Please, confirm your email! Click to send another email confirmation.',
+          button: 'Click',
+          onClick: () => {
+            sendConfirmation(res.user);
+          },
+        });
+        throw new Error('Please, confirm your email!');
+      } else if (res.user.isBlocked) {
+        props.history.replace('/blockpage');
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(res.user));
+        if (res.user.isAdmin) { props.history.replace('/admin'); } else { props.history.replace('/'); }
       }
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.errors) {
-          setSnackMessage({ notification: res.errors });
-          throw new Error(res.errors);
-        } else {
-          if (!res.user.confirmed) {
-            setSnackMessage({
-              notification:
-                "Please, confirm your email! Click to send another email confirmation.",
-              button: "Click",
-              onClick: () => {
-                sendConfirmation(res.user);
-              }
-            });
-            throw new Error("Please, confirm your email!");
-          } else if (res.user.isBlocked) {
-            props.history.replace("/blockpage")
-          } else {
-            sessionStorage.setItem("user", JSON.stringify(res.user));
-            if (res.user.isAdmin)
-            props.history.replace("/admin")
-            else
-            props.history.replace("/");
-          }
-        }
-      });
-  };
+    });
 
   const classes = useStyles();
 
-  const confirmAuth = async event => {
+  const confirmAuth = async (event) => {
     event.preventDefault();
     setSnackMessage();
     props.clearStorage();
     const email = SignIn.email.value;
     const password = SignIn.password.value;
-    const user = { user: { email: email, password: password } };
+    const user = { user: { email, password } };
     await loginUser(user);
   };
 
@@ -92,7 +85,7 @@ function SignIn(props) {
             label="Email Address"
             name="email"
             autoFocus
-            inputRef={el => {
+            inputRef={(el) => {
               SignIn.email = el;
             }}
           />
@@ -105,7 +98,7 @@ function SignIn(props) {
             label="Password"
             type="password"
             id="password"
-            inputRef={el => {
+            inputRef={(el) => {
               SignIn.password = el;
             }}
           />
@@ -126,7 +119,7 @@ function SignIn(props) {
             <Grid item>
               <Link
                 to="/registration"
-                style={{ textDecoration: "none", color: "purple" }}
+                style={{ textDecoration: 'none', color: 'purple' }}
               >
                 Don't have an account? Sign Up
               </Link>
