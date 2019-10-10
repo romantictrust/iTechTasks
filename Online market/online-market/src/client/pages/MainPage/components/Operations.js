@@ -1,16 +1,18 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import useStyles from '../styles/TabPanelStyle';
-import PortfolioContainer from '../containers/PortfolioContainer';
-import ProfitConatainer from '../containers/ProfitConatainer';
-import DepositsContainer from '../containers/DepositsContainer';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
+import useStyles from "../styles/TabPanelStyle";
+import PortfolioContainer from "../containers/PortfolioContainer";
+import ProfitConatainer from "../containers/ProfitConatainer";
+import DepositsContainer from "../containers/DepositsContainer";
+import Loader from "../../../basicComponents/components/Loader";
 
 export default function Operations(props) {
   const classes = useStyles();
-  if (props.data) {
+  const { data } = props;
+  if (data) {
     return (
       <div className={classes.tabPannelRoot}>
         <CssBaseline />
@@ -31,9 +33,10 @@ export default function Operations(props) {
         </main>
       </div>
     );
-  } return (
+  }
+  return (
     <Container maxWidth="lg" className={classes.container}>
-        NO DATA YET
+      <Loader />
     </Container>
   );
 }

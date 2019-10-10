@@ -1,29 +1,30 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import getMaterials from '../../../basicComponents/functions/getMaterials';
-import { setMaterialData } from '../../../store/MainPage/actions';
-import Operations from '../components/Operations';
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import getMaterials from "../../../basicComponents/functions/getMaterials";
+import { setMaterialData } from "../../../store/MainPage/actions";
+import Operations from "../components/Operations";
 
 class OperationsContainer extends PureComponent {
   render() {
-    if (!this.props.data) {
-      getMaterials().then((res) => {
-        this.props.setMaterialData(res);
+    const { data, setMaterialData } = this.props;
+    if (!data) {
+      getMaterials().then(res => {
+        setMaterialData(res);
       });
     }
-    return <Operations data={this.props.data} />;
+    return <Operations data={data} />;
   }
 }
 
-const mapStateToProps = (state) => ({
-  data: state.mainPage.data,
+const mapStateToProps = state => ({
+  data: state.mainPage.data
 });
 
 const mapDispatchToProps = {
-  setMaterialData,
+  setMaterialData
 };
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(OperationsContainer);

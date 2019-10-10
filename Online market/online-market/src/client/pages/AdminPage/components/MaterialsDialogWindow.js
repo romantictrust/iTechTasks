@@ -1,19 +1,20 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import socketIOClient from 'socket.io-client';
-import Snackbar from '../../../basicComponents/components/Snackbars';
-import updateMaterial from '../functions/updateMaterial';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import socketIOClient from "socket.io-client";
+import Snackbar from "../../../basicComponents/components/Snackbars";
+import updateMaterial from "../functions/updateMaterial";
 
-const socket = socketIOClient('http://localhost:8000');
+const socket = socketIOClient("http://localhost:8000");
 
 export default function MaterialsDialogWindow(props) {
   const [open, setOpen] = React.useState(false);
+  const { data, index, material, admin } = props;
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -26,13 +27,13 @@ export default function MaterialsDialogWindow(props) {
     setSnackMessage();
     const fieldValue = Number(MaterialsDialogWindow.price.value);
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: 'Price must be positive' });
+      setSnackMessage({ notification: "Price must be positive" });
     } else {
-      const modifiedData = [...props.data];
-      modifiedData[props.index].price = fieldValue;
-      modifiedData[props.index].date = new Date().toLocaleString();
-      updateMaterial(props.admin, modifiedData[props.index]);
-      socket.emit('updateMaterial', modifiedData);
+      const modifiedData = [...data];
+      modifiedData[index].price = fieldValue;
+      modifiedData[index].date = new Date().toLocaleString();
+      updateMaterial(admin, modifiedData[index]);
+      socket.emit("updateMaterial", modifiedData);
       handleClose();
     }
   };
@@ -50,19 +51,16 @@ export default function MaterialsDialogWindow(props) {
         <DialogTitle id="form-dialog-title">Change price</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please enter price of the
-            {' '}
-            {props.material}
-.
+            Please enter price of the {material}.
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="price"
-            label={`${props.material} price`}
+            label={`${material} price`}
             type="number"
             fullWidth
-            inputRef={(el) => {
+            inputRef={el => {
               MaterialsDialogWindow.price = el;
             }}
           />

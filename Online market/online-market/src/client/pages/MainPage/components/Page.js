@@ -1,21 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import useStyles from '../styles/TabPanelStyle';
-import ActivitiesContainer from '../containers/ActivitiesContainer';
-import OperationsContainer from '../containers/OperationsContainer';
-import OrdersContainer from '../containers/OrdersContainer';
+import React from "react";
+import PropTypes from "prop-types";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import useStyles from "../styles/TabPanelStyle";
+import ActivitiesContainer from "../containers/ActivitiesContainer";
+import OperationsContainer from "../containers/OperationsContainer";
+import OrdersContainer from "../containers/OrdersContainer";
 
 function TabPanel(props) {
-  const {
-    children, value, index, ...other
-  } = props;
+  const { children, value, index, ...other } = props;
   return (
     <Typography
       component="div"
@@ -33,13 +31,13 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
 };
 
 function applyProps(index) {
   return {
     id: `nav-tab-${index}`,
-    'aria-controls': `nav-tabpanel-${index}`,
+    "aria-controls": `nav-tabpanel-${index}`
   };
 }
 
@@ -47,7 +45,7 @@ function LinkTab(props) {
   return (
     <Tab
       component="a"
-      onClick={(event) => {
+      onClick={event => {
         event.preventDefault();
       }}
       {...props}

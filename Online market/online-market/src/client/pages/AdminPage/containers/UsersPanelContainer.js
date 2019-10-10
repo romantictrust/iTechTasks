@@ -5,11 +5,12 @@ import UsersPanel from '../components/UsersPanel';
 
 class UsersPanelContainer extends PureComponent {
   render() {
+    const { user, usersList, setUsersList } = this.props;
     return (
       <UsersPanel
-        admin={this.props.user}
-        usersList={this.props.usersList}
-        setUsersList={this.props.setUsersList}
+        admin={user}
+        usersList={usersList}
+        setUsersList={setUsersList}
       />
     );
   }

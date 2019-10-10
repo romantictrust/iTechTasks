@@ -2,7 +2,6 @@ import React, { PureComponent } from "react";
 import { Doughnut } from "react-chartjs-2";
 
 export default class DoughnutChart extends PureComponent {
-  materials = this.props.data.materials;
   data = {
     labels: [],
     datasets: [
@@ -14,9 +13,10 @@ export default class DoughnutChart extends PureComponent {
     ]
   };
   render() {
+    const materials = this.props.data.materials;
     let counter = 0;
     let o;
-    for (o of this.materials) {
+    for (o of materials) {
       this.data.labels[counter] = o.material;
 	  this.data.datasets[0].data[counter] = o.amount;
 	  counter++;

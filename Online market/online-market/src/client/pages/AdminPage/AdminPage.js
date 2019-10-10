@@ -5,29 +5,32 @@ import Page from "./components/Page";
 import { usersListUrl } from "../../constants";
 
 export default class AdminPage extends PureComponent {
-  getUsersList = admin => {
-    return fetch(usersListUrl, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Token " + admin.token
-      }
-    })
-      .then(res => {
-        if (res.status >= 400) {
-          alert("Token not found");
-        }
-        return res.json();
-      })
-      .then(res => {
-        this.props.setUsersList(res);
-      });
-  };
   render() {
+    const { usersList, setUsersData, setUsersList } = this.props;
     const admin = JSON.parse(sessionStorage.getItem("user"));
-    if (!this.props.usersList[0]) {
-      this.getUsersList(admin);
-      this.props.setUsersData(admin);
+
+    const getUsersList = admin => {
+      return fetch(usersListUrl, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Token " + admin.token
+        }
+      })
+        .then(res => {
+          if (res.status >= 400) {
+            alert("Token not found");
+          }
+          return res.json();
+        })
+        .then(res => {
+          setUsersList(res);
+        });
+    };
+
+    if (!usersList[0]) {
+      getUsersList(admin);
+      setUsersData(admin);
     }
     return (
       <div>

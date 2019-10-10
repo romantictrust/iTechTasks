@@ -1,19 +1,19 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import Orders from '../components/Orders';
-
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import Orders from "../components/Orders";
 
 class OrdersContainer extends PureComponent {
   render() {
-    return <Orders userData={this.props.user} />;
+    const { user } = this.props;
+    return <Orders userData={user} />;
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.mainPage.user,
+const mapStateToProps = state => ({
+  user: state.mainPage.user
 });
 
 export default connect(
   mapStateToProps,
-  null,
+  null
 )(OrdersContainer);

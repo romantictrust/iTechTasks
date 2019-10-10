@@ -6,19 +6,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Typography from "@material-ui/core/Typography";
 import Snackbar from "../../../basicComponents/components/Snackbars";
 
-export default function FormDialogBuy(props) {
+export default function FormDialogRecharge(props) {
   const [open, setOpen] = React.useState(false);
   const [snackMessage, setSnackMessage] = React.useState();
-  const {
-    userData,
-    price,
-    material,
-    materialIndex,
-    setUsersData,
-    setPaymentOperation
-  } = props;
+  const { user, setUsersData } = props;
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,64 +22,53 @@ export default function FormDialogBuy(props) {
     setOpen(false);
   };
 
-  const handleSell = () => {
+  const handleRecharge = () => {
     setSnackMessage();
-    const fieldValue = Number(FormDialogBuy.amount.value);
-    const balance = Number(userData.balance);
-    const summaryCost = fieldValue * price;
-    const modifiedUser = { ...userData };
+    const fieldValue = Number(FormDialogRecharge.money.value);
+    const modifiedUser = { ...user };
     if (fieldValue <= 0) {
       setSnackMessage({ notification: "Please enter correct amount" });
       throw Error("Please enter correct amount");
-    } else if (balance < summaryCost) {
+    } else if (fieldValue > 1000) {
       setSnackMessage({
-        notification: `You dont have ${summaryCost} on your account`
+        notification:
+          "Sorry, but you can recharge balance only on 1000$ maximim at one time"
       });
-      throw Error(`You dont have ${summaryCost} on your account`);
+      throw Error("Please enter correct amount");
     } else {
-      modifiedUser.balance -= summaryCost;
+      modifiedUser.balance += fieldValue;
       modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
-      modifiedUser.materials[materialIndex].amount += fieldValue;
-      const paymentOperation = {
-        index: userData.orders[0] ? userData.orders.length : 0,
-        flag: "buy",
-        material: material,
-        amount: fieldValue,
-        price: summaryCost,
-        date: new Date().toLocaleString()
-      };
-      modifiedUser.orders.push(paymentOperation);
       setUsersData(modifiedUser);
-      setPaymentOperation(paymentOperation);
-      setUsersData(modifiedUser);
-      setOpen(false);
+      handleClose();
+      setSnackMessage({ notification: `${fieldValue}$ added to your account` });
     }
   };
 
   return (
     <div>
-      <Button color="primary" onClick={handleClickOpen}>
-        Buy {props.material}
+      <Button color="secondary" onClick={handleClickOpen} disableRipple>
+        <Typography>{user.balance} $</Typography>
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Buy materials</DialogTitle>
+        <DialogTitle id="form-dialog-title">Recharge balance</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please enter amount of the {props.material} to Buy.
+            To recharge your balance please enter amount of money you want to
+            recharge.
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="amount"
-            label={`${props.material} amount`}
+            id="money"
+            label="Money"
             type="number"
             fullWidth
             inputRef={el => {
-              FormDialogBuy.amount = el;
+              FormDialogRecharge.money = el;
             }}
           />
         </DialogContent>
@@ -93,8 +76,8 @@ export default function FormDialogBuy(props) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSell} color="primary">
-            Buy {props.material}
+          <Button onClick={handleRecharge} color="primary">
+            Recharge
           </Button>
         </DialogActions>
       </Dialog>
