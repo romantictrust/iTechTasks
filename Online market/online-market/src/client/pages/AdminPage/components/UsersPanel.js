@@ -12,7 +12,7 @@ import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
 import Title from "../../../basicComponents/components/Title";
 import TablePaginationActions from "../../../basicComponents/components/Pagination";
-import blockUser from "../functions/blockUser";
+import blockUser from "../functions/BlockUser";
 import Loader from "../../../basicComponents/components/Loader";
 
 export default function UsersPanel(props) {
