@@ -14,7 +14,7 @@ export default function Page() {
           <UsersPanelContainer />
         </Grid>
       </Container>
-      <Container maxWidth="sm">
+      <Container maxWidth="xs">
         <Grid item>
           <MaterialsPanelContainer />
         </Grid>

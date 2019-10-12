@@ -23,11 +23,17 @@ export default function MaterialsDialogWindow(props) {
   };
   const [snackMessage, setSnackMessage] = React.useState();
 
+  const setSnack = (message) => {
+    Promise.resolve().then(() => {
+      setSnackMessage(message);
+    });
+  }
+
   const handleSell = () => {
-    setSnackMessage();
+    setSnack();
     const fieldValue = Number(MaterialsDialogWindow.price.value);
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: "Price must be positive" });
+      setSnack({ notification: "Price must be positive" });
     } else {
       const modifiedData = [...data];
       modifiedData[index].price = fieldValue;

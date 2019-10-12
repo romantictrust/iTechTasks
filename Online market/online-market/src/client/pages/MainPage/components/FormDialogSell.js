@@ -22,6 +22,12 @@ export default function FormDialogSell(props) {
     setPaymentOperation
   } = props;
 
+  const setSnack = (message) => {
+    Promise.resolve().then(() => {
+      setSnackMessage(message);
+    });
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -31,22 +37,24 @@ export default function FormDialogSell(props) {
   };
 
   const handleSell = () => {
-    setSnackMessage();
+    setSnack();
     const materialPosition = materialIndex;
     const userMaterial = userData.materials[materialPosition];
     const fieldValue = Number(FormDialogSell.amount.value);
-    const summaryCost = data[materialPosition].price * fieldValue;
+    const summaryCost = Number(
+      (data[materialPosition].price * fieldValue).toFixed(1)
+    );
     const modifiedUser = { ...userData };
     const modifiedProfit = { ...profit };
     let operationValue = 0;
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: "Please enter correct amount" });
-      throw Error("Please enter correct amount");
+      setOpen(false);
+      setSnack({ notification: "Please enter correct amount" });
     } else if (userMaterial.amount < fieldValue) {
-      setSnackMessage({
+      setOpen(false);
+      setSnack({
         notification: `You dont have ${fieldValue} ${material}`
       });
-      throw Error(`You dont have ${fieldValue} of ${material}`);
     } else {
       modifiedUser.materials[materialPosition].amount -= fieldValue;
       operationValue =
@@ -57,7 +65,6 @@ export default function FormDialogSell(props) {
       modifiedProfit.total += operationValue;
       modifiedProfit.total = Number(modifiedProfit.total.toFixed(1));
       modifiedUser.balance += summaryCost;
-      modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
       modifiedProfit.materials[materialPosition].profit += operationValue;
       modifiedProfit.materials[materialPosition].profit = Number(
         modifiedProfit.materials[materialPosition].profit

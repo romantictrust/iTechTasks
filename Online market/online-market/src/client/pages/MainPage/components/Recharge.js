@@ -14,6 +14,12 @@ export default function FormDialogRecharge(props) {
   const [snackMessage, setSnackMessage] = React.useState();
   const { user, setUsersData } = props;
 
+  const setSnack = (message) => {
+    Promise.resolve().then(() => {
+      setSnackMessage(message);
+    });
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -23,14 +29,14 @@ export default function FormDialogRecharge(props) {
   };
 
   const handleRecharge = () => {
-    setSnackMessage();
+    setSnack();
     const fieldValue = Number(FormDialogRecharge.money.value);
     const modifiedUser = { ...user };
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: "Please enter correct amount" });
+      setSnack({ notification: "Please enter correct amount" });
       throw Error("Please enter correct amount");
     } else if (fieldValue > 1000) {
-      setSnackMessage({
+      setSnack({
         notification:
           "Sorry, but you can recharge balance only on 1000$ maximim at one time"
       });
@@ -40,7 +46,7 @@ export default function FormDialogRecharge(props) {
       modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));
       setUsersData(modifiedUser);
       handleClose();
-      setSnackMessage({ notification: `${fieldValue}$ added to your account` });
+      setSnack({ notification: `${fieldValue}$ added to your account` });
     }
   };
 

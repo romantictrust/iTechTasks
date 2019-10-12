@@ -10,7 +10,6 @@ export default function Portfolio(props) {
   const {
     data,
     profit,
-    material,
     userData,
     setUsersData,
     setProfitData,
@@ -50,7 +49,7 @@ export default function Portfolio(props) {
               </Grid>
               <Grid item>
                 <FormDialogSell
-                  material={material}
+                  material={item.material}
                   materialIndex={index}
                   data={data}
                   profit={profit}

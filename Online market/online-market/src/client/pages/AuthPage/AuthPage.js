@@ -29,7 +29,6 @@ function SignIn(props) {
       .then(res => {
         if (res.errors) {
           setSnackMessage({ notification: res.errors });
-          throw new Error(res.errors);
         } else if (!res.user.confirmed) {
           setSnackMessage({
             notification:
@@ -39,7 +38,6 @@ function SignIn(props) {
               sendConfirmation(res.user);
             }
           });
-          throw new Error("Please, confirm your email!");
         } else if (res.user.isBlocked) {
           history.replace("/blockpage");
         } else {

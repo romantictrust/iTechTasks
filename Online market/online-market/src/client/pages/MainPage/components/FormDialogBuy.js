@@ -20,6 +20,12 @@ export default function FormDialogBuy(props) {
     setPaymentOperation
   } = props;
 
+  const setSnack = (message) => {
+    Promise.resolve().then(() => {
+      setSnackMessage(message);
+    });
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -29,19 +35,19 @@ export default function FormDialogBuy(props) {
   };
 
   const handleSell = () => {
-    setSnackMessage();
+    setSnack();
     const fieldValue = Number(FormDialogBuy.amount.value);
     const balance = Number(userData.balance);
-    const summaryCost = fieldValue * price;
+    const summaryCost = Number((fieldValue * price).toFixed(1));
     const modifiedUser = { ...userData };
     if (fieldValue <= 0) {
-      setSnackMessage({ notification: "Please enter correct amount" });
-      throw Error("Please enter correct amount");
+      setOpen(false);
+      setSnack({ notification: "Please enter correct amount" });
     } else if (balance < summaryCost) {
-      setSnackMessage({
+      setOpen(false);
+      setSnack({
         notification: `You dont have ${summaryCost} on your account`
       });
-      throw Error(`You dont have ${summaryCost} on your account`);
     } else {
       modifiedUser.balance -= summaryCost;
       modifiedUser.balance = Number(modifiedUser.balance.toFixed(1));

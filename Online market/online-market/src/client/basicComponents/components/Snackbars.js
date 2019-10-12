@@ -11,10 +11,7 @@ export default function SimpleSnackbar(props) {
   const defaultProps = { notification: '', button: '', onClick: () => {} };
   const modifiedProps = { ...defaultProps, ...props.message };
 
-  const handleClose = (reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
+  const handleClose = () => {
     setOpen(false);
   };
 

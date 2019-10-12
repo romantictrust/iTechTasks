@@ -19,6 +19,7 @@ class MainPageContainer extends PureComponent {
           updateUserAsync(mergedObj).then(() => {
             sessionStorage.setItem("user", JSON.stringify(mergedObj));
           });
+        sessionStorage.setItem("user", JSON.stringify(mergedObj));
       }
     }
     return <MainPage setUsersData={setUsersData} />;

@@ -82,7 +82,7 @@ export default function NavTabs() {
           <OrdersContainer />
         </TabPanel>
       </Container>
-      <Container maxWidth="sm">
+      <Container maxWidth="xs">
         <ActivitiesContainer />
       </Container>
     </Grid>

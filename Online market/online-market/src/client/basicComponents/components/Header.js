@@ -6,7 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import logo from "../../style/icons/logoIcon/logo.png";
+import logo from "../../style/icons/logoIcon/logo_transparent.png";
 import RechargeContainer from "../../pages/MainPage/containers/RechargeContainer";
 
 const useStyles = makeStyles(() => ({
@@ -16,8 +16,8 @@ const useStyles = makeStyles(() => ({
     alignItems: "center"
   },
   logo: {
-    width: "60px",
-    height: "60px"
+    width: "64px",
+    height: "64px"
   }
 }));
 
@@ -34,7 +34,7 @@ function Header(props) {
       <AppBar position="static">
         <Toolbar>
           <Grid container className={classes.root}>
-            <Grid item className={classes.root}>
+            <Grid item>
               <Link to="/">
                 <img className={classes.logo} src={logo} alt="Company Logo" />
               </Link>
