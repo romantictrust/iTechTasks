@@ -9,8 +9,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import socketIOClient from "socket.io-client";
 import Snackbar from "../../../basicComponents/components/Snackbars";
 import updateMaterial from "../functions/updateMaterial";
+import { domen } from "../../../constants";
 
-const socket = socketIOClient("http://localhost:8000");
+const socket = socketIOClient(domen);
 
 export default function MaterialsDialogWindow(props) {
   const [open, setOpen] = React.useState(false);

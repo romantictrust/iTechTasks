@@ -10,8 +10,9 @@ import {
   setPaymentOperation,
   setMaterialData
 } from "../../../store/MainPage/actions";
+import { domen } from "../../../constants";
 
-const socket = socketIOClient("http://localhost:8000");
+const socket = socketIOClient(domen);
 
 export function DepositsContainer(props) {
   const classes = useStyles();

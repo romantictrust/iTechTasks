@@ -9,46 +9,13 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
-import { loginUserUrl } from "../../constants";
 import Snackbar from "../../basicComponents/components/Snackbars";
 import sendConfirmation from "./functions/sendConfirmation";
+import loginUser from "./functions/loginUser";
 
 function SignIn(props) {
   const [snackMessage, setSnackMessage] = React.useState();
   const { history, clearStorage } = props;
-
-  const loginUser = user =>
-    fetch(loginUserUrl, {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.errors) {
-          setSnackMessage({ notification: res.errors });
-        } else if (!res.user.confirmed) {
-          setSnackMessage({
-            notification:
-              "Please, confirm your email! Click to send another email confirmation.",
-            button: "Click",
-            onClick: () => {
-              sendConfirmation(res.user);
-            }
-          });
-        } else if (res.user.isBlocked) {
-          history.replace("/blockpage");
-        } else {
-          sessionStorage.setItem("user", JSON.stringify(res.user));
-          if (res.user.isAdmin) {
-            history.replace("/admin");
-          } else {
-            history.replace("/");
-          }
-        }
-      });
 
   const classes = useStyles();
 
@@ -59,7 +26,29 @@ function SignIn(props) {
     const email = SignIn.email.value;
     const password = SignIn.password.value;
     const user = { user: { email, password } };
-    await loginUser(user);
+    await loginUser(user).then(res => {
+      if (res.errors) {
+        setSnackMessage({ notification: res.errors });
+      } else if (!res.user.confirmed) {
+        setSnackMessage({
+          notification:
+            "Please, confirm your email! Click to send another email confirmation.",
+          button: "Click",
+          onClick: () => {
+            sendConfirmation(res.user);
+          }
+        });
+      } else if (res.user.isBlocked) {
+        history.replace("/blockpage");
+      } else {
+        sessionStorage.setItem("user", JSON.stringify(res.user));
+        if (res.user.isAdmin) {
+          history.replace("/admin");
+        } else {
+          history.replace("/");
+        }
+      }
+    });
   };
 
   return (

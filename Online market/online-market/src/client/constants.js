@@ -1,12 +1,13 @@
-export const materialsAPIurl = 'http://localhost:8000/api/materials';
-export const registerUserUrl = 'http://localhost:8000/api/users';
-export const loginUserUrl = 'http://localhost:8000/api/users/login';
-export const currentRootUrl = 'http://localhost:8000/api/users/current';
-export const reconfirmUrl = 'http://localhost:8000/api/users/reconfirm';
-export const updateUrl = 'http://localhost:8000/api/users/update';
-export const usersListUrl = 'http://localhost:8000/admin/usersList';
-export const userStatus = 'http://localhost:8000/admin/userStatus';
-export const updateMaterialUrl = 'http://localhost:8000/api/materials/update';
+export const domen = 'http://localhost:8000';
+export const materialsAPIurl = `${domen}/api/materials`;
+export const registerUserUrl = `${domen}/api/users`;
+export const loginUserUrl = `${domen}/api/users/login`;
+export const currentRootUrl = `${domen}/api/users/current`;
+export const reconfirmUrl = `${domen}/api/users/reconfirm`;
+export const updateUrl = `${domen}/api/users/update`;
+export const usersListUrl = `${domen}/admin/usersList`;
+export const userStatus = `${domen}/admin/userStatus`;
+export const updateMaterialUrl = `${domen}/api/materials/update`;
 
 export const emailReg = new RegExp(
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
