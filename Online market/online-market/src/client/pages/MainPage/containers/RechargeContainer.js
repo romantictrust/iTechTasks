@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import Recharge from "../components/Recharge";
-import { setUsersData } from "../../../store/MainPage/actions";
+import { setUsersData } from "../../../shared/actions/index";
 
 class RechargeContainer extends PureComponent {
   render() {
@@ -13,7 +13,7 @@ class RechargeContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: state.mainPage.user
+  user: state.shared.user
 });
 
 const mapDispatchToProps = {

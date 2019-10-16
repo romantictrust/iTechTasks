@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import getMaterials from "../../../basicComponents/functions/getMaterials";
-import { setMaterialData } from "../../../store/MainPage/actions";
+import getMaterials from "../../../shared/functions/getMaterials";
+import { setMaterialData } from "../../../shared/actions/index";
 import Operations from "../components/Operations";
 
 class OperationsContainer extends PureComponent {
@@ -17,7 +17,7 @@ class OperationsContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  data: state.mainPage.data
+  data: state.shared.data
 });
 
 const mapDispatchToProps = {

@@ -9,7 +9,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
-import Snackbar from "../../basicComponents/components/Snackbars";
+import Snackbar from "../../shared/components/Snackbars";
 import sendConfirmation from "./functions/sendConfirmation";
 import loginUser from "./functions/loginUser";
 

@@ -7,7 +7,7 @@ import useStyles from "../styles/TabPanelStyle";
 import PortfolioContainer from "../containers/PortfolioContainer";
 import ProfitConatainer from "../containers/ProfitConatainer";
 import DepositsContainer from "../containers/DepositsContainer";
-import Loader from "../../../basicComponents/components/Loader";
+import Loader from "../../../shared/components/Loader";
 
 export default function Operations(props) {
   const classes = useStyles();

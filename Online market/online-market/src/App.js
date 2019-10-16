@@ -6,7 +6,7 @@ import AuthPageContainer from './client/pages/AuthPage/containers/AuthPageContai
 import RegisterPage from './client/pages/RegisterPage/RegisterPage';
 import AdminPageContainer from './client/pages/AdminPage/containers/AdminPageContainer';
 import BlockPage from './client/pages/BlockPage/BlockPage';
-import store from './client/store/store';
+import store from './client/store/configureStore';
 
 function App() {
   return (

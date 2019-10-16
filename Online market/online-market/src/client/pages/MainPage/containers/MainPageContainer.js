@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import MainPage from "../MainPage";
-import { setUsersData } from "../../../store/MainPage/actions";
+import { setUsersData } from "../../../shared/actions/index";
 import updateUser from "../functions/updateUser";
 
 async function updateUserAsync(mergedObj) {
@@ -27,7 +27,7 @@ class MainPageContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: state.mainPage.user
+  user: state.shared.user
 });
 
 const mapDispatchToProps = {

@@ -4,12 +4,8 @@ import { connect } from "react-redux";
 import socketIOClient from "socket.io-client";
 import Deposits from "../components/Deposits";
 import useStyles from "../styles/TabPanelStyle";
-import {
-  setProfitData,
-  setUsersData,
-  setPaymentOperation,
-  setMaterialData
-} from "../../../store/MainPage/actions";
+import { setProfitData, setPaymentOperation } from "../actions/index";
+import { setUsersData, setMaterialData } from "../../../shared/actions/index";
 import { domen } from "../../../constants";
 
 const socket = socketIOClient(domen);
@@ -45,8 +41,8 @@ export function DepositsContainer(props) {
 }
 
 const mapStateToProps = state => ({
-  data: state.mainPage.data,
-  user: state.mainPage.user
+  data: state.shared.data,
+  user: state.shared.user
 });
 
 const mapDispatchToProps = {

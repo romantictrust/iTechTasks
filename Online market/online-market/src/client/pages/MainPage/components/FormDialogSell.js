@@ -6,7 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import Snackbar from "../../../basicComponents/components/Snackbars";
+import Snackbar from "../../../shared/components/Snackbars";
 
 export default function FormDialogSell(props) {
   const [open, setOpen] = React.useState(false);

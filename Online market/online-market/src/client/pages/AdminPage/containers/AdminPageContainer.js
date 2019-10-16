@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import AdminPage from "../AdminPage";
-import { setUsersData } from "../../../store/MainPage/actions";
-import { setUsersList } from "../../../store/AdminPage/actions";
+import { setUsersList } from "../actions/index";
+import { setUsersData } from "../../../shared/actions/index";
 
 class AdminPageContainer extends PureComponent {
   render() {

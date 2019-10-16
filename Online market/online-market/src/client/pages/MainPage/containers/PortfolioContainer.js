@@ -1,11 +1,8 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import Portfolio from "../components/Portfolio";
-import {
-  setUsersData,
-  setProfitData,
-  setPaymentOperation
-} from "../../../store/MainPage/actions";
+import { setProfitData, setPaymentOperation } from "../actions/index";
+import { setUsersData } from "../../../shared/actions/index";
 
 class PortfolioContainer extends PureComponent {
   render() {
@@ -31,8 +28,8 @@ class PortfolioContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: state.mainPage.user,
-  data: state.mainPage.data,
+  user: state.shared.user,
+  data: state.shared.data,
   profit: state.mainPage.profit
 });
 

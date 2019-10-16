@@ -13,8 +13,8 @@ import registerUser from '../functions/registerUser'
 import {
   validateEmail,
   validatePassword
-} from "../../../basicComponents/functions/Validate";
-import Snackbar from "../../../basicComponents/components/Snackbars";
+} from "../../../shared/functions/Validate";
+import Snackbar from "../../../shared/components/Snackbars";
 
 export default function SignUp() {
   const [snackMessage, setSnackMessage] = React.useState();

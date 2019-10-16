@@ -10,7 +10,7 @@ class OrdersContainer extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  user: state.mainPage.user
+  user: state.shared.user
 });
 
 export default connect(

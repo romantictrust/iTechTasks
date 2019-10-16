@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import socketIOClient from "socket.io-client";
-import Snackbar from "../../../basicComponents/components/Snackbars";
+import Snackbar from "../../../shared/components/Snackbars";
 import updateMaterial from "../functions/updateMaterial";
 import { domen } from "../../../constants";
 

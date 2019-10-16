@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
 import AuthPage from "../AuthPage";
-import HeaderContainer from "../../../basicComponents/containers/HeaderContainer";
-import { clearStorage } from "../../../store/MainPage/actions";
+import HeaderContainer from "../../../shared/containers/HeaderContainer";
+import { clearStorage } from "../../../shared/actions/index";
 
 class AuthPageContainer extends Component {
   render() {

@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
-import Title from "../../../basicComponents/components/Title";
+import Title from "../../../shared/components/Title";
 import DoughnutChartContainer from "../containers/DoughnutChartContainer";
 import FormDialogSell from "./FormDialogSell";
 

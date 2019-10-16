@@ -10,10 +10,10 @@ import TablePagination from "@material-ui/core/TablePagination";
 import { Grid, TableFooter } from "@material-ui/core";
 import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
-import Title from "../../../basicComponents/components/Title";
-import TablePaginationActions from "../../../basicComponents/components/Pagination";
+import Title from "../../../shared/components/Title";
+import TablePaginationActions from "../../../shared/components/Pagination";
 import blockUser from "../functions/BlockUser";
-import Loader from "../../../basicComponents/components/Loader";
+import Loader from "../../../shared/components/Loader";
 
 export default function UsersPanel(props) {
   const classes = useStyles();

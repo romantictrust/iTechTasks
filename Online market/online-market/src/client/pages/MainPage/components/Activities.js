@@ -2,7 +2,7 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "../styles/TabPanelStyle";
-import Title from "../../../basicComponents/components/Title";
+import Title from "../../../shared/components/Title";
 
 export default function Activities(props) {
   const classes = useStyles();

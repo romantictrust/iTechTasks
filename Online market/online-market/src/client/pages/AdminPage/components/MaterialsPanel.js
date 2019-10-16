@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
-import Title from "../../../basicComponents/components/Title";
+import Title from "../../../shared/components/Title";
 import MaterialsDialogWindow from "./MaterialsDialogWindow";
 
 export default function MaterialsPanel(props) {

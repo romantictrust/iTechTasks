@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { setUsersList } from '../../../store/AdminPage/actions';
+import { setUsersList } from '../actions/index';
 import UsersPanel from '../components/UsersPanel';
 
 class UsersPanelContainer extends PureComponent {
@@ -16,7 +16,7 @@ class UsersPanelContainer extends PureComponent {
   }
 }
 const mapStateToProps = (state) => ({
-  user: state.mainPage.user,
+  user: state.shared.user,
   usersList: state.adminPage.usersList,
 });
 

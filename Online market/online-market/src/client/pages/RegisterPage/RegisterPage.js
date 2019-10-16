@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Page from './components/Page';
-import HeaderContainer from '../../basicComponents/containers/HeaderContainer';
+import HeaderContainer from '../../shared/containers/HeaderContainer';
 
 export default class RegisterPage extends Component {
   render() {

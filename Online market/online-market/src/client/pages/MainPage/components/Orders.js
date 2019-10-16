@@ -9,9 +9,9 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { TableFooter } from "@material-ui/core";
 import useStyles from "../styles/TabPanelStyle";
-import Title from "../../../basicComponents/components/Title";
-import TablePaginationActions from "../../../basicComponents/components/Pagination";
-import Loader from "../../../basicComponents/components/Loader";
+import Title from "../../../shared/components/Title";
+import TablePaginationActions from "../../../shared/components/Pagination";
+import Loader from "../../../shared/components/Loader";
 
 export default function Orders(props) {
   const classes = useStyles();

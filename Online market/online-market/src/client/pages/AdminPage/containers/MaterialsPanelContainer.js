@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import socketIOClient from "socket.io-client";
-import { setMaterialData } from "../../../store/MainPage/actions";
-import getMaterials from "../../../basicComponents/functions/getMaterials";
+import { setMaterialData } from "../../../shared/actions/index";
+import getMaterials from "../../../shared/functions/getMaterials";
 import MaterialsPanel from "../components/MaterialsPanel";
 import useStyles from "../styles/AdminPageStyle";
-import Title from "../../../basicComponents/components/Title";
+import Title from "../../../shared/components/Title";
 
 const socket = socketIOClient("http://localhost:8000");
 
@@ -43,8 +43,8 @@ function MaterialsPanelContainer(props) {
   return <div>No data yet.</div>;
 }
 const mapStateToProps = state => ({
-  user: state.mainPage.user,
-  data: state.mainPage.data
+  user: state.shared.user,
+  data: state.shared.data
 });
 
 const mapDispatchToProps = {

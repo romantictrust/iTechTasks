@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import Grid from "@material-ui/core/Grid";
-import HeaderContainer from "../../basicComponents/containers/HeaderContainer";
+import HeaderContainer from "../../shared/containers/HeaderContainer";
 import Page from "./components/Page";
 import { usersListUrl } from "../../constants";
 
