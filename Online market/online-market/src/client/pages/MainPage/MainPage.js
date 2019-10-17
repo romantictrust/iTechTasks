@@ -8,7 +8,7 @@ export default class MainPage extends PureComponent {
   render() {
     const { setUsersData } = this.props;
     const user = JSON.parse(sessionStorage.getItem('user'));
-    if (user) setUsersData(user);
+    if (user && !user.isAdmin) setUsersData(user);
     else {
       sessionStorage.setItem('user', JSON.stringify(altUser));
       setUsersData(altUser);
