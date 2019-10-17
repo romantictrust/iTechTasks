@@ -9,21 +9,22 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "../styles/RegisterPageStyles";
-import registerUser from '../functions/registerUser'
 import {
   validateEmail,
   validatePassword
 } from "../../../shared/functions/Validate";
 import Snackbar from "../../../shared/components/Snackbars";
 
-export default function SignUp() {
+export default function SignUp(props) {
   const [snackMessage, setSnackMessage] = React.useState();
 
-  const setSnack = (message) => {
+  const { reconfirmUser } = props;
+
+  const setSnack = message => {
     Promise.resolve().then(() => {
       setSnackMessage(message);
     });
-  }
+  };
   const classes = useStyles();
 
   const confirmReg = event => {
@@ -50,7 +51,9 @@ export default function SignUp() {
           lastName
         }
       };
-      registerUser(user).then((res)=>{setSnackMessage(res)});
+      reconfirmUser(user).then(res => {
+        setSnackMessage(res);
+      });
     }
   };
 

@@ -2,23 +2,19 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import MainPage from "../MainPage";
 import { setUsersData } from "../../../shared/actions/index";
-import updateUser from "../functions/updateUser";
-
-async function updateUserAsync(mergedObj) {
-  await updateUser(mergedObj);
-}
+import { updateUser } from "../../../shared/actions/index";
 
 class MainPageContainer extends PureComponent {
   render() {
-    const { user, setUsersData } = this.props;
+    const { user, setUsersData, updateUser } = this.props;
+    async function updateUserAsync(mergedObj) {
+      await updateUser(mergedObj);
+    }
     const sessionUser = JSON.parse(sessionStorage.getItem("user"));
     if (user.id) {
       if (user.balance !== sessionUser.balance) {
         const mergedObj = { ...sessionUser, ...user };
-        if (user.email)
-          updateUserAsync(mergedObj).then(() => {
-            sessionStorage.setItem("user", JSON.stringify(mergedObj));
-          });
+        if (user.email) updateUserAsync(mergedObj)
         sessionStorage.setItem("user", JSON.stringify(mergedObj));
       }
     }
@@ -31,7 +27,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  setUsersData
+  setUsersData,
+  updateUser
 };
 
 export default connect(

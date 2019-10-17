@@ -42,7 +42,7 @@ export default function FormDialogSell(props) {
     const userMaterial = userData.materials[materialPosition];
     const fieldValue = Number(FormDialogSell.amount.value);
     const summaryCost = Number(
-      (data[materialPosition].price * fieldValue).toFixed(1)
+      ( userMaterial.cost * fieldValue).toFixed(1)
     );
     const modifiedUser = { ...userData };
     const modifiedProfit = { ...profit };

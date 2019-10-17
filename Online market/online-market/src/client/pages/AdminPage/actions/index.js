@@ -1,6 +1,6 @@
-export const FETCH_CHANGE_USERS_LIST_DATA = 'FETCH_CHANGE_USERS_LIST_DATA';
+export const CHANGE_USERS_LIST_DATA = 'CHANGE_USERS_LIST_DATA';
 
 export const setUsersList = (usersList) => ({
-  type: FETCH_CHANGE_USERS_LIST_DATA,
+  type: CHANGE_USERS_LIST_DATA,
   payload: usersList,
 });

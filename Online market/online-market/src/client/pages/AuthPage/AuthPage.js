@@ -10,12 +10,10 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "./styles/AuthPageStyles";
 import Snackbar from "../../shared/components/Snackbars";
-import sendConfirmation from "./functions/sendConfirmation";
-import loginUser from "./functions/loginUser";
 
 function SignIn(props) {
   const [snackMessage, setSnackMessage] = React.useState();
-  const { history, clearStorage } = props;
+  const { history, clearStorage, loginUser, reconfirmUser } = props;
 
   const classes = useStyles();
 
@@ -35,7 +33,8 @@ function SignIn(props) {
             "Please, confirm your email! Click to send another email confirmation.",
           button: "Click",
           onClick: () => {
-            sendConfirmation(res.user);
+            console.log(res.user)
+            reconfirmUser(res.user);
           }
         });
       } else if (res.user.isBlocked) {
