@@ -1,6 +1,6 @@
-import { updateUrl } from '../../../constants';
+import { updateUserUrl  } from '../../../constants';
 
-const updateUser = (user) => fetch(updateUrl, {
+const updateUser = (user) => fetch(updateUserUrl , {
   method: 'POST',
   body: JSON.stringify(user),
   headers: {

@@ -61,7 +61,6 @@ export default function FormDialogBuy(props) {
         date: new Date().toLocaleString()
       };
       modifiedUser.orders.push(paymentOperation);
-      setUsersData(modifiedUser);
       setPaymentOperation(paymentOperation);
       setUsersData(modifiedUser);
       setOpen(false);
