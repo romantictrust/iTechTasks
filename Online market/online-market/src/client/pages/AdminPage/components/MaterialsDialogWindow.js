@@ -8,14 +8,13 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import socketIOClient from "socket.io-client";
 import Snackbar from "../../../shared/components/Snackbars";
-import updateMaterial from "../functions/updateMaterial";
 import { domen } from "../../../constants";
 
 const socket = socketIOClient(domen);
 
 export default function MaterialsDialogWindow(props) {
   const [open, setOpen] = React.useState(false);
-  const { data, index, material, admin } = props;
+  const { data, index, material, admin, updateMaterial } = props;
   const handleClickOpen = () => {
     setOpen(true);
   };

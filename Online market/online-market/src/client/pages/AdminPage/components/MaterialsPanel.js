@@ -10,7 +10,7 @@ import MaterialsDialogWindow from "./MaterialsDialogWindow";
 export default function MaterialsPanel(props) {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  const { admin, data, index, material } = props;
+  const { admin, data, index, material, updateMaterial } = props;
   const materialData = material;
   return (
     <>
@@ -28,6 +28,7 @@ export default function MaterialsPanel(props) {
             material={materialData.material}
             data={data}
             index={index}
+            updateMaterial={updateMaterial}
           />
         </Paper>
       </Grid>

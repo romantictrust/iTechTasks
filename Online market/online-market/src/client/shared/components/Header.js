@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
 
 function Header(props) {
   const { clearStorage, history, userData } = props;
+  let toMainPage = userData.isAdmin ? "/admin" : "/";
   const classes = useStyles();
   const logOut = () => {
     sessionStorage.removeItem("user");
@@ -35,7 +36,7 @@ function Header(props) {
         <Toolbar>
           <Grid container className={classes.root}>
             <Grid item>
-              <Link to="/">
+              <Link to={toMainPage}>
                 <img className={classes.logo} src={logo} alt="Company Logo" />
               </Link>
             </Grid>

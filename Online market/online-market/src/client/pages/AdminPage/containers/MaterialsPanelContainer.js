@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import socketIOClient from "socket.io-client";
 import { setMaterialData } from "../../../shared/actions/index";
+import { updateMaterial } from "../actions/index";
 import getMaterials from "../../../shared/functions/getMaterials";
 import MaterialsPanel from "../components/MaterialsPanel";
 import useStyles from "../styles/AdminPageStyle";
@@ -13,7 +14,7 @@ const socket = socketIOClient("http://localhost:8000");
 
 function MaterialsPanelContainer(props) {
   const classes = useStyles();
-  const { data, setMaterialData, user } = props;
+  const { data, user, setMaterialData, updateMaterial } = props;
   if (!data) {
     getMaterials().then(res => {
       setMaterialData(res);
@@ -34,6 +35,7 @@ function MaterialsPanelContainer(props) {
               data={data}
               material={item}
               index={index}
+              updateMaterial={updateMaterial}
             />
           ))}
         </Grid>
@@ -48,7 +50,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  setMaterialData
+  setMaterialData,
+  updateMaterial
 };
 export default connect(
   mapStateToProps,
