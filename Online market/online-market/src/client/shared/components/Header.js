@@ -43,7 +43,7 @@ function Header(props) {
             {userData.email ? (
               <Grid item>
                 <Grid container>
-                  <RechargeContainer />
+                  {!userData.isAdmin && <RechargeContainer />}
                   <Button color="inherit" disableRipple>
                     <Typography>{userData.email}</Typography>
                   </Button>
