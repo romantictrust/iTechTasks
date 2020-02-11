@@ -9,6 +9,7 @@ export default class AdminPage extends PureComponent {
     const { usersList, setUsersData, setUsersList } = this.props;
     const admin = JSON.parse(sessionStorage.getItem("user"));
 
+    // ToDo: Make this in redux way
     const getUsersList = admin => {
       return fetch(usersListUrl, {
         method: "GET",
@@ -29,8 +30,7 @@ export default class AdminPage extends PureComponent {
     };
 
     if (!usersList[0]) {
-      getUsersList(admin);
-      setUsersData(admin);
+      getUsersList(admin).then(() => setUsersData(admin));
     }
     return (
       <div>

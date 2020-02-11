@@ -12,7 +12,6 @@ import clsx from "clsx";
 import useStyles from "../styles/AdminPageStyle";
 import Title from "../../../shared/components/Title";
 import TablePaginationActions from "../../../shared/components/Pagination";
-import blockUser from "../functions/BlockUser";
 import Loader from "../../../shared/components/Loader";
 
 export default function UsersPanel(props) {
@@ -20,7 +19,7 @@ export default function UsersPanel(props) {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const { admin, usersList, setUsersList } = props;
+  const { admin, usersList, setUsersList, setUserStatus } = props;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -41,11 +40,8 @@ export default function UsersPanel(props) {
       adminPassport,
       userTarget: { id, status }
     };
-    blockUser(req).then(res => {
-      const modifiedUsersList = [...usersList];
-      const toChangeIndex = modifiedUsersList.findIndex(x => x._id === res._id);
-      modifiedUsersList[toChangeIndex] = res;
-      setUsersList(modifiedUsersList);
+    setUserStatus(req).then(() => {
+      setUsersList([]);
     });
   };
 

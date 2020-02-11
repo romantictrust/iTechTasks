@@ -1,16 +1,17 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { setUsersList } from '../actions/index';
+import { setUsersList, setUserStatus } from '../actions/index';
 import UsersPanel from '../components/UsersPanel';
 
 class UsersPanelContainer extends PureComponent {
   render() {
-    const { user, usersList, setUsersList } = this.props;
+    const { user, usersList, setUsersList, setUserStatus } = this.props;
     return (
       <UsersPanel
         admin={user}
         usersList={usersList}
         setUsersList={setUsersList}
+        setUserStatus={setUserStatus}
       />
     );
   }
@@ -22,6 +23,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   setUsersList,
+  setUserStatus
 };
 export default connect(
   mapStateToProps,
